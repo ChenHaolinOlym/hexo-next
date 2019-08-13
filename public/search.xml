@@ -1,18 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Hexo Tips]]></title>
+    <url>%2F2019%2F08%2F13%2Fhexo%2F</url>
+    <content type="text"><![CDATA[This post is aiming at storing some tips of useing hexo. TabsCode: 12345678&#123;% tabs tabs_name %&#125;&lt;!-- tab first tab@heart --&gt;first&lt;!-- endtab --&gt;&lt;!-- tab second tab--&gt;second&lt;!-- endtab --&gt;&#123;% endtabs %&#125; NOTICE: tabs must have unique name The effect of the code above: first tabsecond tabfirstsecond]]></content>
+      <categories>
+        <category>note</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>tips</tag>
+        <tag>note</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Insert Image in Hexo Blog]]></title>
+    <url>%2F2019%2F08%2F13%2Fimage%2F</url>
+    <content type="text"><![CDATA[Modify ConfigModify post_asset_folder in _config.yml to true. Install packagesexecute npm install https://github.com/CodeFalling/hexo-asset-image --save and wait. WARNING: Some may tell you to install via npm install hexo-asset-image --save, don’t do that, that package has bug. Put in ImagesAfter those steps, when you create a new post, hexo will auto generate a folder under the same folder with the same name of your post. Put your images into the correct folder Use ItFirst WaySecond WayThird Way{% asset_img example.jpg examplename %}![description][1][1]:picture_path &quot;picture_name&quot; ]![description][picture_name]]]></content>
+      <categories>
+        <category>article</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>markdown</tag>
+        <tag>image</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Some Escape for Jinja, Hexo and HTML]]></title>
     <url>%2F2019%2F08%2F12%2Fescape%2F</url>
     <content type="text"><![CDATA[Jinja takes “{{“, “}}“, “{%“, “%}“ as symbols for statements/expressions. So if you want to use these symbols in your text of a Jinja Templated HTML file, put them in 123&#123;% raw %&#125; your content&#123;% endraw %&#125; Hexo seems to use something like Jinja, so that also works when you are writing markdown file of hexo.Or Hexo will raise an “unexpected token” template render error. For some special symbol in HTML, like &amp;lt;(“&lt;”), &amp;gt;(“&gt;”) Change &amp; to &amp;amp;]]></content>
       <categories>
         <category>note</category>
+        <category>python</category>
+        <category>flask</category>
+        <category>jinja</category>
       </categories>
       <tags>
         <tag>python</tag>
         <tag>flask</tag>
         <tag>template</tag>
-        <tag>jinja</tag>
         <tag>hexo</tag>
+        <tag>jinja</tag>
       </tags>
   </entry>
   <entry>
@@ -21,6 +52,8 @@
     <content type="text"><![CDATA[Settings1bp = Blueprint(xxxxxxx, template_folder=&apos;templates&apos;, static_folder=&apos;static&apos;) How to UseFlask treat them differently: Template FolderFor template folder, when you register your blueprint, flask will add the address of blueprint template folder into its config. All contents under all blueprint/original template folder will be treated as if they are in a same big folder “template”. If there are templates of the same name, Flask will search the original template folder first and then the blueprint folders. The solution is to create a folder with the same name in the blueprint’s template folder, so you can use it like your static folder. Static FolderFor static folder, the blueprint’s static folder address will be register to the blueprint. So you can reference it wherever in your Flask app by: &quot;blueprintName&quot;.static]]></content>
       <categories>
         <category>article</category>
+        <category>python</category>
+        <category>flask</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -50,6 +83,8 @@
     <content type="text"><![CDATA[IntroductionThis article is about two special property of Daterangeslider in bokeh, which can help develop your bokeh app. My bokeh version is 1.3.1. BodyAccording to the official documentation, Bokeh Daterangeslider has two property method: value_as_date and value_as_datetime. Normally, when you called the on_change callback function, bokeh will return you a tuple of Unix timestamp in miliseconds. It’s very inconvinient to change the format of the datetime. So you can call daterangeslider.value_as_date or daterangeslider.value_as_datetime (remember this is property not method) in your callback function. Both will return you a tuple of datetime.date object, which can be conveniently turned into any format of datetime via its own strftime method. Yet anothor way of using property method doesn’t work. You can’t simply pass in value_as_date or value_as_datetime in the on_change method. e.g. daterangeslider.on_change(&quot;value_as_date&quot;, on_change) This will raise an error]]></content>
       <categories>
         <category>article</category>
+        <category>python</category>
+        <category>bokeh</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -63,6 +98,8 @@
     <content type="text"><![CDATA[This article is based on the official document of Bokeh and is about embed bokeh application in flask using app sessions. What you need to do is to pull a session from a bokeh server, turn it into script and insert it into your template. So you need to set up a bokeh server first. bokeh serve --show &quot;your bokeh file address&quot; Keep it open. Due to Bokeh’s safety settings, you need to set allow web-socket origin to avoid errors when you are setting up your bokeh server. 123bokeh serve --show &quot;your bokeh file address&quot;--allow-websocket-origin=localhost:5006 (This is bokeh server&apos;s default port, if you reset the port, change it to the port you set)--allow-websocket-origin=&quot;your web page address that you want to embed your bokeh app&quot; Then you need to complete your route function: 1234def bkapp_page(): with pull_session(url=&quot;http://localhost:5006/&#123;your bokeh file name&#125;&quot;) as session: script = server_session(session_id=session.id, url=&apos;http://localhost:5006/&#123;your bokeh file name&#125;&apos;) (As the above, change the port if you reset it yourself) return render_template(&quot;your template&quot;, script=script, template=&quot;Flask&quot;) Don’t forget to import the functions you need 12from bokeh.client import pull_sessionfrom bokeh.embed import server_session Finally, put the script into your template. In the body part of the template: Put in: {{script|indent(n)|safe}} “{{}}“ is the jinja representation of codescript is the script that you put in the render_template functionindent(n) means the number of spaces of where you put your script (Just for beautify your code)safe means that Jinja won’t take care of some illegal symbol for you(like “&lt;&gt;”, which normally will be turned into “&lt;” and “&gt;”) So now you complete embed your bokeh app in your flask app. Run your app.py for a test!]]></content>
       <categories>
         <category>article</category>
+        <category>python</category>
+        <category>bokeh</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -76,6 +113,8 @@
     <content type="text"><![CDATA[This article is about my way to deploy my own flask app on cloud.I use the service provided by Tencent Cloud, which uses CentOS 7.2 as the operating system of the CVM.I use gunicorn to deploy the my flask app and use nginx to do reverse proxy. 1234Install python3 and set symbolic linksCreate virtual environmentInstall and configure NginxInstall and configure gunicorn Install Python3CentOS 7.2 uses python 2.7.5 to support the “yum” command. So what we have to do is: 123Install Python3Set default python version to 3Set default python version of yum to 2 Preinstall Packages123456789yum install gcc gcc-c++ # C compiler that used to compile pythonyum install make # C make libraryyum install -y openssl openssl-devel openssl-static # SSL support packageyum install bzip2-devel # decompression support packageyum install expat-devel # XML document resolve packageyum install gdbm-devel # gdbm database libraryyum install readline-devel # Auto complete support packageyum install sqlite-devel # sqlite support packageyum groupinstall -y &quot;Development tools&quot; # install development tools InstallI choose python version 3.6.4 because it is stable.Download 1wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz Decompress 1tar -zxvf Python-3.6.4.tgz Change directory 1cd Python-3.6.4 Configure and Install 12./configure prefix=/usr/local/python3make &amp;&amp; make install Create symbolic links for python and pip12ln -s /usr/local/python3/bin/python3 /usr/bin/pythonln -s /usr/local/python3/bin/pip3 /usr/bin/pip -s: for symbolic links/usr/local/python3/bin/python3: source directory/usr/bin/python: target directory So now when you type python, you’ll call python3, and python2 for python2. You can call python -V and python2 -V to check that. Because yum still needs python2, we need to change yum’s configuration file. Type ls -ol yum* to find the configuration file. Do the following change to all the file listed: #!/usr/bin/python –&gt; #!/usr/bin/python2 You may use vi editor vi yum (vi+directory) to edit them. Virtual EnvironmentWhen using two different version of the same package, virtual environment can prevent you from keeping installing can uninstalling the packages. Install virtualenvpip install virtualenv to install Create virtual environment1/usr/local/python3/bin/virtualenv -p /usr/bin/python3 venv /usr/local/python3/bin/virtualenv: the directory of the virtualenv package/usr/bin/python3: the base of your virtual environmentvenv: the name of the virtual environment This command will create a virtual environment under the current directory. source venv/bin/activate activate the virtual environment, venv is the name of your virtual environment deactivate exit the current virtual environment Install Python Packagesuse pip install xxx, xxx is the package you want to install pip install -r requirement.txt when you have all your requirement in the requirement.txt file To generate requirement.txt, pip freeze &gt; requirements.txt in your own computer gunicornInstallWhen the virtual environment is activate, run pip install gunicorn Start the service1gunicorn -w 4 [-D] -b 127.0.0.1:8000 wsgi:application -w: the number of progress you want gunicorn to start-D: start the service background-b: bind your service to the certain IP, you should put tour LAN IP with the port you want to specify here.wsgi: the manage filename of your flask appapplication: the variable name in your flask app NginxInstall Nginx1yum install nginx After installation, use rpm -ql nginx to check the installation directory. commands of Nginx 1234567service nginx startservice nginx stopservice nginx restartservice nginx reload # reload the service after changing the configuration file Now you can see the Nginx welcome page when you type in your WAN IP in your own brower. Change Configuration FileThe configuration file is located in /etc/nginx/nginx.conf use vi editor to edit vi /etc/nginx/nginx.conf change the “server” section to the following 12345678910server &#123; listen 80; # the port you want Nginx to listen server_name &quot;the url of your website&quot;; location / &#123; proxy_pass &quot;the LAN and port you specify in gunicorn&quot;; proxy_set_header Host $&quot;the port you specify in gunicorn&quot;; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; &#125;&#125; Finally, service nginx reload to end config Kill Process When Something Happenedpstree -ap | grep gunicorn to show processes associate with gunicornkill -9 xxx “xxx” is the pid showed above, kill the processesnetstat -ntlp to show all the ports that is occupied]]></content>
       <categories>
         <category>article</category>
+        <category>cloud</category>
+        <category>centos7.2</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -83,6 +122,8 @@
         <tag>gunicorn</tag>
         <tag>nginx</tag>
         <tag>centos</tag>
+        <tag>deploy</tag>
+        <tag>cloud</tag>
       </tags>
   </entry>
   <entry>
@@ -91,6 +132,8 @@
     <content type="text"><![CDATA[Have you met this problem? When you are going to crawl down some data from a website, you find nothing in the source code? When searching on the search engines, you may encounter the word “ajax”. According to Wikipedia, ajax is a web technologies on the client side to create asynchronous web applications. It means that the web page can load the data without refresh the whole page. I will walk through the path that I crawl ajax data. Hope this can inspire you when designing your own program. Follow the Common WayMy goal is to crawl down the op.gg “Game Stat by Champion” page’s data. Check the Source CodeFirst, open Chrome, press ctrl+U to callout the source code. We try to search the first champions’ name “Sivir”. There is no “Sivir” in the source code. That means the website used some technique to load the data after the page is loaded. It’s now to take out our most powerful tool – Chrome DevTools Use Chrome DevToolsChrome DevTools is a set of web developer tools built in the Google Chrome browser. DevTools can help us analyse the website’s structure. NetworkWe notice that there’s some query buttons above the chart. The network page enables us to monitor all the queries and links that is activate after we turn the DevTools on. So we callout the network page and click those query buttons. We get this: https://www.op.gg/statistics/ajax2/champion/ We clicked it, found data in it. But our job is not done yet. No matter what button we clicked, we always get the same url, the same data. It seems that we missed some query values. It’s time for elements. ElementsIn the elements, find where the buttons are. We can easily find that there’s several “Cell” td class and “ButtonWrap” div class in each “Cell” class. Look inside the “RadioButton” class, we can find the query values. “name” is the query name, in this case it is “period”, and “value” is the query value, in this case it is “week”. So we can get an url https://www.op.gg/statistics/ajax2/champion/period=week and it works. Look through all “Cell” class and then we can get all the query names and query values. Then we can get all the data. ConclusionThe way to get data from ajax loading page is:123Search the source code.Activate query and monitor connection using NetworkInspect Elements to get query names and values]]></content>
       <categories>
         <category>article</category>
+        <category>python</category>
+        <category>crawler</category>
       </categories>
       <tags>
         <tag>python</tag>

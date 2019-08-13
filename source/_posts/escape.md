@@ -2,7 +2,7 @@
 title: Some Escape for Jinja, Hexo and HTML
 date: 2019-08-12 17:22:10
 tags: [python, flask, jinja, hexo, template]
-categories: note
+categories: [note, python, flask, jinja]
 ---
 
 Jinja takes "{% raw %}{{{% endraw %}", "{% raw %}}}{% endraw %}", "{% raw %}{%{% endraw %}", "{% raw %}%}{% endraw %}" as symbols for statements/expressions.

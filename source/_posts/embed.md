@@ -2,7 +2,7 @@
 title: Embed Bokeh Application in Flask
 date: 2019-08-10 17:57:14
 tags: [python, flask, bokeh]
-categories: article
+categories: [article, python, bokeh]
 ---
 This article is based on the [official document](https://bokeh.pydata.org/en/latest/docs/user_guide/embed.html) of Bokeh and is about embed bokeh application in flask using app sessions.
 

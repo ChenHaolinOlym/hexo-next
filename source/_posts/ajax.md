@@ -2,7 +2,7 @@
 title: Python Crawler that Deal with ajax
 date: 2019-07-06 23:51:45
 tags: [python, crawler, ajax, op.gg]
-categories: article
+categories: [article, python, crawler]
 ---
 Have you met this problem? When you are going to crawl down some data from a website, you find nothing in the source code? When searching on the search engines, you may encounter the word "ajax". 
 

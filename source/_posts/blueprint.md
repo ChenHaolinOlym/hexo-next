@@ -2,7 +2,7 @@
 title: Template and Static Folder Setting in Flask Blueprint
 date: 2019-08-12 16:50:39
 tags: [python, flask, blueprint, template, static]
-categories: article
+categories: [article, python, flask]
 ---
 
 ## Settings

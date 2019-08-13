@@ -1,8 +1,8 @@
 ---
 title: Deploy a Flask app to Tencent Cloud
 date: 2019-07-17 21:13:30
-tags: [python, flask, gunicorn, nginx, centos]
-categories: article
+tags: [python, flask, gunicorn, nginx, centos, deploy, cloud]
+categories: [article, cloud, centos7.2]
 ---
 This article is about my way to deploy my own flask app on cloud.  
 I use the service provided by Tencent Cloud, which uses CentOS 7.2 as the operating system of the CVM.

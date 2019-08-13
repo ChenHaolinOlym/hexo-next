@@ -2,7 +2,7 @@
 title: Properties of Bokeh Daterangeslider that Helps Develop
 date: 2019-08-10 18:23:51
 tags: [python, bokeh, daterangeslider]
-categories: article
+categories: [article, python, bokeh]
 ---
 ## Introduction
 This article is about two special property of Daterangeslider in bokeh, which can help develop your bokeh app.
