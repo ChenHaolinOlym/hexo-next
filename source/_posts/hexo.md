@@ -6,6 +6,52 @@ categories: [note, hexo]
 ---
 This post is aiming at storing some tips of useing hexo.  
 
+## Lists
+
+### Code
+
+```en
+1. One
+2. Two
+3. Three
+
+* One
+* Two
+
+- One
+- Two
+  - two spaces before the dash
+  - two spaces before the dash
+```
+
+### The effect of the code above
+
+1. One
+2. Two
+3. Three
+
+* One
+* Two
+
+- One
+- Two
+  - two spaces before the dash
+  - two spaces before the dash
+
+## Extras
+
+### Code
+
+```en
+- [x] This is a complete item
+- [ ] This is an incomplete item
+```
+
+### The effect of the code above
+
+- [x] This is a complete item
+- [ ] This is an incomplete item
+
 ## Tabs
 
 ### Code
