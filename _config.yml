@@ -97,3 +97,7 @@ search:
   field: post
   format: html
   limit: 10000
+
+auto_category:
+ enable: true
+ depth: 

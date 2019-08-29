@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="Two Ways of Adding JS in HTMLScript Tag123&amp;lt;script&amp;gt;    your JS code&amp;lt;/script&amp;gt;  Seperate File1&amp;lt;script src=&amp;quot;xxx.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;  NOTE: JS code can be added everywhere">
+<meta name="keywords" content="CS50,beyond,javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS50 Beyond Javascript">
+<meta property="og:url" content="http://chenhaolinolym.github.io/2019/08/16/note/CS50 Beyond/js/index.html">
+<meta property="og:site_name" content="Olym&#39;s Secret House">
+<meta property="og:description" content="Two Ways of Adding JS in HTMLScript Tag123&amp;lt;script&amp;gt;    your JS code&amp;lt;/script&amp;gt;  Seperate File1&amp;lt;script src=&amp;quot;xxx.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;  NOTE: JS code can be added everywhere">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/08/16/note/CS50%20Beyond/js/1.jpg">
+<meta property="og:updated_time" content="2019-08-29T05:36:13.524Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CS50 Beyond Javascript">
+<meta name="twitter:description" content="Two Ways of Adding JS in HTMLScript Tag123&amp;lt;script&amp;gt;    your JS code&amp;lt;/script&amp;gt;  Seperate File1&amp;lt;script src=&amp;quot;xxx.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;  NOTE: JS code can be added everywhere">
+<meta name="twitter:image" content="http://chenhaolinolym.github.io/2019/08/16/note/CS50%20Beyond/js/1.jpg">
+  <link rel="canonical" href="http://chenhaolinolym.github.io/2019/08/16/note/CS50 Beyond/js/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CS50 Beyond Javascript | Olym's Secret House</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Olym's Secret House</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">always lazy，sometimes code</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/16/note/CS50 Beyond/js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">CS50 Beyond Javascript
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-16 18:54:45" itemprop="dateCreated datePublished" datetime="2019-08-16T18:54:45+08:00">2019-08-16</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-29 13:36:13" itemprop="dateModified" datetime="2019-08-29T13:36:13+08:00">2019-08-29</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>4.6k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>4 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776550&page=3" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe>
+
+<iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776419&page=4" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe>
+
+<h2 id="Two-Ways-of-Adding-JS-in-HTML"><a href="#Two-Ways-of-Adding-JS-in-HTML" class="headerlink" title="Two Ways of Adding JS in HTML"></a>Two Ways of Adding JS in HTML</h2><h3 id="Script-Tag"><a href="#Script-Tag" class="headerlink" title="Script Tag"></a>Script Tag</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    your JS code</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Seperate-File"><a href="#Seperate-File" class="headerlink" title="Seperate File"></a>Seperate File</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;xxx.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>NOTE:</strong> JS code can be added everywhere in the HTML file, not only in the &lt;head&gt; tag. HTML file is loaded from top to bottom. Be careful because the location of your JS code may cause bugs in your webpage.</p>
+<h2 id="Call-the-JavaScript-Code"><a href="#Call-the-JavaScript-Code" class="headerlink" title="Call the JavaScript Code"></a>Call the JavaScript Code</h2><h3 id="Call-in-the-HTML"><a href="#Call-in-the-HTML" class="headerlink" title="Call in the HTML"></a>Call in the HTML</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button event_name=&quot;function_name&quot;&gt;xxx&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Call-in-the-JS-file"><a href="#Call-in-the-JS-file" class="headerlink" title="Call in the JS file"></a>Call in the JS file</h3><p>Use querySelector.</p>
+<h2 id="DOM-Document-Object-Model-Manipulation"><a href="#DOM-Document-Object-Model-Manipulation" class="headerlink" title="DOM(Document Object Model) Manipulation"></a>DOM(Document Object Model) Manipulation</h2><h3 id="querySelector"><a href="#querySelector" class="headerlink" title="querySelector"></a>querySelector</h3><p>Select the first element in the document.</p>
+<ul>
+<li><code>document.querySelector(&#39;tag&#39;)</code></li>
+<li><code>document.querySelector(&#39;#id&#39;)</code></li>
+<li><code>document.querySelector(&#39;.class&#39;)</code></li>
+</ul>
+<p>querySelector returns an object.</p>
+<p><code>object.innerHTML</code> is the content of the element.</p>
+<p>So <code>object.innerHTML</code> = xxx can change the content of the element to xxx.</p>
+<p>You can also modify the style by <code>object.style.xxx</code></p>
+<p><strong>NOTE:</strong> If you want to select every element in the document, use querySelectorAll, it will return an array of object.</p>
+<h3 id="addEventListener"><a href="#addEventListener" class="headerlink" title="addEventListener"></a>addEventListener</h3><p><code>document.addEventListener(&quot;DOMContentLoaded&quot;, function)</code></p>
+<p>the function you passed in will be executed after all the DOM content loaded.</p>
+<p>Used to fix the problem that JS code loaded at the front of the HTML document.</p>
+<h3 id="Arrow-Functions"><a href="#Arrow-Functions" class="headerlink" title="Arrow Functions"></a>Arrow Functions</h3><p><code>x =&gt; x*2</code></p>
+<p>Takes the left of the arrow and output the right of the arrow.</p>
+<h3 id="Local-Storage"><a href="#Local-Storage" class="headerlink" title="Local Storage"></a>Local Storage</h3><p>Local storage is a place where you can save the data locally forever. It’s about 5M. You can use this feature to save your data so that it won’t change when the user refresh the page.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Command</th>
+<th align="center">Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>localStorage.setItem(&quot;temp&quot;, arr)</code></td>
+<td align="center">Save arr locally to “temp”</td>
+</tr>
+<tr>
+<td align="center"><code>localStorage.getItem(&quot;temp&quot;)</code></td>
+<td align="center">Get the data in “temp”</td>
+</tr>
+<tr>
+<td align="center"><code>localStorage.removeItem(&quot;temp&quot;)</code></td>
+<td align="center">Remove “temp”</td>
+</tr>
+<tr>
+<td align="center"><code>localStorage.clear()</code></td>
+<td align="center">Clear local storage</td>
+</tr>
+</tbody></table>
+<h3 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h3><table>
+<thead>
+<tr>
+<th align="center">Property</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>window.innerHeight</code></td>
+<td align="center">Returns the height of the window’s content area</td>
+</tr>
+<tr>
+<td align="center"><code>window.innerWidth</code></td>
+<td align="center">Returns the width of the window’s content area</td>
+</tr>
+<tr>
+<td align="center"><code>window.scrollY</code></td>
+<td align="center">Returns the pixels that the current document has been scrolled from the top of the window</td>
+</tr>
+<tr>
+<td align="center"><code>document.body.offSetHeight</code></td>
+<td align="center">Returns the height of the whole document</td>
+</tr>
+</tbody></table>
+<p><img src="/2019/08/16/note/CS50 Beyond/js/1.jpg" alt="window"></p>
+<h2 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h2><h3 id="CSS-Animation"><a href="#CSS-Animation" class="headerlink" title="CSS Animation"></a>CSS Animation</h3><h4 id="Keyframe"><a href="#Keyframe" class="headerlink" title="Keyframe"></a>Keyframe</h4><p>In &lt;style&gt; tag.</p>
+<h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">@keyframes grow &#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">        left: 0%;</span><br><span class="line">        color: red;</span><br><span class="line">        font-size: 14px;</span><br><span class="line">    &#125;</span><br><span class="line">    50% &#123;</span><br><span class="line">        left: 50%;</span><br><span class="line">        color: blue;</span><br><span class="line">        font-size: 20px;</span><br><span class="line">    &#125;</span><br><span class="line">    100% &#123;</span><br><span class="line">        left: 0%;</span><br><span class="line">        color: green;</span><br><span class="line">        font-size: 26px;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    .example &#123;</span><br><span class="line">        position: relative;</span><br><span class="line">        animation-name: grow;</span><br><span class="line">        animation-fill-mode: forwards;</span><br><span class="line">        animation-duration: 3s;</span><br><span class="line">        animation-iteration-count: infinite;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;p class=&quot;example&quot;&gt;Hello!&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Effect"><a href="#Effect" class="headerlink" title="Effect"></a>Effect</h5><style>
+@keyframes grow {
+    0% {
+        left: 0%;
+        color: red;
+        font-size: 14px;
+    }
+    50% {
+        left: 50%;
+        color: blue;
+        font-size: 20px;
+    }
+    100% {
+        left: 0%;
+        color: green;
+        font-size: 26px;
+    }
+}
+    .example {
+        position: relative;
+        animation-name: grow;
+        animation-fill-mode: forwards;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+    }
+}
+</style>
+
+<p class="example">Hello!</p>
+
+<h3 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h3><p>SVG is the abbreviation of Scalable Vector Graphics<br>SVG is resolution independent, the resolution of it won’t change when zoom in.</p>
+<p>The following code is based on the d3.js library</p>
+<h4 id="Draw-Elements"><a href="#Draw-Elements" class="headerlink" title="Draw Elements"></a>Draw Elements</h4><script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg id=&quot;svgexample1&quot; stylt=&quot;width:100%; height:800px&quot;&gt;&lt;/svg&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">const svg = d3.select(&apos;#svgexample1&apos;);</span><br><span class="line"></span><br><span class="line">svg.append(&apos;circle&apos;)</span><br><span class="line">    .attr(&apos;cx&apos;, 200) (center x)</span><br><span class="line">    .attr(&apos;cy&apos;, 75)  (center y)</span><br><span class="line">    .attr(&apos;r&apos;, 50)   (radius)</span><br><span class="line">    .style(&apos;fill&apos;, &apos;red&apos;);   (filled color)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><svg id="svgexample1" stylt="width:100%; height:800px"/></p>
+<script>
+const svg = d3.select('#svgexample1');
+
+svg.append('circle')
+    .attr('cx', 200)
+    .attr('cy', 75)
+    .attr('r', 50)
+    .style('fill', 'red');
+</script>
+
+<h4 id="Animation-1"><a href="#Animation-1" class="headerlink" title="Animation"></a>Animation</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg id=&quot;svgexample2&quot; stylt=&quot;width:100%; height:800px&quot;&gt;&lt;/svg&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">const svg = d3.select(&apos;#svgexample2&apos;);</span><br><span class="line"></span><br><span class="line">const c = svg.append(&apos;circle&apos;)</span><br><span class="line">             .attr(&apos;cx&apos;, 200)</span><br><span class="line">             .attr(&apos;cy&apos;, 75)</span><br><span class="line">             .attr(&apos;r&apos;, 25)</span><br><span class="line">             .style(&apos;fill&apos;, &apos;red&apos;);</span><br><span class="line"></span><br><span class="line">c.transition()</span><br><span class="line"> .duration(1000)</span><br><span class="line"> .attr(&apos;cx&apos;, 500)</span><br><span class="line"> .style(&apos;fill&apos;, &apos;green&apos;)</span><br><span class="line"> .attr(&apos;r&apos;, 50)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>The Code above will draw a red circle whose radius is 25, then the circle will move to the right while becomming bigger and turning ino green.</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/CS50/" rel="tag"># CS50</a>
+            
+              <a href="/tags/beyond/" rel="tag"># beyond</a>
+            
+              <a href="/tags/javascript/" rel="tag"># javascript</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/08/15/note/CS50 Beyond/css/" rel="next" title="CS50 Beyond HTML and CSS">
+                  <i class="fa fa-chevron-left"></i> CS50 Beyond HTML and CSS
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/08/17/note/CS50 Beyond/react/" rel="prev" title="CS50 Beyond React">
+                  CS50 Beyond React <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Olym Chen">
+  <p class="site-author-name" itemprop="name">Olym Chen</p>
+  <div class="site-description motion-element" itemprop="description">Just a Blog</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/chenhaolinolym" title="GitHub &rarr; https://github.com/chenhaolinolym" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.olym.xyz" title="http://www.olym.xyz" rel="noopener" target="_blank">Homepage</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Two-Ways-of-Adding-JS-in-HTML"><span class="nav-number">1.</span> <span class="nav-text">Two Ways of Adding JS in HTML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Script-Tag"><span class="nav-number">1.1.</span> <span class="nav-text">Script Tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Seperate-File"><span class="nav-number">1.2.</span> <span class="nav-text">Seperate File</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Call-the-JavaScript-Code"><span class="nav-number">2.</span> <span class="nav-text">Call the JavaScript Code</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Call-in-the-HTML"><span class="nav-number">2.1.</span> <span class="nav-text">Call in the HTML</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Call-in-the-JS-file"><span class="nav-number">2.2.</span> <span class="nav-text">Call in the JS file</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM-Document-Object-Model-Manipulation"><span class="nav-number">3.</span> <span class="nav-text">DOM(Document Object Model) Manipulation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#querySelector"><span class="nav-number">3.1.</span> <span class="nav-text">querySelector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#addEventListener"><span class="nav-number">3.2.</span> <span class="nav-text">addEventListener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrow-Functions"><span class="nav-number">3.3.</span> <span class="nav-text">Arrow Functions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Local-Storage"><span class="nav-number">3.4.</span> <span class="nav-text">Local Storage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Window"><span class="nav-number">3.5.</span> <span class="nav-text">Window</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Animation"><span class="nav-number">4.</span> <span class="nav-text">Animation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-Animation"><span class="nav-number">4.1.</span> <span class="nav-text">CSS Animation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Keyframe"><span class="nav-number">4.1.1.</span> <span class="nav-text">Keyframe</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Code"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">Code</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Effect"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">Effect</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVG"><span class="nav-number">4.2.</span> <span class="nav-text">SVG</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Draw-Elements"><span class="nav-number">4.2.1.</span> <span class="nav-text">Draw Elements</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Animation-1"><span class="nav-number">4.2.2.</span> <span class="nav-text">Animation</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备19098205号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Olym Chen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">47k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">43 mins.</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+<script>
+if ($('body').find('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', function() {
+    $('body').find('div.pdf').each(function(i, o) {
+      PDFObject.embed($(o).attr('target'), $(o), {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: $(o).attr('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>

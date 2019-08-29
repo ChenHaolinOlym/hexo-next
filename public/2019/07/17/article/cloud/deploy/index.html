@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="This article is about my way to deploy my own flask app on cloud.I use the service provided by Tencent Cloud, which uses CentOS 7.2 as the operating system of the CVM.I use gunicorn to deploy the my f">
+<meta name="keywords" content="python,flask,gunicorn,nginx,centos,deploy,cloud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deploy a Flask app to Tencent Cloud">
+<meta property="og:url" content="http://chenhaolinolym.github.io/2019/07/17/article/cloud/deploy/index.html">
+<meta property="og:site_name" content="Olym&#39;s Secret House">
+<meta property="og:description" content="This article is about my way to deploy my own flask app on cloud.I use the service provided by Tencent Cloud, which uses CentOS 7.2 as the operating system of the CVM.I use gunicorn to deploy the my f">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-29T05:47:36.374Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Deploy a Flask app to Tencent Cloud">
+<meta name="twitter:description" content="This article is about my way to deploy my own flask app on cloud.I use the service provided by Tencent Cloud, which uses CentOS 7.2 as the operating system of the CVM.I use gunicorn to deploy the my f">
+  <link rel="canonical" href="http://chenhaolinolym.github.io/2019/07/17/article/cloud/deploy/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Deploy a Flask app to Tencent Cloud | Olym's Secret House</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Olym's Secret House</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">always lazy，sometimes code</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/07/17/article/cloud/deploy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">Deploy a Flask app to Tencent Cloud
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-07-17 21:13:30" itemprop="dateCreated datePublished" datetime="2019-07-17T21:13:30+08:00">2019-07-17</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-29 13:47:36" itemprop="dateModified" datetime="2019-08-29T13:47:36+08:00">2019-08-29</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>4.7k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>4 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>This article is about my way to deploy my own flask app on cloud.<br>I use the service provided by Tencent Cloud, which uses CentOS 7.2 as the operating system of the CVM.<br>I use gunicorn to deploy the my flask app and use nginx to do reverse proxy.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Install python3 and set symbolic links</span><br><span class="line">Create virtual environment</span><br><span class="line">Install and configure Nginx</span><br><span class="line">Install and configure gunicorn</span><br></pre></td></tr></table></figure>
+
+<h2 id="Install-Python3"><a href="#Install-Python3" class="headerlink" title="Install Python3"></a>Install Python3</h2><p>CentOS 7.2 uses python 2.7.5 to support the “yum” command. So what we have to do is:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Install Python3</span><br><span class="line">Set default python version to 3</span><br><span class="line">Set default python version of yum to 2</span><br></pre></td></tr></table></figure>
+
+<h3 id="Preinstall-Packages"><a href="#Preinstall-Packages" class="headerlink" title="Preinstall Packages"></a>Preinstall Packages</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yum install gcc gcc-c++  # C compiler that used to compile python</span><br><span class="line">yum install make  # C make library</span><br><span class="line">yum install -y openssl openssl-devel openssl-static  # SSL support package</span><br><span class="line">yum install bzip2-devel  # decompression support package</span><br><span class="line">yum install expat-devel  # XML document resolve package</span><br><span class="line">yum install gdbm-devel  # gdbm database library</span><br><span class="line">yum install readline-devel  # Auto complete support package</span><br><span class="line">yum install sqlite-devel  # sqlite support package</span><br><span class="line">yum groupinstall -y &quot;Development tools&quot;  # install development tools</span><br></pre></td></tr></table></figure>
+
+<h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>I choose python version 3.6.4 because it is stable.<br>Download</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz</span><br></pre></td></tr></table></figure>
+
+<p>Decompress</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf Python-3.6.4.tgz</span><br></pre></td></tr></table></figure>
+
+<p>Change directory</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd Python-3.6.4</span><br></pre></td></tr></table></figure>
+
+<p>Configure and Install</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./configure prefix=/usr/local/python3</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<h3 id="Create-symbolic-links-for-python-and-pip"><a href="#Create-symbolic-links-for-python-and-pip" class="headerlink" title="Create symbolic links for python and pip"></a>Create symbolic links for python and pip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/python3/bin/python3 /usr/bin/python</span><br><span class="line">ln -s /usr/local/python3/bin/pip3 /usr/bin/pip</span><br></pre></td></tr></table></figure>
+
+<p>-s: for symbolic links<br>/usr/local/python3/bin/python3: source directory<br>/usr/bin/python: target directory  </p>
+<p>So now when you type python, you’ll call python3, and python2 for python2.  </p>
+<p>You can call <code>python -V</code> and <code>python2 -V</code> to check that.  </p>
+<p>Because yum still needs python2, we need to change yum’s configuration file.  </p>
+<p>Type <code>ls -ol yum*</code> to find the configuration file.</p>
+<p>Do the following change to all the file listed:</p>
+<p><code>#!/usr/bin/python</code> –&gt; <code>#!/usr/bin/python2</code></p>
+<p>You may use vi editor <code>vi yum  (vi+directory)</code> to edit them.</p>
+<h2 id="Virtual-Environment"><a href="#Virtual-Environment" class="headerlink" title="Virtual Environment"></a>Virtual Environment</h2><p>When using two different version of the same package, virtual environment can prevent you from keeping installing can uninstalling the packages.  </p>
+<h3 id="Install-virtualenv"><a href="#Install-virtualenv" class="headerlink" title="Install virtualenv"></a>Install virtualenv</h3><p><code>pip install virtualenv</code> to install</p>
+<h3 id="Create-virtual-environment"><a href="#Create-virtual-environment" class="headerlink" title="Create virtual environment"></a>Create virtual environment</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/python3/bin/virtualenv  -p /usr/bin/python3 venv</span><br></pre></td></tr></table></figure>
+
+<p>/usr/local/python3/bin/virtualenv: the directory of the virtualenv package<br>/usr/bin/python3: the base of your virtual environment<br>venv: the name of the virtual environment</p>
+<p>This command will create a virtual environment under the current directory.  </p>
+<p><code>source venv/bin/activate</code> activate the virtual environment, venv is the name of your virtual environment</p>
+<p><code>deactivate</code> exit the current virtual environment</p>
+<h2 id="Install-Python-Packages"><a href="#Install-Python-Packages" class="headerlink" title="Install Python Packages"></a>Install Python Packages</h2><p>use <code>pip install xxx</code>, xxx is the package you want to install</p>
+<p><code>pip install -r requirement.txt</code> when you have all your requirement in the requirement.txt file</p>
+<p>To generate requirement.txt, <code>pip freeze &gt; requirements.txt</code> in your own computer</p>
+<h2 id="gunicorn"><a href="#gunicorn" class="headerlink" title="gunicorn"></a>gunicorn</h2><h3 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h3><p>When the virtual environment is activate, run <code>pip install gunicorn</code></p>
+<h3 id="Start-the-service"><a href="#Start-the-service" class="headerlink" title="Start the service"></a>Start the service</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gunicorn -w 4 [-D] -b 127.0.0.1:8000 wsgi:application</span><br></pre></td></tr></table></figure>
+
+<p>-w: the number of progress you want gunicorn to start<br>-D: start the service background<br>-b: bind your service to the certain IP, you should put tour LAN IP with the port you want to specify here.<br>wsgi: the manage filename of your flask app<br>application: the variable name in your flask app</p>
+<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><h3 id="Install-Nginx"><a href="#Install-Nginx" class="headerlink" title="Install Nginx"></a>Install Nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx</span><br></pre></td></tr></table></figure>
+
+<p>After installation, use <code>rpm -ql nginx</code> to check the installation directory.</p>
+<p>commands of Nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">service nginx start</span><br><span class="line"></span><br><span class="line">service nginx stop</span><br><span class="line"></span><br><span class="line">service nginx restart</span><br><span class="line"></span><br><span class="line">service nginx reload # reload the service after changing the configuration file</span><br></pre></td></tr></table></figure>
+
+<p>Now you can see the Nginx welcome page when you type in your WAN IP in your own brower.</p>
+<!-- ![唯一图片](deploy/1.jpg) -->
+
+<h3 id="Change-Configuration-File"><a href="#Change-Configuration-File" class="headerlink" title="Change Configuration File"></a>Change Configuration File</h3><p>The configuration file is located in <code>/etc/nginx/nginx.conf</code></p>
+<p>use vi editor to edit <code>vi /etc/nginx/nginx.conf</code></p>
+<p>change the “server” section to the following</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80;  # the port you want Nginx to listen</span><br><span class="line">        server_name &quot;the url of your website&quot;;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">                proxy_pass &quot;the LAN and port you specify in gunicorn&quot;;</span><br><span class="line">                proxy_set_header Host $&quot;the port you specify in gunicorn&quot;;</span><br><span class="line">                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Finally, <code>service nginx reload</code> to end config</p>
+<h2 id="Kill-Process-When-Something-Happened"><a href="#Kill-Process-When-Something-Happened" class="headerlink" title="Kill Process When Something Happened"></a>Kill Process When Something Happened</h2><p><code>pstree -ap | grep gunicorn</code> to show processes associate with gunicorn<br><code>kill -9 xxx</code> “xxx” is the pid showed above, kill the processes<br><code>netstat -ntlp</code> to show all the ports that is occupied</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/python/" rel="tag"># python</a>
+            
+              <a href="/tags/flask/" rel="tag"># flask</a>
+            
+              <a href="/tags/gunicorn/" rel="tag"># gunicorn</a>
+            
+              <a href="/tags/nginx/" rel="tag"># nginx</a>
+            
+              <a href="/tags/centos/" rel="tag"># centos</a>
+            
+              <a href="/tags/deploy/" rel="tag"># deploy</a>
+            
+              <a href="/tags/cloud/" rel="tag"># cloud</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/07/06/article/python/ajax/" rel="next" title="Python Crawler that Deal with ajax">
+                  <i class="fa fa-chevron-left"></i> Python Crawler that Deal with ajax
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/08/10/article/python/embed/" rel="prev" title="Embed Bokeh Application in Flask">
+                  Embed Bokeh Application in Flask <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Olym Chen">
+  <p class="site-author-name" itemprop="name">Olym Chen</p>
+  <div class="site-description motion-element" itemprop="description">Just a Blog</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/chenhaolinolym" title="GitHub &rarr; https://github.com/chenhaolinolym" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.olym.xyz" title="http://www.olym.xyz" rel="noopener" target="_blank">Homepage</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Python3"><span class="nav-number">1.</span> <span class="nav-text">Install Python3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Preinstall-Packages"><span class="nav-number">1.1.</span> <span class="nav-text">Preinstall Packages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install"><span class="nav-number">1.2.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-symbolic-links-for-python-and-pip"><span class="nav-number">1.3.</span> <span class="nav-text">Create symbolic links for python and pip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Virtual-Environment"><span class="nav-number">2.</span> <span class="nav-text">Virtual Environment</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-virtualenv"><span class="nav-number">2.1.</span> <span class="nav-text">Install virtualenv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-virtual-environment"><span class="nav-number">2.2.</span> <span class="nav-text">Create virtual environment</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Python-Packages"><span class="nav-number">3.</span> <span class="nav-text">Install Python Packages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gunicorn"><span class="nav-number">4.</span> <span class="nav-text">gunicorn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-1"><span class="nav-number">4.1.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Start-the-service"><span class="nav-number">4.2.</span> <span class="nav-text">Start the service</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx"><span class="nav-number">5.</span> <span class="nav-text">Nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Nginx"><span class="nav-number">5.1.</span> <span class="nav-text">Install Nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Change-Configuration-File"><span class="nav-number">5.2.</span> <span class="nav-text">Change Configuration File</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kill-Process-When-Something-Happened"><span class="nav-number">6.</span> <span class="nav-text">Kill Process When Something Happened</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备19098205号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Olym Chen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">47k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">43 mins.</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+<script>
+if ($('body').find('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', function() {
+    $('body').find('div.pdf').each(function(i, o) {
+      PDFObject.embed($(o).attr('target'), $(o), {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: $(o).attr('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>

@@ -256,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/10/daterangeslider/">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/12/article/python/blueprint/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Olym Chen">
@@ -272,7 +272,259 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/08/10/daterangeslider/" class="post-title-link" itemprop="url">Properties of Bokeh Daterangeslider that Helps Develop</a>
+              <a href="/2019/08/12/article/python/blueprint/" class="post-title-link" itemprop="url">Template and Static Folder Setting in Flask Blueprint</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-12 16:50:39" itemprop="dateCreated datePublished" datetime="2019-08-12T16:50:39+08:00">2019-08-12</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-29 13:46:17" itemprop="dateModified" datetime="2019-08-29T13:46:17+08:00">2019-08-29</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>863</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h2 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bp = Blueprint(xxxxxxx, template_folder=&apos;templates&apos;, static_folder=&apos;static&apos;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="How-to-Use"><a href="#How-to-Use" class="headerlink" title="How to Use"></a>How to Use</h2><p>Flask treat them differently:</p>
+<h3 id="Template-Folder"><a href="#Template-Folder" class="headerlink" title="Template Folder"></a>Template Folder</h3><p>For template folder, when you register your blueprint, flask will add the address of blueprint template folder into its config.</p>
+<p>All contents under all blueprint/original template folder will be treated as if they are in a same big folder “template”.</p>
+<p>If there are templates of the same name, Flask will search the original template folder first and then the blueprint folders.</p>
+<p>The solution is to create a folder with the same name in the blueprint’s template folder, so you can use it like your static folder.</p>
+<h3 id="Static-Folder"><a href="#Static-Folder" class="headerlink" title="Static Folder"></a>Static Folder</h3><p>For static folder, the blueprint’s static folder address will be register to the blueprint.</p>
+<p>So you can reference it wherever in your Flask app by: <code>&quot;blueprintName&quot;.static</code></p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/12/note/python/xrange/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/12/note/python/xrange/" class="post-title-link" itemprop="url">Update Bokeh Figure's X/Y Range</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-12 12:05:30" itemprop="dateCreated datePublished" datetime="2019-08-12T12:05:30+08:00">2019-08-12</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-29 13:40:33" itemprop="dateModified" datetime="2019-08-29T13:40:33+08:00">2019-08-29</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>214</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>To update bokeh figure’s x_range/y_range, you should use:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;plotname&quot;.x_range.start = xxx</span><br><span class="line">&quot;plotname&quot;.x_range.end = xxx</span><br><span class="line">&quot;plotname&quot;.y_range.start = xxx</span><br><span class="line">&quot;plotname&quot;.y_range.end = xxx</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/10/article/python/daterangeslider/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/10/article/python/daterangeslider/" class="post-title-link" itemprop="url">Properties of Bokeh Daterangeslider that Helps Develop</a>
             
           </h1>
         
@@ -299,7 +551,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-13 22:33:28" itemprop="dateModified" datetime="2019-08-13T22:33:28+08:00">2019-08-13</time>
+                <time title="Modified: 2019-08-29 13:46:37" itemprop="dateModified" datetime="2019-08-29T13:46:37+08:00">2019-08-29</time>
               </span>
             
           
@@ -310,20 +562,6 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/python/bokeh/" itemprop="url" rel="index"><span itemprop="name">bokeh</span></a></span>
 
                 
                 
@@ -400,7 +638,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/10/embed/">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/10/article/python/embed/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Olym Chen">
@@ -416,7 +654,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/08/10/embed/" class="post-title-link" itemprop="url">Embed Bokeh Application in Flask</a>
+              <a href="/2019/08/10/article/python/embed/" class="post-title-link" itemprop="url">Embed Bokeh Application in Flask</a>
             
           </h1>
         
@@ -443,7 +681,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-13 22:44:41" itemprop="dateModified" datetime="2019-08-13T22:44:41+08:00">2019-08-13</time>
+                <time title="Modified: 2019-08-29 13:46:49" itemprop="dateModified" datetime="2019-08-29T13:46:49+08:00">2019-08-29</time>
               </span>
             
           
@@ -454,20 +692,6 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/python/bokeh/" itemprop="url" rel="index"><span itemprop="name">bokeh</span></a></span>
 
                 
                 
@@ -554,7 +778,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/07/17/deploy/">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/07/17/article/cloud/deploy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Olym Chen">
@@ -570,7 +794,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/07/17/deploy/" class="post-title-link" itemprop="url">Deploy a Flask app to Tencent Cloud</a>
+              <a href="/2019/07/17/article/cloud/deploy/" class="post-title-link" itemprop="url">Deploy a Flask app to Tencent Cloud</a>
             
           </h1>
         
@@ -597,7 +821,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-13 22:44:34" itemprop="dateModified" datetime="2019-08-13T22:44:34+08:00">2019-08-13</time>
+                <time title="Modified: 2019-08-29 13:47:36" itemprop="dateModified" datetime="2019-08-29T13:47:36+08:00">2019-08-29</time>
               </span>
             
           
@@ -608,20 +832,6 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/cloud/" itemprop="url" rel="index"><span itemprop="name">cloud</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/cloud/centos7-2/" itemprop="url" rel="index"><span itemprop="name">centos7.2</span></a></span>
 
                 
                 
@@ -750,7 +960,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/07/06/ajax/">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/07/06/article/python/ajax/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Olym Chen">
@@ -766,7 +976,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/07/06/ajax/" class="post-title-link" itemprop="url">Python Crawler that Deal with ajax</a>
+              <a href="/2019/07/06/article/python/ajax/" class="post-title-link" itemprop="url">Python Crawler that Deal with ajax</a>
             
           </h1>
         
@@ -793,7 +1003,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-13 22:33:12" itemprop="dateModified" datetime="2019-08-13T22:33:12+08:00">2019-08-13</time>
+                <time title="Modified: 2019-08-29 13:47:47" itemprop="dateModified" datetime="2019-08-29T13:47:47+08:00">2019-08-29</time>
               </span>
             
           
@@ -804,20 +1014,6 @@
               <span class="post-meta-item-text">In</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/python/crawler/" itemprop="url" rel="index"><span itemprop="name">crawler</span></a></span>
 
                 
                 
@@ -864,23 +1060,23 @@
 <h2 id="Follow-the-Common-Way"><a href="#Follow-the-Common-Way" class="headerlink" title="Follow the Common Way"></a>Follow the Common Way</h2><p>My goal is to crawl down the op.gg <a href="https://www.op.gg/statistics/champion/" target="_blank" rel="noopener">“Game Stat by Champion”</a> page’s data.</p>
 <h3 id="Check-the-Source-Code"><a href="#Check-the-Source-Code" class="headerlink" title="Check the Source Code"></a>Check the Source Code</h3><p>First, open Chrome, press <code>ctrl+U</code> to callout the source code.</p>
 <p>We try to search the first champions’ name “Sivir”. </p>
-<p><img src="/2019/07/06/ajax/1.jpg" alt="源码截图"></p>
+<p><img src="/2019/07/06/article/python/ajax/1.jpg" alt="源码截图"></p>
 <p>There is no “Sivir” in the source code. That means the website used some technique to load the data after the page is loaded.</p>
 <p>It’s now to take out our most powerful tool – Chrome DevTools</p>
 <h3 id="Use-Chrome-DevTools"><a href="#Use-Chrome-DevTools" class="headerlink" title="Use Chrome DevTools"></a>Use Chrome DevTools</h3><p>Chrome DevTools is a set of web developer tools built in the Google Chrome browser. DevTools can help us analyse the website’s structure.</p>
 <h4 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h4><p>We notice that there’s some query buttons above the chart.</p>
-<p><img src="/2019/07/06/ajax/2.jpg" alt></p>
+<p><img src="/2019/07/06/article/python/ajax/2.jpg" alt></p>
 <p>The network page enables us to monitor all the queries and links that is activate after we turn the DevTools on. So we callout the network page and click those query buttons. We get this: <a href="https://www.op.gg/statistics/ajax2/champion/" target="_blank" rel="noopener">https://www.op.gg/statistics/ajax2/champion/</a></p>
-<p><img src="/2019/07/06/ajax/3.jpg" alt></p>
+<p><img src="/2019/07/06/article/python/ajax/3.jpg" alt></p>
 <p>We clicked it, found data in it. But our job is not done yet.</p>
 <p>No matter what button we clicked, we always get the same url, the same data.</p>
 <p>It seems that we missed some query values.</p>
 <p>It’s time for elements.</p>
 <h4 id="Elements"><a href="#Elements" class="headerlink" title="Elements"></a>Elements</h4><p>In the elements, find where the buttons are.</p>
-<p><img src="/2019/07/06/ajax/4.jpg" alt></p>
+<p><img src="/2019/07/06/article/python/ajax/4.jpg" alt></p>
 <p>We can easily find that there’s several “Cell” td class and “ButtonWrap” div class in each “Cell” class.</p>
 <p>Look inside the “RadioButton” class, we can find the query values.</p>
-<p><img src="/2019/07/06/ajax/5.jpg" alt></p>
+<p><img src="/2019/07/06/article/python/ajax/5.jpg" alt></p>
 <p>“name” is the query name, in this case it is “period”, and “value” is the query value, in this case it is “week”.</p>
 <p>So we can get an url <a href="https://www.op.gg/statistics/ajax2/champion/period=week" target="_blank" rel="noopener">https://www.op.gg/statistics/ajax2/champion/period=week</a> and it works.</p>
 <p>Look through all “Cell” class and then we can get all the query names and query values. Then we can get all the data.</p>
@@ -945,7 +1141,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -964,43 +1160,7 @@
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
@@ -1085,7 +1245,13 @@
         
           
         
-        <span class="site-state-item-count">33</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">38</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
@@ -1106,6 +1272,18 @@
   </div>
 
 
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.olym.xyz" title="http://www.olym.xyz" rel="noopener" target="_blank">Homepage</a>
+        </li>
+      
+    </ul>
+  </div>
 
         </div>
       </div>
@@ -1136,12 +1314,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">37k</span>
+    <span title="Symbols count total">47k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">34 mins.</span>
+    <span title="Reading time total">43 mins.</span>
 </div>
 
         
