@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="Problems in Computer Science Problem Modelling Model Analysis(feasibility, complexity, etc.) Design Algorithms Algorithm Analysis(efficiency, bugs, etc.) Problem Detection  Discrete MathematicsDiscret">
+<meta name="keywords" content="CSC3001,Discrete Mathematics">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSC3001 Week1">
+<meta property="og:url" content="http://chenhaolinolym.github.io/2019/09/03/note/CSC3001/CSC3001-Week1/index.html">
+<meta property="og:site_name" content="Olym&#39;s Secret House">
+<meta property="og:description" content="Problems in Computer Science Problem Modelling Model Analysis(feasibility, complexity, etc.) Design Algorithms Algorithm Analysis(efficiency, bugs, etc.) Problem Detection  Discrete MathematicsDiscret">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-04T12:21:10.921Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSC3001 Week1">
+<meta name="twitter:description" content="Problems in Computer Science Problem Modelling Model Analysis(feasibility, complexity, etc.) Design Algorithms Algorithm Analysis(efficiency, bugs, etc.) Problem Detection  Discrete MathematicsDiscret">
+  <link rel="canonical" href="http://chenhaolinolym.github.io/2019/09/03/note/CSC3001/CSC3001-Week1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CSC3001 Week1 | Olym's Secret House</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Olym's Secret House</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">always lazy，sometimes code</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/09/03/note/CSC3001/CSC3001-Week1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">CSC3001 Week1
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-09-03 13:45:06" itemprop="dateCreated datePublished" datetime="2019-09-03T13:45:06+08:00">2019-09-03</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-04 20:21:10" itemprop="dateModified" datetime="2019-09-04T20:21:10+08:00">2019-09-04</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CSC3001/" itemprop="url" rel="index"><span itemprop="name">CSC3001</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>3.1k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>3 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Problems-in-Computer-Science"><a href="#Problems-in-Computer-Science" class="headerlink" title="Problems in Computer Science"></a>Problems in Computer Science</h2><ul>
+<li>Problem Modelling</li>
+<li>Model Analysis(feasibility, complexity, etc.)</li>
+<li>Design Algorithms</li>
+<li>Algorithm Analysis(efficiency, bugs, etc.)</li>
+<li>Problem Detection</li>
+</ul>
+<h2 id="Discrete-Mathematics"><a href="#Discrete-Mathematics" class="headerlink" title="Discrete Mathematics"></a>Discrete Mathematics</h2><p>Discrete Mathematics is a collection of some topics in math.</p>
+<h2 id="Topics-discussed-in-class"><a href="#Topics-discussed-in-class" class="headerlink" title="Topics discussed in class"></a>Topics discussed in class</h2><ul>
+<li>Logic and Proofs</li>
+<li>Number Theory</li>
+<li>Graph Theory</li>
+<li>Counting</li>
+</ul>
+<h2 id="Propositional-Logic"><a href="#Propositional-Logic" class="headerlink" title="Propositional Logic"></a>Propositional Logic</h2><h3 id="Mathematical-Proof"><a href="#Mathematical-Proof" class="headerlink" title="Mathematical Proof"></a>Mathematical Proof</h3><p>We need a rigorous system to prove mathematic theorems.</p>
+<h3 id="Logic-Basic-Operators"><a href="#Logic-Basic-Operators" class="headerlink" title="Logic, Basic Operators"></a>Logic, Basic Operators</h3><p><strong>Statement:</strong> A statement is a sentence that is either <em>True</em> or <em>False</em></p>
+<p><strong>Logic Operators:</strong> Logic operators are used to construct new statements from old statements.</p>
+<p>Three main logic operators: “NOT”, “AND”, “OR”</p>
+<p><em>Notations:</em>  $$\lnot{} ::=NOT$$ $$\neg{}P = \overline{P}$$ $$\land{} ::= AND$$ $$\vee{} ::= OR$$</p>
+<p>Some more logical operatrs:</p>
+<p>exclusive-or: $\oplus$</p>
+<table>
+<thead>
+<tr>
+<th align="center">p</th>
+<th align="center">q</th>
+<th align="center">$p\oplus{}q$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">T</td>
+<td align="center">T</td>
+<td align="center">F</td>
+</tr>
+<tr>
+<td align="center">T</td>
+<td align="center">F</td>
+<td align="center">T</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">T</td>
+<td align="center">T</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">F</td>
+<td align="center">F</td>
+</tr>
+</tbody></table>
+<p>majority:</p>
+<table>
+<thead>
+<tr>
+<th align="center">P</th>
+<th align="center">Q</th>
+<th align="center">R</th>
+<th align="center">M(P, Q, R)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">T</td>
+<td align="center">T</td>
+<td align="center">T</td>
+<td align="center">T</td>
+</tr>
+<tr>
+<td align="center">T</td>
+<td align="center">T</td>
+<td align="center">F</td>
+<td align="center">T</td>
+</tr>
+<tr>
+<td align="center">T</td>
+<td align="center">F</td>
+<td align="center">T</td>
+<td align="center">T</td>
+</tr>
+<tr>
+<td align="center">T</td>
+<td align="center">F</td>
+<td align="center">F</td>
+<td align="center">F</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">T</td>
+<td align="center">T</td>
+<td align="center">T</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">T</td>
+<td align="center">F</td>
+<td align="center">F</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">F</td>
+<td align="center">T</td>
+<td align="center">F</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">F</td>
+<td align="center">F</td>
+<td align="center">F</td>
+</tr>
+</tbody></table>
+<h3 id="Using-Simple-Operators-to-Construct-Any-Operator"><a href="#Using-Simple-Operators-to-Construct-Any-Operator" class="headerlink" title="Using Simple Operators to Construct Any Operator"></a>Using Simple Operators to Construct Any Operator</h3><p>Take the example of the exclusive-or:</p>
+<h4 id="Idea-0-Guess-and-Check"><a href="#Idea-0-Guess-and-Check" class="headerlink" title="Idea 0: Guess and Check"></a>Idea 0: Guess and Check</h4><p>$p\oplus{}q \equiv{} (p \land{} q) \vee{} \neg{}(p \vee{} q)$</p>
+<p><strong>Logical Equivalence:</strong> Two statements have the same <em>truth table</em>.</p>
+<h4 id="Idea-1-Look-at-Each-True-Row"><a href="#Idea-1-Look-at-Each-True-Row" class="headerlink" title="Idea 1: Look at Each True Row"></a>Idea 1: Look at Each True Row</h4><table>
+<thead>
+<tr>
+<th align="center">p</th>
+<th align="center">q</th>
+<th align="center">$p\oplus{}q$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">T</td>
+<td align="center">T</td>
+<td align="center">F</td>
+</tr>
+<tr>
+<td align="center">T</td>
+<td align="center">F</td>
+<td align="center">T</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">T</td>
+<td align="center">T</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">F</td>
+<td align="center">F</td>
+</tr>
+</tbody></table>
+<p>$(p \land{} \neg{}q) \vee{} (\neg{}p \land{} q)$</p>
+<p>Only the second row <em>or</em> the third row is true that the input is true.</p>
+<p><strong>So:</strong><br>$(p \land{} \neg{}q)$ is for second row.<br>$(\neg{}p \land{} q)$ is for third row.<br>and use “OR” $\vee{}$ to linked them.</p>
+<p><strong>Look at the true rows and take the “or”</strong></p>
+<h4 id="Idea-2-Look-at-Each-False-Row"><a href="#Idea-2-Look-at-Each-False-Row" class="headerlink" title="Idea 2: Look at Each False Row"></a>Idea 2: Look at Each False Row</h4><p>Almost the same thinking pattern as Idea 1</p>
+<p><strong>Look at the false rows, negate and take the “and”</strong></p>
+<h3 id="Logical-Equivalence-DeMorgan’s-Law"><a href="#Logical-Equivalence-DeMorgan’s-Law" class="headerlink" title="Logical Equivalence, DeMorgan’s Law"></a>Logical Equivalence, DeMorgan’s Law</h3><h4 id="DeMorgan’s-Law"><a href="#DeMorgan’s-Law" class="headerlink" title="DeMorgan’s Law"></a>DeMorgan’s Law</h4><p>$\neg{}(p \land{} q) \equiv{} \neg{}p \vee{} \neg{}q$<br>$\neg{}(p \vee{} q) \equiv{} \neg{}p \land{} \neg{}q$</p>
+<h4 id="Logical-Rules"><a href="#Logical-Rules" class="headerlink" title="Logical Rules"></a>Logical Rules</h4><table>
+<thead>
+<tr>
+<th align="center">name</th>
+<th align="center">expression1</th>
+<th align="center">expression2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Communicative Laws</td>
+<td align="center">$p \land{} q \equiv{} q \land{} p$</td>
+<td align="center">$p \vee{} q \equiv{} q \vee{} p$</td>
+</tr>
+<tr>
+<td align="center">Associative Laws</td>
+<td align="center">$(p \land{} q) \land{} r \equiv{} p \land{} (q \land{} r)$</td>
+<td align="center">$(p \vee{} q) \vee{} r \equiv{} p \vee{} (q \vee{} r)$</td>
+</tr>
+<tr>
+<td align="center">Distributive Laws</td>
+<td align="center">$p \land (q \vee r) \equiv (p \land q) \vee (p \land r)$</td>
+<td align="center">$p \vee (q \land r) \equiv (p \vee q) \land (p \vee r)$</td>
+</tr>
+<tr>
+<td align="center">Identity Laws</td>
+<td align="center">$p \land{} t \equiv{} p$</td>
+<td align="center">$p \vee{} c \equiv{} p$</td>
+</tr>
+<tr>
+<td align="center">Negation Laws</td>
+<td align="center">$p \vee{} \neg{}p \equiv{} t$</td>
+<td align="center">$p \land{} \neg{}p \equiv{} c$</td>
+</tr>
+<tr>
+<td align="center">Double Negative Law</td>
+<td align="center">$\neg{}(\neg{}p) \equiv{} p$</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Idempotent Laws</td>
+<td align="center">$p \land{} p$</td>
+<td align="center">$p \vee{} p$</td>
+</tr>
+<tr>
+<td align="center">Universal Bound Laws</td>
+<td align="center">$p \vee{} t equiv{} t$</td>
+<td align="center">$p land{} c \equiv{} c$</td>
+</tr>
+<tr>
+<td align="center">De Morgan’s Laws</td>
+<td align="center">$\neg{}(p \land{} q) \equiv{} \neg{}p \vee{} \neg{} q$</td>
+<td align="center">$\neg{}(p \vee{} q) \equiv{} \neg{}p \land{} \neg{} q$</td>
+</tr>
+<tr>
+<td align="center">Absorption Laws</td>
+<td align="center">$p \vee{} (p \land{} q) \equiv{} p$</td>
+<td align="center">$p \land{} (p \vee{} q) \equiv{} p$</td>
+</tr>
+<tr>
+<td align="center">Negation of <strong>t</strong> and <strong>c</strong></td>
+<td align="center">$\neg{}t \equiv{} c$</td>
+<td align="center">$\neg{}c \equiv{} t$</td>
+</tr>
+</tbody></table>
+<p><strong>t</strong> means “tautology” and <strong>c</strong> means “contradiction”</p>
+<p>You can use those rules to simplify the statement.</p>
+<h4 id="Tautology-Contradiction"><a href="#Tautology-Contradiction" class="headerlink" title="Tautology, Contradiction"></a>Tautology, Contradiction</h4><p>A tautology is a statement that is always true.</p>
+<p>A contradiction is a statement that is always false.(negation of a tautology)</p>
+<h3 id="Conditional-Statement-if-if-and-only-if"><a href="#Conditional-Statement-if-if-and-only-if" class="headerlink" title="Conditional Statement (if, if and only if)"></a>Conditional Statement (if, if and only if)</h3><h3 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h3>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/CSC3001/" rel="tag"># CSC3001</a>
+            
+              <a href="/tags/Discrete-Mathematics/" rel="tag"># Discrete Mathematics</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/02/note/EIE2050/EIE2050-Week1/" rel="next" title="EIE2050 Week1">
+                  <i class="fa fa-chevron-left"></i> EIE2050 Week1
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/03/note/tex/tex/" rel="prev" title="tex">
+                  tex <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Olym Chen">
+  <p class="site-author-name" itemprop="name">Olym Chen</p>
+  <div class="site-description motion-element" itemprop="description">Just a Blog</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/chenhaolinolym" title="GitHub &rarr; https://github.com/chenhaolinolym" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.olym.xyz" title="http://www.olym.xyz" rel="noopener" target="_blank">Homepage</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problems-in-Computer-Science"><span class="nav-number">1.</span> <span class="nav-text">Problems in Computer Science</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Discrete-Mathematics"><span class="nav-number">2.</span> <span class="nav-text">Discrete Mathematics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topics-discussed-in-class"><span class="nav-number">3.</span> <span class="nav-text">Topics discussed in class</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Propositional-Logic"><span class="nav-number">4.</span> <span class="nav-text">Propositional Logic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mathematical-Proof"><span class="nav-number">4.1.</span> <span class="nav-text">Mathematical Proof</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logic-Basic-Operators"><span class="nav-number">4.2.</span> <span class="nav-text">Logic, Basic Operators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-Simple-Operators-to-Construct-Any-Operator"><span class="nav-number">4.3.</span> <span class="nav-text">Using Simple Operators to Construct Any Operator</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Idea-0-Guess-and-Check"><span class="nav-number">4.3.1.</span> <span class="nav-text">Idea 0: Guess and Check</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Idea-1-Look-at-Each-True-Row"><span class="nav-number">4.3.2.</span> <span class="nav-text">Idea 1: Look at Each True Row</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Idea-2-Look-at-Each-False-Row"><span class="nav-number">4.3.3.</span> <span class="nav-text">Idea 2: Look at Each False Row</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logical-Equivalence-DeMorgan’s-Law"><span class="nav-number">4.4.</span> <span class="nav-text">Logical Equivalence, DeMorgan’s Law</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DeMorgan’s-Law"><span class="nav-number">4.4.1.</span> <span class="nav-text">DeMorgan’s Law</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logical-Rules"><span class="nav-number">4.4.2.</span> <span class="nav-text">Logical Rules</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tautology-Contradiction"><span class="nav-number">4.4.3.</span> <span class="nav-text">Tautology, Contradiction</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conditional-Statement-if-if-and-only-if"><span class="nav-number">4.5.</span> <span class="nav-text">Conditional Statement (if, if and only if)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arguments"><span class="nav-number">4.6.</span> <span class="nav-text">Arguments</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备19098205号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Olym Chen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">54k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">49 mins.</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+<script>
+if ($('body').find('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', function() {
+    $('body').find('div.pdf').each(function(i, o) {
+      PDFObject.embed($(o).attr('target'), $(o), {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: $(o).attr('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', function() {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>

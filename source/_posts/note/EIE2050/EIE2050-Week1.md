@@ -1,5 +1,5 @@
 ---
-title: EIE2050 L1
+title: EIE2050 Week1
 tags:
   - EIE2050
   - Digital Logic and Systems
@@ -137,3 +137,36 @@ It is a big problem: digital vs. analog
 From digital to analog:
 
 Sampling(采样) + Quantization(量化)
+
+Sampling: Select samples with the same time interval. (Avoid infinity in time)
+
+Quantization: For each sample point, approximate the amplitude/magnitude to finite precision.
+
+## Digital Waveforms and Pulse Definitions
+
+![1](Week1/1.jpg)
+![2](Week1/2.jpg)
+
+**clock** is a *basic timing signal* that is an example of a periodic wave. It is used to synchronized actions.
+
+## Serial(串行) and Parallel(并行) Data
+
+Data can be transmitted by either serial transfer or parallel transfer.
+
+## Basic Logic Functions
+
+AND:
+![3](Week1/3.jpg)
+
+OR:
+![4](Week1/4.jpg)
+
+NOT:
+![5](Week1/5.jpg)
+
+You can use the above three to design any logical functions.
+
+## Some More Key Items
+
+- Fixed-function Logic: A category of digital integrated circuits having functions that cannot be altered.
+- Programmable logic: A category of digital integrated circuits capable of being programmed to perform specified functions.
