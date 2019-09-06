@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="Olym&#39;s Secret House">
 <meta property="og:description" content="Problems in Computer Science Problem Modelling Model Analysis(feasibility, complexity, etc.) Design Algorithms Algorithm Analysis(efficiency, bugs, etc.) Problem Detection  Discrete MathematicsDiscret">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-04T12:21:10.921Z">
+<meta property="og:updated_time" content="2019-09-06T14:24:08.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSC3001 Week1">
 <meta name="twitter:description" content="Problems in Computer Science Problem Modelling Model Analysis(feasibility, complexity, etc.) Design Algorithms Algorithm Analysis(efficiency, bugs, etc.) Problem Detection  Discrete MathematicsDiscret">
@@ -300,7 +300,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-04 20:21:10" itemprop="dateModified" datetime="2019-09-04T20:21:10+08:00">2019-09-04</time>
+                <time title="Modified: 2019-09-06 22:24:08" itemprop="dateModified" datetime="2019-09-06T22:24:08+08:00">2019-09-06</time>
               </span>
             
           
@@ -342,7 +342,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span>3.1k</span>
+              <span>5.5k</span>
             </span>
           
             <span class="post-meta-item" title="Reading time">
@@ -352,7 +352,7 @@
               
                 <span class="post-meta-item-text">Reading time &asymp;</span>
               
-              <span>3 mins.</span>
+              <span>5 mins.</span>
             </span>
           
 
@@ -581,7 +581,147 @@
 <p>You can use those rules to simplify the statement.</p>
 <h4 id="Tautology-Contradiction"><a href="#Tautology-Contradiction" class="headerlink" title="Tautology, Contradiction"></a>Tautology, Contradiction</h4><p>A tautology is a statement that is always true.</p>
 <p>A contradiction is a statement that is always false.(negation of a tautology)</p>
-<h3 id="Conditional-Statement-if-if-and-only-if"><a href="#Conditional-Statement-if-if-and-only-if" class="headerlink" title="Conditional Statement (if, if and only if)"></a>Conditional Statement (if, if and only if)</h3><h3 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h3>
+<h3 id="Conditional-Statement-if-if-and-only-if"><a href="#Conditional-Statement-if-if-and-only-if" class="headerlink" title="Conditional Statement (if, if and only if)"></a>Conditional Statement (if, if and only if)</h3><h4 id="If-Then-Statement"><a href="#If-Then-Statement" class="headerlink" title="If-Then Statement"></a>If-Then Statement</h4><p><strong>If p the q/ p implies q:</strong> $p \rightarrow q$</p>
+<p><em>p</em> is called the hypothesis; <em>q</em> is called the conclusion.</p>
+<h4 id="Logic-Operator"><a href="#Logic-Operator" class="headerlink" title="Logic Operator"></a>Logic Operator</h4><p>$$\rightarrow ::= IMPLIES$$</p>
+<table>
+<thead>
+<tr>
+<th align="center">P</th>
+<th align="center">Q</th>
+<th align="center">$P \rightarrow Q$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">T</td>
+<td align="center">T</td>
+<td align="center">T</td>
+</tr>
+<tr>
+<td align="center">T</td>
+<td align="center">F</td>
+<td align="center">F</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">T</td>
+<td align="center">F</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">F</td>
+<td align="center">T</td>
+</tr>
+</tbody></table>
+<p><strong>Convention:</strong> if we don’t say anything wrong, then it is not false, and thus true.</p>
+<p style="color: red;font-size: 24px">The above is the most important point</p>
+
+<h4 id="Logical-Equivalence"><a href="#Logical-Equivalence" class="headerlink" title="Logical Equivalence"></a>Logical Equivalence</h4><p>$p \rightarrow q \equiv$ ?</p>
+<p>Also three ways to deal with it:</p>
+<ol>
+<li>Truth Table</li>
+<li>Logical Rules</li>
+<li>Intuition</li>
+</ol>
+<h5 id="Truth-Table"><a href="#Truth-Table" class="headerlink" title="Truth Table"></a>Truth Table</h5><table>
+<thead>
+<tr>
+<th align="center">P</th>
+<th align="center">Q</th>
+<th align="center">$P \rightarrow Q</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">T</td>
+<td align="center">T</td>
+<td align="center">T</td>
+</tr>
+<tr>
+<td align="center">T</td>
+<td align="center">F</td>
+<td align="center">F</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">T</td>
+<td align="center">T</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">F</td>
+<td align="center">T</td>
+</tr>
+</tbody></table>
+<p>Obviously, take the false row is easier.</p>
+<p>$\therefore \neg (P \land \neg Q) \equiv \neg P \vee Q$</p>
+<h4 id="Negation-of-If-Then"><a href="#Negation-of-If-Then" class="headerlink" title="Negation of If-Then"></a>Negation of If-Then</h4><p>$\neg (p \rightarrow q) \equiv$ ?</p>
+<p>$$\neg (P \rightarrow Q)$$<br>$$\equiv \neg (\neg P \vee Q)$$<br>$$\equiv \neg \neg P \land \neg Q$$<br>$$\equiv P \land \neg Q$$</p>
+<h4 id="Contrapositive-逆否"><a href="#Contrapositive-逆否" class="headerlink" title="Contrapositive(逆否)"></a>Contrapositive(逆否)</h4><p>The contrapositive of “if p then q” is “if %\neg$ q then %\neg$ p”.</p>
+<p><strong>Fact:</strong> A conditional statement is logically equivalent to its contrapositive.</p>
+<p><em>Proof with Logical Rules:</em> $P \rightarrow Q \equiv \neg P \vee Q \equiv Q \vee \neg P \equiv \neg Q \rightarrow \neg P$</p>
+<h4 id="If-Only-If-Necessary-AND-Sufficient-Condition"><a href="#If-Only-If-Necessary-AND-Sufficient-Condition" class="headerlink" title="If, Only If(Necessary AND Sufficient Condition)"></a>If, Only If(Necessary AND Sufficient Condition)</h4><p>$\leftrightarrow ::= IFF$</p>
+<p>R if S means: <strong>“if S then R”</strong>, then S is sufficient condition for R</p>
+<p>R only if S means: <strong>“if R then S</strong>“, then S is a necessary condition for R</p>
+<h4 id="Necessary-Sufficient-Condition"><a href="#Necessary-Sufficient-Condition" class="headerlink" title="Necessary, Sufficient Condition"></a>Necessary, Sufficient Condition</h4><p>If A is necessary condition of B, then B is sufficient condition of A.</p>
+<h3 id="Arguments"><a href="#Arguments" class="headerlink" title="Arguments"></a>Arguments</h3><p>An argument is a sequence of statements.</p>
+<p>All statements but the final one are called <em>assumptions</em> or <em>hypothesis</em>.<br>The final statement is called the <em>conclusion</em>.</p>
+<p>An argument is valid if:<br>whenever all the assumptions are true, then the conclusion is true.</p>
+<p>Valid argument implies True conclusion<br>True conclusion implies Valid argument</p>
+<h4 id="Valid-Argument-Forms"><a href="#Valid-Argument-Forms" class="headerlink" title="Valid Argument Forms"></a>Valid Argument Forms</h4><table>
+<thead>
+<tr>
+<th align="center">Name</th>
+<th align="center">Expression A</th>
+<th align="center">Expression B</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Modus Ponens</td>
+<td align="center">$p \rightarrow q$<br>$p$<br>$\therefore q$</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Modus Tollens</td>
+<td align="center">$p \rightarrow q$<br>$\neg q$<br>$\therefore \neg p$</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Generalization</td>
+<td align="center">$p$<br>$\therefore p \vee q$</td>
+<td align="center">$q$<br>$\therefore p \vee q$</td>
+</tr>
+<tr>
+<td align="center">Speciallization</td>
+<td align="center">$p \land q$<br>$\therefore p$</td>
+<td align="center">$p \land q$<br>$\therefore q$</td>
+</tr>
+<tr>
+<td align="center">Conjunction</td>
+<td align="center">$p$<br>$q$<br>$\therefore p \land q$</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Elimination</td>
+<td align="center">$p \vee q$<br>$\neg q$<br>$\therefore p$</td>
+<td align="center">$p \vee q$<br>$\neg p$<br>$\therefore q$</td>
+</tr>
+<tr>
+<td align="center">Transitivity</td>
+<td align="center">$p \rightarrow q$<br>$q \rightarrow r$<br>$ \therefore p \rightarrow r$</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Proof by Division into Cases</td>
+<td align="center">$p \vee q$<br>$p \rightarrow r$<br>$q \rightarrow r$<br>$\therefore r$</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Contradiction Rule</td>
+<td align="center">$\neg p \rightarrow c$<br>$\therefore p$</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+
     </div>
 
     
@@ -813,7 +953,11 @@
         
           
         
-        <span class="site-state-item-count">42</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
@@ -859,7 +1003,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problems-in-Computer-Science"><span class="nav-number">1.</span> <span class="nav-text">Problems in Computer Science</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Discrete-Mathematics"><span class="nav-number">2.</span> <span class="nav-text">Discrete Mathematics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topics-discussed-in-class"><span class="nav-number">3.</span> <span class="nav-text">Topics discussed in class</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Propositional-Logic"><span class="nav-number">4.</span> <span class="nav-text">Propositional Logic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mathematical-Proof"><span class="nav-number">4.1.</span> <span class="nav-text">Mathematical Proof</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logic-Basic-Operators"><span class="nav-number">4.2.</span> <span class="nav-text">Logic, Basic Operators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-Simple-Operators-to-Construct-Any-Operator"><span class="nav-number">4.3.</span> <span class="nav-text">Using Simple Operators to Construct Any Operator</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Idea-0-Guess-and-Check"><span class="nav-number">4.3.1.</span> <span class="nav-text">Idea 0: Guess and Check</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Idea-1-Look-at-Each-True-Row"><span class="nav-number">4.3.2.</span> <span class="nav-text">Idea 1: Look at Each True Row</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Idea-2-Look-at-Each-False-Row"><span class="nav-number">4.3.3.</span> <span class="nav-text">Idea 2: Look at Each False Row</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logical-Equivalence-DeMorgan’s-Law"><span class="nav-number">4.4.</span> <span class="nav-text">Logical Equivalence, DeMorgan’s Law</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DeMorgan’s-Law"><span class="nav-number">4.4.1.</span> <span class="nav-text">DeMorgan’s Law</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logical-Rules"><span class="nav-number">4.4.2.</span> <span class="nav-text">Logical Rules</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tautology-Contradiction"><span class="nav-number">4.4.3.</span> <span class="nav-text">Tautology, Contradiction</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conditional-Statement-if-if-and-only-if"><span class="nav-number">4.5.</span> <span class="nav-text">Conditional Statement (if, if and only if)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arguments"><span class="nav-number">4.6.</span> <span class="nav-text">Arguments</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problems-in-Computer-Science"><span class="nav-number">1.</span> <span class="nav-text">Problems in Computer Science</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Discrete-Mathematics"><span class="nav-number">2.</span> <span class="nav-text">Discrete Mathematics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Topics-discussed-in-class"><span class="nav-number">3.</span> <span class="nav-text">Topics discussed in class</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Propositional-Logic"><span class="nav-number">4.</span> <span class="nav-text">Propositional Logic</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mathematical-Proof"><span class="nav-number">4.1.</span> <span class="nav-text">Mathematical Proof</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logic-Basic-Operators"><span class="nav-number">4.2.</span> <span class="nav-text">Logic, Basic Operators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-Simple-Operators-to-Construct-Any-Operator"><span class="nav-number">4.3.</span> <span class="nav-text">Using Simple Operators to Construct Any Operator</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Idea-0-Guess-and-Check"><span class="nav-number">4.3.1.</span> <span class="nav-text">Idea 0: Guess and Check</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Idea-1-Look-at-Each-True-Row"><span class="nav-number">4.3.2.</span> <span class="nav-text">Idea 1: Look at Each True Row</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Idea-2-Look-at-Each-False-Row"><span class="nav-number">4.3.3.</span> <span class="nav-text">Idea 2: Look at Each False Row</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logical-Equivalence-DeMorgan’s-Law"><span class="nav-number">4.4.</span> <span class="nav-text">Logical Equivalence, DeMorgan’s Law</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DeMorgan’s-Law"><span class="nav-number">4.4.1.</span> <span class="nav-text">DeMorgan’s Law</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logical-Rules"><span class="nav-number">4.4.2.</span> <span class="nav-text">Logical Rules</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tautology-Contradiction"><span class="nav-number">4.4.3.</span> <span class="nav-text">Tautology, Contradiction</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conditional-Statement-if-if-and-only-if"><span class="nav-number">4.5.</span> <span class="nav-text">Conditional Statement (if, if and only if)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#If-Then-Statement"><span class="nav-number">4.5.1.</span> <span class="nav-text">If-Then Statement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logic-Operator"><span class="nav-number">4.5.2.</span> <span class="nav-text">Logic Operator</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logical-Equivalence"><span class="nav-number">4.5.3.</span> <span class="nav-text">Logical Equivalence</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Truth-Table"><span class="nav-number">4.5.3.1.</span> <span class="nav-text">Truth Table</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Negation-of-If-Then"><span class="nav-number">4.5.4.</span> <span class="nav-text">Negation of If-Then</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Contrapositive-逆否"><span class="nav-number">4.5.5.</span> <span class="nav-text">Contrapositive(逆否)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#If-Only-If-Necessary-AND-Sufficient-Condition"><span class="nav-number">4.5.6.</span> <span class="nav-text">If, Only If(Necessary AND Sufficient Condition)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Necessary-Sufficient-Condition"><span class="nav-number">4.5.7.</span> <span class="nav-text">Necessary, Sufficient Condition</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Arguments"><span class="nav-number">4.6.</span> <span class="nav-text">Arguments</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Valid-Argument-Forms"><span class="nav-number">4.6.1.</span> <span class="nav-text">Valid Argument Forms</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -893,12 +1037,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">54k</span>
+    <span title="Symbols count total">56k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">49 mins.</span>
+    <span title="Reading time total">51 mins.</span>
 </div>
 
         

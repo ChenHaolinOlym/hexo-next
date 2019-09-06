@@ -123,7 +123,7 @@ Identity Laws | $p \land{} t \equiv{} p$ | $p \vee{} c \equiv{} p$
 Negation Laws | $p \vee{} \neg{}p \equiv{} t$ | $p \land{} \neg{}p \equiv{} c$
 Double Negative Law | $\neg{}(\neg{}p) \equiv{} p$
 Idempotent Laws | $p \land{} p$ | $p \vee{} p$
-Universal Bound Laws | $p \vee{} t equiv{} t$ | $p land{} c \equiv{} c$
+Universal Bound Laws | $p \vee{} t \equiv{} t$ | $p \land{} c \equiv{} c$
 De Morgan's Laws | $\neg{}(p \land{} q) \equiv{} \neg{}p \vee{} \neg{} q$ | $\neg{}(p \vee{} q) \equiv{} \neg{}p \land{} \neg{} q$
 Absorption Laws | $p \vee{} (p \land{} q) \equiv{} p$ | $p \land{} (p \vee{} q) \equiv{} p$
 Negation of **t** and **c** | $\neg{}t \equiv{} c$ | $\neg{}c \equiv{} t$
@@ -140,4 +140,102 @@ A contradiction is a statement that is always false.(negation of a tautology)
 
 ### Conditional Statement (if, if and only if)
 
+#### If-Then Statement
+
+**If p the q/ p implies q:** $p \rightarrow q$
+
+*p* is called the hypothesis; *q* is called the conclusion.
+
+#### Logic Operator
+
+$$\rightarrow ::= IMPLIES$$
+
+P | Q | $P \rightarrow Q$
+:-: | :-: | :-:
+T | T | T
+T | F | F
+F | T | F
+F | F | T
+
+**Convention:** if we don’t say anything wrong, then it is not false, and thus true.
+
+<p style="color: red;font-size: 24px">The above is the most important point</p>
+
+#### Logical Equivalence
+
+$p \rightarrow q \equiv$ ?
+
+Also three ways to deal with it:
+
+1. Truth Table
+2. Logical Rules
+3. Intuition
+
+##### Truth Table
+
+P | Q | $P \rightarrow Q$
+:-: | :-: | :-:
+T | T | T
+T | F | F
+F | T | T
+F | F | T
+
+Obviously, take the false row is easier.
+
+$\therefore \neg (P \land \neg Q) \equiv \neg P \vee Q$
+
+#### Negation of If-Then
+
+$\neg (p \rightarrow q) \equiv$ ?
+
+$$\neg (P \rightarrow Q)$$
+$$\equiv \neg (\neg P \vee Q)$$
+$$\equiv \neg \neg P \land \neg Q$$
+$$\equiv P \land \neg Q$$
+
+#### Contrapositive(逆否)
+
+The contrapositive of "if p then q” is “if %\neg$ q then %\neg$ p".
+
+**Fact:** A conditional statement is logically equivalent to its contrapositive.
+
+*Proof with Logical Rules:* $P \rightarrow Q \equiv \neg P \vee Q \equiv Q \vee \neg P \equiv \neg Q \rightarrow \neg P$
+
+#### If, Only If(Necessary AND Sufficient Condition)
+
+$\leftrightarrow ::= IFF$
+
+R if S means: **"if S then R"**, then S is sufficient condition for R
+
+R only if S means: **"if R then S**", then S is a necessary condition for R
+
+#### Necessary, Sufficient Condition
+
+If A is necessary condition of B, then B is sufficient condition of A.
+
 ### Arguments
+
+An argument is a sequence of statements.
+
+All statements but the final one are called *assumptions* or *hypothesis*.
+The final statement is called the *conclusion*.
+
+An argument is valid if:
+whenever all the assumptions are true, then the conclusion is true.
+
+Valid argument implies True conclusion
+True conclusion implies Valid argument
+
+#### Valid Argument Forms
+
+Name | Expression A | Expression B
+:-: | :-: | :-:
+Modus Ponens | $p \rightarrow q$<br>$p$<br>$\therefore q$
+Modus Tollens | $p \rightarrow q$<br>$\neg q$<br>$\therefore \neg p$
+Generalization | $p$<br>$\therefore p \vee q$ | $q$<br>$\therefore p \vee q$
+Speciallization | $p \land q$<br>$\therefore p$ | $p \land q$<br>$\therefore q$
+Conjunction | $p$<br>$q$<br>$\therefore p \land q$
+Elimination | $p \vee q$<br>$\neg q$<br>$\therefore p$ | $p \vee q$<br>$\neg p$<br>$\therefore q$
+Transitivity | $p \rightarrow q$<br>$q \rightarrow r$<br>$ \therefore p \rightarrow r$
+Proof by Division into Cases | $p \vee q$<br>$p \rightarrow r$<br>$q \rightarrow r$<br>$\therefore r$
+Contradiction Rule | $\neg p \rightarrow c$<br>$\therefore p$

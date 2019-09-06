@@ -4,6 +4,7 @@ tags:
   - hexo
   - tips
   - note
+  - usage
 categories:
   - note
   - hexo
