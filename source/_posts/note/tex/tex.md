@@ -1,6 +1,6 @@
 ---
-title: tex
-tags: [tex, usage, tips, note]
+title: Tips for Writing LaTex Code
+tags: [tex, usage, tips, note, latex]
 mathjax: true
 categories:
   - note
@@ -32,3 +32,5 @@ Therefore | $\therefore$ | `\therefore`
 Command | Represents
 :-: | :-:
 `\_` | `_`
+`\\\\` | `\\`(It is the break line symbol of)
+`&` | `&`(hexo will take care of the "&" escape for you)
