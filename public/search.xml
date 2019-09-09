@@ -16,7 +16,7 @@
   <entry>
     <title><![CDATA[Python Cvxpy Install on Win10]]></title>
     <url>%2F2019%2F09%2F07%2Fnote%2Fpython%2Fcvxpy%2Fcvxpy-install%2F</url>
-    <content type="text"><![CDATA[Upgrade pip first: python -m pip install --upgrade pip. Try pip install cvxpy, if success, everything is done.If an error occur: Donwload wheel files from , and use pip install filename.whl to install them.Remember to download the correct version of the wheel file:“cpxx” is the version of python and what’s followed is the operation system’s version.]]></content>
+    <content type="text"><![CDATA[Upgrade pip first: python -m pip install --upgrade pip. Try pip install cvxpy, if success, everything is done.If an error occur: Donwload wheel files from https://www.lfd.uci.edu/~gohlke/pythonlibs/, and use pip install filename.whl to install them.Remember to download the correct version of the wheel file:“cpxx” is the version of python and what’s followed is the operation system’s version.]]></content>
       <categories>
         <category>note</category>
         <category>python</category>
@@ -65,11 +65,11 @@
         <category>tex</category>
       </categories>
       <tags>
+        <tag>tex</tag>
+        <tag>latex</tag>
         <tag>tips</tag>
         <tag>note</tag>
         <tag>usage</tag>
-        <tag>tex</tag>
-        <tag>latex</tag>
       </tags>
   </entry>
   <entry>
