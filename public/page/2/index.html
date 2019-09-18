@@ -256,6 +256,446 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/19/note/CS50 Beyond/python/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/19/note/CS50 Beyond/python/" class="post-title-link" itemprop="url">CS50 Beyond Python, Flask, OOP and AI</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-19 11:07:08" itemprop="dateCreated datePublished" datetime="2019-08-19T11:07:08+08:00">2019-08-19</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-29 13:48:31" itemprop="dateModified" datetime="2019-08-29T13:48:31+08:00">2019-08-29</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CS50-Beyond/" itemprop="url" rel="index"><span itemprop="name">CS50 Beyond</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>522</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776514&page=7" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776153&page=5" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><h2 id="Flask-Session"><a href="#Flask-Session" class="headerlink" title="Flask Session"></a>Flask Session</h2><p>We will use a flask extension called “flask_session”</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask, render_template, session</span><br><span class="line">from flask_session import Session</span><br><span class="line">from tempfile import mkdtemp</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">app.config[&quot;SESSION_FILE_DIR&quot;] = mkdtemp()</span><br><span class="line">app.config[&quot;SESSION_PERMANENT&quot;] = False</span><br><span class="line">app.config[&quot;SESSION_TYPE&quot;] = &quot;filesystem&quot;</span><br><span class="line">Session(app)</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def index():</span><br><span class="line">    return session</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/19/note/CS50 Beyond/python/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/19/note/CS50 Beyond/sql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/19/note/CS50 Beyond/sql/" class="post-title-link" itemprop="url">CS50 Beyond SQL, ORMs, APIs</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-19 00:13:41" itemprop="dateCreated datePublished" datetime="2019-08-19T00:13:41+08:00">2019-08-19</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-29 13:48:31" itemprop="dateModified" datetime="2019-08-29T13:48:31+08:00">2019-08-29</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CS50-Beyond/" itemprop="url" rel="index"><span itemprop="name">CS50 Beyond</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>4.9k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>4 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102777100&page=11" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102807043&page=6" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><p>In this course we use PostgreSQL.</p><h2 id="Data-Types"><a href="#Data-Types" class="headerlink" title="Data Types"></a>Data Types</h2><table>
+<thead>
+<tr>
+<th align="center">Data Type</th>
+<th align="center">Usage</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">INTEGER</td>
+<td align="center">Storing integer</td>
+</tr>
+<tr>
+<td align="center">DECIMAL</td>
+<td align="center">Storing floating point number</td>
+</tr>
+<tr>
+<td align="center">SERIAL</td>
+<td align="center">A SERIAL will increment every time(like AUTOINCREMENT in sqLite)</td>
+</tr>
+<tr>
+<td align="center">VARCHAR</td>
+<td align="center">For a number of characters</td>
+</tr>
+<tr>
+<td align="center">TIMESTAMP</td>
+<td align="center">Store time</td>
+</tr>
+<tr>
+<td align="center">BOOLEAN</td>
+<td align="center">Ture or False</td>
+</tr>
+<tr>
+<td align="center">ENUM</td>
+<td align="center">Fix finite number of values</td>
+</tr>
+</tbody></table>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/19/note/CS50 Beyond/sql/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/17/note/CS50 Beyond/security/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/08/17/note/CS50 Beyond/security/" class="post-title-link" itemprop="url">CS50 Beyond Security and Scalability</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-17 17:07:48" itemprop="dateCreated datePublished" datetime="2019-08-17T17:07:48+08:00">2019-08-17</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-29 13:48:31" itemprop="dateModified" datetime="2019-08-29T13:48:31+08:00">2019-08-29</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CS50-Beyond/" itemprop="url" rel="index"><span itemprop="name">CS50 Beyond</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>4.3k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>4 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776726&page=10" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><h2 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h2><h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>Open souce has a trade-off, on one hand, everyone can see the source code so that everyone can help fix the bugs, on the other hand, everyone can look for potential vulnerabilities and then take advantage of it.</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/17/note/CS50 Beyond/security/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/17/note/CS50 Beyond/react/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -356,178 +796,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
+          <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776522&page=8" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776867&page=9" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102760014&page=12" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><h2 id="Declarative"><a href="#Declarative" class="headerlink" title="Declarative"></a>Declarative</h2><p>Write code to tell the computer the way we want the web application to look like.</p><h2 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h2><p>An extension of JavaScript.</p><p>In JSX we can treat HTML elements as values of their own.</p>
+          <!--noindex-->
           
-            <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776522&page=8" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe>
-
-<iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776867&page=9" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe>
-
-<iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102760014&page=12" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe>
-
-<h2 id="Declarative"><a href="#Declarative" class="headerlink" title="Declarative"></a>Declarative</h2><p>Write code to tell the computer the way we want the web application to look like.</p>
-<h2 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h2><p>An extension of JavaScript.</p>
-<p>In JSX we can treat HTML elements as values of their own.</p>
-<h2 id="Packages"><a href="#Packages" class="headerlink" title="Packages"></a>Packages</h2><ul>
-<li>React(The React library)</li>
-<li>ReactDOM(Insert React components into webpage)</li>
-<li>Babel(Translate JSX into JS)</li>
-</ul>
-<p>Scripts CDN:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">React:</span><br><span class="line">&lt;script src=&quot;https://cdn.staticfile.org/react/16.4.0/umd/react.development.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">ReactDOM:</span><br><span class="line">&lt;script src=&quot;https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">Babel:</span><br><span class="line">&lt;script src=&quot;https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
-<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
-<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
-
-<h2 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h2><h3 id="Basic-Structure"><a href="#Basic-Structure" class="headerlink" title="Basic Structure"></a>Basic Structure</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Hello extends React.Component &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>The Hello class is a React component.</p>
-<p>Each component need something to determine what should show up on the page, so each component needs a render function.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Hello extends React.Component &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">    return &lt;p&gt;Hello!&lt;/p&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>So now all Hello class does is display a p tag.</p>
-<h3 id="Example1"><a href="#Example1" class="headerlink" title="Example1"></a>Example1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;codeexample1&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;script type=&quot;text/babel&quot;&gt;</span><br><span class="line">    class Hello extends React.Component &#123;</span><br><span class="line">        render() &#123;</span><br><span class="line">            return (</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    This is render by React!</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ReactDOM.render(&lt;Hello /&gt;, document.querySelector(&quot;#codeexample1&quot;));</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<div id="codeexample1"></div>
-<script type="text/babel">
-    class Hello extends React.Component {
-        render() {
-            return (
-                <p>
-                    This is render by React!
-                </p>
-            );
-        }
-    }
-    ReactDOM.render(<Hello />, document.querySelector("#codeexample1"));
-</script>
-
-<h3 id="Example2"><a href="#Example2" class="headerlink" title="Example2"></a>Example2</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;codeexample2&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;script type=&quot;text/babel&quot;&gt;</span><br><span class="line">    class Hello extends React.Component &#123;</span><br><span class="line">        render() &#123;</span><br><span class="line">            return (</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    This is render by React!</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    class App extends React.Component &#123;</span><br><span class="line">        render() &#123;</span><br><span class="line">            return (</span><br><span class="line">                &lt;div&gt;</span><br><span class="line">                &lt;Hello/&gt;</span><br><span class="line">                &lt;p&gt;Above and below are two Hello class.&lt;/p&gt;</span><br><span class="line">                &lt;Hello/&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ReactDOM.render(&lt;App /&gt;, document.querySelector(&quot;#codeexample2&quot;));</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<div id="codeexample2"></div>
-<script type="text/babel">
-    class Hello extends React.Component {
-        render() {
-            return (
-                <p>
-                    This is render by React!
-                </p>
-            );
-        }
-    }
-    class App extends React.Component {
-        render() {
-            return (
-                <div>
-                <Hello/>
-                <p>Above and below are two Hello class.</p>
-                <Hello/>
-                </div>
-            )
-        }
-    }
-    ReactDOM.render(<App />, document.querySelector("#codeexample2"));
-</script>
-
-<h3 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h3><p>Some arguments that attached to a class.</p>
-<h3 id="Example3"><a href="#Example3" class="headerlink" title="Example3"></a>Example3</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;codeexample3&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;script type=&quot;text/babel&quot;&gt;</span><br><span class="line">    class Hello extends React.Component &#123;</span><br><span class="line">        render() &#123;</span><br><span class="line">            return (</span><br><span class="line">                &lt;p&gt;</span><br><span class="line">                    This is &#123;this.props.count&#125; &#123;this.props.name&#125;</span><br><span class="line">                &lt;/p&gt;</span><br><span class="line">            );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    class App extends React.Component &#123;</span><br><span class="line">        render() &#123;</span><br><span class="line">            return (</span><br><span class="line">                &lt;div&gt;</span><br><span class="line">                &lt;Hello count=&quot;Number1&quot; name=&quot;Hello Class&quot;/&gt;</span><br><span class="line">                &lt;Hello count=&quot;Number2&quot; name=&quot;Hello Class&quot;/&gt;</span><br><span class="line">                &lt;Hello count=&quot;Number3&quot; name=&quot;Hello Class&quot;/&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ReactDOM.render(&lt;App /&gt;, document.querySelector(&quot;#codeexample3&quot;));</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<div id="codeexample3"></div>
-<script type="text/babel">
-    class Hello extends React.Component {
-        render() {
-            return (
-                <p>
-                    This is {this.props.count} {this.props.name}
-                </p>
-            );
-        }
-    }
-    class App extends React.Component {
-        render() {
-            return (
-                <div>
-                <Hello count="Number1" name="Hello Class"/>
-                <Hello count="Number2" name="Hello Class"/>
-                <Hello count="Number3" name="Hello Class"/>
-                </div>
-            )
-        }
-    }
-    ReactDOM.render(<App />, document.querySelector("#codeexample3"));
-</script>
-
-<p><strong>Set the default value:</strong></p>
-<p>Change <code>This is {this.props.name}</code> to <code>This is {this.props.name || &quot;Hello Class&quot;}</code></p>
-<p>So now you can use the Hello class without “name”: <code>&lt;Hello count=&quot;Number3&quot;/&gt;</code></p>
-<h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><p>In React, if you change the state of the application, the view of the application is going to change based on that.<br>So if you want to update the page, just change the state of the application, no need to refresh the whole page.</p>
-<h3 id="Construction-Function"><a href="#Construction-Function" class="headerlink" title="Construction Function"></a>Construction Function</h3><p>Construction function is a function Similar to the function <code>__init__</code> in python.<br>In React, construction function is <code>constructor(props)</code></p>
-<p>e.g.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Counter extends React.Component &#123;</span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Because we are extending the React.Component, and our React codes for our components to work need to use these props, we need to add a line of code <code>super(props);</code></p>
-<h3 id="Example4"><a href="#Example4" class="headerlink" title="Example4"></a>Example4</h3><p>A counter class.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;codeexample4&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;script type=&quot;text/babel&quot;&gt;</span><br><span class="line">    class Counter extends React.Component &#123;</span><br><span class="line">        constructor(props) &#123;</span><br><span class="line">            super(props);</span><br><span class="line">            this.state = &#123;</span><br><span class="line">                count: 0</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        render() &#123;</span><br><span class="line">            return (</span><br><span class="line">                &lt;div&gt;</span><br><span class="line">                    &lt;p&gt;&#123;this.state.count&#125;&lt;/p&gt;</span><br><span class="line">                    &lt;button onClick=&#123;this.increment&#125;&gt;+&lt;/button&gt;</span><br><span class="line">                    &lt;button onClick=&#123;this.dncrement&#125;&gt;-&lt;/button&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            );</span><br><span class="line">        &#125;</span><br><span class="line">        increment = () =&gt; &#123;</span><br><span class="line">            this.setState(oldState =&gt; (&#123;</span><br><span class="line">                count: oldState.count+1</span><br><span class="line">            &#125;));</span><br><span class="line">        &#125;</span><br><span class="line">        dncrement = () =&gt; &#123;</span><br><span class="line">            this.setState(oldState =&gt; (&#123;</span><br><span class="line">                count: oldState.count-1</span><br><span class="line">            &#125;));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    class App extends React.Component &#123;</span><br><span class="line">        render() &#123;</span><br><span class="line">            return (</span><br><span class="line">                &lt;div&gt;</span><br><span class="line">                    &lt;Counter /&gt;</span><br><span class="line">                    &lt;Counter /&gt;</span><br><span class="line">                    &lt;Counter /&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ReactDOM.render(&lt;App /&gt;, document.querySelector(&quot;#codeexample4&quot;));</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<div id="codeexample4"></div>
-<script type="text/babel">
-    class Counter extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                count: 0
-            }
-        }
-        render() {
-            return (
-                <div>
-                    <p>{this.state.count}</p>
-                    <button onClick={this.increment}>+</button>
-                    <button onClick={this.dncrement}>-</button>
-                </div>
-            );
-        }
-        increment = () => {
-            this.setState(oldState => ({
-                count: oldState.count+1
-            }));
-        }
-        dncrement = () => {
-            this.setState(oldState => ({
-                count: oldState.count-1
-            }));
-        }
-    }
-    class App extends React.Component {
-        render() {
-            return (
-                <div>
-                    <Counter />
-                    <Counter />
-                    <Counter />
-                </div>
-            )
-        }
-    }
-    ReactDOM.render(<App />, document.querySelector("#codeexample4"));
-</script>
-
-<p><strong>NOTE:</strong> In React, you are not allow to modify the state directly, you need to use the setState function to change the state.</p>
-<p><strong>oldState:</strong> It is considered a poor design to reference this.state inside of the setState function. Because this may cause a race condition where you run two setState function at a similar time.<br>In practice, you should use a function to take in the state first, then change it based on your new function.<br>This function often called oldState</p>
-<p>So now when you render many Counter components, you can have many counters and each counter has its own state.</p>
-<p><em>Ternary Operator:</em> condition ? expressionIfTrue : expressionIfFalse</p>
-<h2 id="Some-Useful-JS-Tools"><a href="#Some-Useful-JS-Tools" class="headerlink" title="Some Useful JS Tools"></a>Some Useful JS Tools</h2><h3 id="List-Operation"><a href="#List-Operation" class="headerlink" title="List Operation"></a>List Operation</h3><h3 id="Copy-of-a-List"><a href="#Copy-of-a-List" class="headerlink" title="Copy of a List"></a>Copy of a List</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const list1 = [1, 2, 3, 4, 5];</span><br><span class="line">const list2 = [...list1];</span><br></pre></td></tr></table></figure>
-
-<h3 id="Copy-Then-Add"><a href="#Copy-Then-Add" class="headerlink" title="Copy Then Add"></a>Copy Then Add</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const list1 = [1, 2, 3, 4, 5];</span><br><span class="line">const list2 = [...list1, 6];</span><br></pre></td></tr></table></figure>
-
-<h3 id="Delete-From-List"><a href="#Delete-From-List" class="headerlink" title="Delete From List"></a>Delete From List</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const list1 = [1, 2, 3, 4, 5];</span><br><span class="line">list1.splice(3, 1);</span><br><span class="line">// Starting from index 3, pull out 1 argument.</span><br><span class="line">// list1 is now [1, 2, 3, 5]</span><br></pre></td></tr></table></figure>
-
-<h2 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h2><p>When you actually deploy your website, you would not want the browser to translate your JSX code everytime when someone open the webpage.<br>You need something to translate the JSX code to JS code before deploy for you.</p>
-<p>An app “create-react-app” is recommended.</p>
-<p>To install the “create-react-app”, you need Node.js.</p>
-<p>After you install the “create-react-app”, you can create a new React application just by type in <code>create-react-app Name-of-the-app</code> in the CLI.</p>
-<p>After you modify your code in the “src” directory, run <code>npm run build</code>, the program will build your application for you. Include translate JSX to JS.</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/17/note/CS50 Beyond/react/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -653,140 +931,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
+          <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776550&page=3" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776419&page=4" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><h2 id="Two-Ways-of-Adding-JS-in-HTML"><a href="#Two-Ways-of-Adding-JS-in-HTML" class="headerlink" title="Two Ways of Adding JS in HTML"></a>Two Ways of Adding JS in HTML</h2><h3 id="Script-Tag"><a href="#Script-Tag" class="headerlink" title="Script Tag"></a>Script Tag</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    your JS code</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><h3 id="Seperate-File"><a href="#Seperate-File" class="headerlink" title="Seperate File"></a>Seperate File</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;xxx.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
           
-            <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776550&page=3" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe>
-
-<iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776419&page=4" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe>
-
-<h2 id="Two-Ways-of-Adding-JS-in-HTML"><a href="#Two-Ways-of-Adding-JS-in-HTML" class="headerlink" title="Two Ways of Adding JS in HTML"></a>Two Ways of Adding JS in HTML</h2><h3 id="Script-Tag"><a href="#Script-Tag" class="headerlink" title="Script Tag"></a>Script Tag</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    your JS code</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Seperate-File"><a href="#Seperate-File" class="headerlink" title="Seperate File"></a>Seperate File</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;xxx.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>NOTE:</strong> JS code can be added everywhere in the HTML file, not only in the &lt;head&gt; tag. HTML file is loaded from top to bottom. Be careful because the location of your JS code may cause bugs in your webpage.</p>
-<h2 id="Call-the-JavaScript-Code"><a href="#Call-the-JavaScript-Code" class="headerlink" title="Call the JavaScript Code"></a>Call the JavaScript Code</h2><h3 id="Call-in-the-HTML"><a href="#Call-in-the-HTML" class="headerlink" title="Call in the HTML"></a>Call in the HTML</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button event_name=&quot;function_name&quot;&gt;xxx&lt;/button&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Call-in-the-JS-file"><a href="#Call-in-the-JS-file" class="headerlink" title="Call in the JS file"></a>Call in the JS file</h3><p>Use querySelector.</p>
-<h2 id="DOM-Document-Object-Model-Manipulation"><a href="#DOM-Document-Object-Model-Manipulation" class="headerlink" title="DOM(Document Object Model) Manipulation"></a>DOM(Document Object Model) Manipulation</h2><h3 id="querySelector"><a href="#querySelector" class="headerlink" title="querySelector"></a>querySelector</h3><p>Select the first element in the document.</p>
-<ul>
-<li><code>document.querySelector(&#39;tag&#39;)</code></li>
-<li><code>document.querySelector(&#39;#id&#39;)</code></li>
-<li><code>document.querySelector(&#39;.class&#39;)</code></li>
-</ul>
-<p>querySelector returns an object.</p>
-<p><code>object.innerHTML</code> is the content of the element.</p>
-<p>So <code>object.innerHTML</code> = xxx can change the content of the element to xxx.</p>
-<p>You can also modify the style by <code>object.style.xxx</code></p>
-<p><strong>NOTE:</strong> If you want to select every element in the document, use querySelectorAll, it will return an array of object.</p>
-<h3 id="addEventListener"><a href="#addEventListener" class="headerlink" title="addEventListener"></a>addEventListener</h3><p><code>document.addEventListener(&quot;DOMContentLoaded&quot;, function)</code></p>
-<p>the function you passed in will be executed after all the DOM content loaded.</p>
-<p>Used to fix the problem that JS code loaded at the front of the HTML document.</p>
-<h3 id="Arrow-Functions"><a href="#Arrow-Functions" class="headerlink" title="Arrow Functions"></a>Arrow Functions</h3><p><code>x =&gt; x*2</code></p>
-<p>Takes the left of the arrow and output the right of the arrow.</p>
-<h3 id="Local-Storage"><a href="#Local-Storage" class="headerlink" title="Local Storage"></a>Local Storage</h3><p>Local storage is a place where you can save the data locally forever. It’s about 5M. You can use this feature to save your data so that it won’t change when the user refresh the page.</p>
-<table>
-<thead>
-<tr>
-<th align="center">Command</th>
-<th align="center">Purpose</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>localStorage.setItem(&quot;temp&quot;, arr)</code></td>
-<td align="center">Save arr locally to “temp”</td>
-</tr>
-<tr>
-<td align="center"><code>localStorage.getItem(&quot;temp&quot;)</code></td>
-<td align="center">Get the data in “temp”</td>
-</tr>
-<tr>
-<td align="center"><code>localStorage.removeItem(&quot;temp&quot;)</code></td>
-<td align="center">Remove “temp”</td>
-</tr>
-<tr>
-<td align="center"><code>localStorage.clear()</code></td>
-<td align="center">Clear local storage</td>
-</tr>
-</tbody></table>
-<h3 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h3><table>
-<thead>
-<tr>
-<th align="center">Property</th>
-<th align="center">Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>window.innerHeight</code></td>
-<td align="center">Returns the height of the window’s content area</td>
-</tr>
-<tr>
-<td align="center"><code>window.innerWidth</code></td>
-<td align="center">Returns the width of the window’s content area</td>
-</tr>
-<tr>
-<td align="center"><code>window.scrollY</code></td>
-<td align="center">Returns the pixels that the current document has been scrolled from the top of the window</td>
-</tr>
-<tr>
-<td align="center"><code>document.body.offSetHeight</code></td>
-<td align="center">Returns the height of the whole document</td>
-</tr>
-</tbody></table>
-<p><img src="/2019/08/16/note/CS50 Beyond/js/1.jpg" alt="window"></p>
-<h2 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h2><h3 id="CSS-Animation"><a href="#CSS-Animation" class="headerlink" title="CSS Animation"></a>CSS Animation</h3><h4 id="Keyframe"><a href="#Keyframe" class="headerlink" title="Keyframe"></a>Keyframe</h4><p>In &lt;style&gt; tag.</p>
-<h5 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">@keyframes grow &#123;</span><br><span class="line">    0% &#123;</span><br><span class="line">        left: 0%;</span><br><span class="line">        color: red;</span><br><span class="line">        font-size: 14px;</span><br><span class="line">    &#125;</span><br><span class="line">    50% &#123;</span><br><span class="line">        left: 50%;</span><br><span class="line">        color: blue;</span><br><span class="line">        font-size: 20px;</span><br><span class="line">    &#125;</span><br><span class="line">    100% &#123;</span><br><span class="line">        left: 0%;</span><br><span class="line">        color: green;</span><br><span class="line">        font-size: 26px;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    .example &#123;</span><br><span class="line">        position: relative;</span><br><span class="line">        animation-name: grow;</span><br><span class="line">        animation-fill-mode: forwards;</span><br><span class="line">        animation-duration: 3s;</span><br><span class="line">        animation-iteration-count: infinite;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;p class=&quot;example&quot;&gt;Hello!&lt;/p&gt;</span><br></pre></td></tr></table></figure>
-
-<h5 id="Effect"><a href="#Effect" class="headerlink" title="Effect"></a>Effect</h5><style>
-@keyframes grow {
-    0% {
-        left: 0%;
-        color: red;
-        font-size: 14px;
-    }
-    50% {
-        left: 50%;
-        color: blue;
-        font-size: 20px;
-    }
-    100% {
-        left: 0%;
-        color: green;
-        font-size: 26px;
-    }
-}
-    .example {
-        position: relative;
-        animation-name: grow;
-        animation-fill-mode: forwards;
-        animation-duration: 3s;
-        animation-iteration-count: infinite;
-    }
-}
-</style>
-
-<p class="example">Hello!</p>
-
-<h3 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h3><p>SVG is the abbreviation of Scalable Vector Graphics<br>SVG is resolution independent, the resolution of it won’t change when zoom in.</p>
-<p>The following code is based on the d3.js library</p>
-<h4 id="Draw-Elements"><a href="#Draw-Elements" class="headerlink" title="Draw Elements"></a>Draw Elements</h4><script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg id=&quot;svgexample1&quot; stylt=&quot;width:100%; height:800px&quot;&gt;&lt;/svg&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">const svg = d3.select(&apos;#svgexample1&apos;);</span><br><span class="line"></span><br><span class="line">svg.append(&apos;circle&apos;)</span><br><span class="line">    .attr(&apos;cx&apos;, 200) (center x)</span><br><span class="line">    .attr(&apos;cy&apos;, 75)  (center y)</span><br><span class="line">    .attr(&apos;r&apos;, 50)   (radius)</span><br><span class="line">    .style(&apos;fill&apos;, &apos;red&apos;);   (filled color)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p><svg id="svgexample1" stylt="width:100%; height:800px"/></p>
-<script>
-const svg = d3.select('#svgexample1');
-
-svg.append('circle')
-    .attr('cx', 200)
-    .attr('cy', 75)
-    .attr('r', 50)
-    .style('fill', 'red');
-</script>
-
-<h4 id="Animation-1"><a href="#Animation-1" class="headerlink" title="Animation"></a>Animation</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg id=&quot;svgexample2&quot; stylt=&quot;width:100%; height:800px&quot;&gt;&lt;/svg&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">const svg = d3.select(&apos;#svgexample2&apos;);</span><br><span class="line"></span><br><span class="line">const c = svg.append(&apos;circle&apos;)</span><br><span class="line">             .attr(&apos;cx&apos;, 200)</span><br><span class="line">             .attr(&apos;cy&apos;, 75)</span><br><span class="line">             .attr(&apos;r&apos;, 25)</span><br><span class="line">             .style(&apos;fill&apos;, &apos;red&apos;);</span><br><span class="line"></span><br><span class="line">c.transition()</span><br><span class="line"> .duration(1000)</span><br><span class="line"> .attr(&apos;cx&apos;, 500)</span><br><span class="line"> .style(&apos;fill&apos;, &apos;green&apos;)</span><br><span class="line"> .attr(&apos;r&apos;, 50)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>The Code above will draw a red circle whose radius is 25, then the circle will move to the right while becomming bigger and turning ino green.</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/16/note/CS50 Beyond/js/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -912,10 +1066,7 @@ svg.append('circle')
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102768936&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe>
-
-<h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="HTML5-features"><a href="#HTML5-features" class="headerlink" title="HTML5 features"></a>HTML5 features</h3><h4 id="Common-HTML-elements"><a href="#Common-HTML-elements" class="headerlink" title="Common HTML elements"></a>Common HTML elements</h4><table>
+          <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102768936&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="HTML5-features"><a href="#HTML5-features" class="headerlink" title="HTML5 features"></a>HTML5 features</h3><h4 id="Common-HTML-elements"><a href="#Common-HTML-elements" class="headerlink" title="Common HTML elements"></a>Common HTML elements</h4><table>
 <thead>
 <tr>
 <th align="center">tag</th>
@@ -963,189 +1114,15 @@ svg.append('circle')
 <td align="center">form tag</td>
 </tr>
 </tbody></table>
-<h4 id="ID-attribute"><a href="#ID-attribute" class="headerlink" title="ID attribute"></a>ID attribute</h4><p>Insert in any tag.</p>
-<p>In <code>&lt;a&gt;</code> tag, href=”#<strong>the ID of that place</strong>“ can create a link to that specific place.<br>ID can only be used once in the same page.</p>
-<h4 id="New-HTML5-Features"><a href="#New-HTML5-Features" class="headerlink" title="New HTML5 Features"></a>New HTML5 Features</h4><h5 id="contenteditable"><a href="#contenteditable" class="headerlink" title="contenteditable"></a>contenteditable</h5><p>contenteditable is an attribute of paragraph</p>
-<h6 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p contenteditable=&quot;true&quot;&gt;This paragraph is editable&lt;/p&gt;</span><br></pre></td></tr></table></figure>
-
-<h6 id="Effect"><a href="#Effect" class="headerlink" title="Effect"></a>Effect</h6><p contenteditable="true">This paragraph is editable</p>
-
-<h5 id="datalist"><a href="#datalist" class="headerlink" title="datalist"></a>datalist</h5><p>datalist is a tag, it enables auto complete</p>
-<h6 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;input name=&quot;junk&quot; list=&quot;some junk&quot; /&gt;</span><br><span class="line">    &lt;datalist id=&quot;some junk&quot;&gt;</span><br><span class="line">        &lt;option value=&quot;aa11&quot;&gt;</span><br><span class="line">        &lt;option value=&quot;ab12&quot;&gt;</span><br><span class="line">        &lt;option value=&quot;ac13&quot;&gt;</span><br><span class="line">        &lt;option value=&quot;bc23&quot;&gt;</span><br><span class="line">        &lt;option value=&quot;ca31&quot;&gt;</span><br><span class="line">        &lt;option value=&quot;cb32&quot;&gt;</span><br><span class="line">    &lt;/datalist&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<h6 id="Effect-1"><a href="#Effect-1" class="headerlink" title="Effect"></a>Effect</h6><div>
-    <input name="junk" list="some junk">
-    <datalist id="some junk">
-        <option value="aa11">
-        </option><option value="ab12">
-        </option><option value="ac13">
-        </option><option value="bc23">
-        </option><option value="ca31">
-        </option><option value="cb32">
-    </option></datalist>
-</div>
-
-<h5 id="pattern"><a href="#pattern" class="headerlink" title="pattern"></a>pattern</h5><p>pattern is an attribute of the input tag<br>It accept a regular expression</p>
-<h6 id="Code-2"><a href="#Code-2" class="headerlink" title="Code"></a>Code</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;</span><br><span class="line">    &lt;input pattern=&quot;.*\..*&quot; placeholder=&quot;something.something&quot;&gt;</span><br><span class="line">    &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>NOTE:</strong> Don’t use pattern as the only verification process. Users can modify the source code to bypass that. Never trust your user.</p>
-<h6 id="Effect-2"><a href="#Effect-2" class="headerlink" title="Effect"></a>Effect</h6><form>
-    <input pattern=".*\..*" placeholder="something.something">
-    <button type="submit">Submit</button>
-</form>
-
-<h3 id="Regular-Expressions"><a href="#Regular-Expressions" class="headerlink" title="Regular Expressions"></a>Regular Expressions</h3><ul>
-<li>Use in string searching algorithms</li>
-<li>Basic Operations<ul>
-<li>Concatenation</li>
-<li>Alternation</li>
-<li>Kleene Star</li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">Expression</th>
-<th align="center">Matches</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>hi</code></td>
-<td align="center"><code>hi</code></td>
-</tr>
-<tr>
-<td align="center"><code>hi|hello</code></td>
-<td align="center"><code>hi</code> or <code>hello</code></td>
-</tr>
-<tr>
-<td align="center"><code>hi?</code></td>
-<td align="center"><code>h</code> or <code>hi</code></td>
-</tr>
-<tr>
-<td align="center"><code>hi*</code></td>
-<td align="center"><code>h/hi/hii/hiii/...</code> (from 0 to infinite)</td>
-</tr>
-<tr>
-<td align="center"><code>hi+</code></td>
-<td align="center"><code>hi/hii/hiii/...</code> (from 1 to infinite)</td>
-</tr>
-<tr>
-<td align="center"><code>hi{3}</code></td>
-<td align="center"><code>hiii</code></td>
-</tr>
-<tr>
-<td align="center"><code>.</code></td>
-<td align="center">anything</td>
-</tr>
-<tr>
-<td align="center"><code>\.</code>/<code>\+</code>/…</td>
-<td align="center"><code>.</code>/<code>+</code>   <code>\</code> is the escape character</td>
-</tr>
-<tr>
-<td align="center"><code>\s</code></td>
-<td align="center">white space</td>
-</tr>
-<tr>
-<td align="center"><code>[a-z]</code>/<code>[A-Z]</code>/<code>[0-9]</code></td>
-<td align="center">a to z/A to Z/0 to 9</td>
-</tr>
-</tbody></table>
-<p><strong>NOTE:</strong> Those marks only apply on the one before them</p>
-<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="CSS-Properties"><a href="#CSS-Properties" class="headerlink" title="CSS Properties"></a>CSS Properties</h3><ul>
-<li>color</li>
-<li>text-align</li>
-<li>width, height</li>
-<li>margin, padding</li>
-<li>font-family, font-size, font-weight</li>
-<li>border</li>
-</ul>
-<h3 id="Styling-Ways"><a href="#Styling-Ways" class="headerlink" title="Styling Ways"></a>Styling Ways</h3><p>Inline Styling:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;title&gt;Style&lt;/tile&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;h1 style=&quot;color:red;&quot;&gt;This is red&lt;/h1&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>Use of Selector:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;title&gt;Style&lt;/tile&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line">            h1 &#123;</span><br><span class="line">                color:red;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;h1&gt;This is red&lt;/h1&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Selector"><a href="#Selector" class="headerlink" title="Selector"></a>Selector</h3><table>
-<thead>
-<tr>
-<th align="center">Selector</th>
-<th align="center">Example</th>
-<th align="center">Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">element</td>
-<td align="center"><code>h1</code></td>
-<td align="center">Select every <code>h1</code> element</td>
-</tr>
-<tr>
-<td align="center"><code>.class</code></td>
-<td align="center"><code>.welcome</code></td>
-<td align="center">Select every element whose class is welcome</td>
-</tr>
-<tr>
-<td align="center"><code>#id</code></td>
-<td align="center"><code>#welcome</code></td>
-<td align="center">Select the element whose id is welcome</td>
-</tr>
-<tr>
-<td align="center">element, element</td>
-<td align="center"><code>h1, div</code></td>
-<td align="center">Select every <code>h1</code> and <code>div</code> element</td>
-</tr>
-<tr>
-<td align="center">element element</td>
-<td align="center"><code>div h1</code></td>
-<td align="center">Select every <code>h1</code> that is inside <code>div</code></td>
-</tr>
-<tr>
-<td align="center">element&gt;element</td>
-<td align="center"><code>div&gt;h1</code></td>
-<td align="center">Select every <code>h1</code> that is an <strong>immediate</strong> children of <code>div</code></td>
-</tr>
-<tr>
-<td align="center">element+element</td>
-<td align="center"><code>div+h1</code></td>
-<td align="center">Select every <code>h1</code> that is right after <code>div</code></td>
-</tr>
-<tr>
-<td align="center"><code>[attribute=value]</code></td>
-<td align="center"><code>[target=1]</code></td>
-<td align="center">Select every element that has <code>target=1</code></td>
-</tr>
-<tr>
-<td align="center"><code>:hover</code></td>
-<td align="center"><code>button:hover</code></td>
-<td align="center">Acts when a button has the cursor hover over it</td>
-</tr>
-</tbody></table>
-<h3 id="CSS-Box-Model"><a href="#CSS-Box-Model" class="headerlink" title="CSS Box Model"></a>CSS Box Model</h3><p>All element in the HTML has a border. Outside of the border there is comething called the Margin. Inside the border there is something called Padding.</p>
-<h3 id="Responsive-Design"><a href="#Responsive-Design" class="headerlink" title="Responsive Design"></a>Responsive Design</h3><p><strong>Viewport:</strong> The visible area of the webpage on the screen</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width initial-sacle=1.0&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p><code>width=device-width</code> means that the width of the webpage is equal to the device’s width<br><code>initial-scale=1.0</code> means that at the beginning, do not zoom the webpage</p>
-<p><strong>Media Query:</strong> Let you customize the CSS you use based upon the type of the media of the user that is viewing the page.</p>
-<p>Inside the “Style tag”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@media (min-width 500px) &#123;</span><br><span class="line">    Just the same as others</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>The above only got to apply when the page is at least 500 pixels wide</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@media (max-width 499px) &#123;</span><br><span class="line">    Just the same as others</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>The above only got to apply when the page is at most 499 pixels wide</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@media print &#123;</span><br><span class="line">    Just the same as others</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>The above only got to apply when the page is printed out</p>
-<p><strong>Flex Box:</strong> It is a technology that automatically wrap the page for you.</p>
-<p>Inside the “Style” tag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">selector &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    flex-wrap: wrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>Grid Model:</strong> Display like grid</p>
-<p>Inside the “Style” tag</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">selector &#123;</span><br><span class="line">    display: grid;</span><br><span class="line">    flex-wrap: wrap;</span><br><span class="line">    grid-column-gap: xxx; (in pixel)</span><br><span class="line">    grid-row-gap: xxx; (in pixel)</span><br><span class="line">    grid-template-columns: xxx;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/15/note/CS50 Beyond/css/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1271,10 +1248,7 @@ svg.append('circle')
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102766022&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe>
-
-<h2 id="Git-Commands"><a href="#Git-Commands" class="headerlink" title="Git Commands"></a>Git Commands</h2><table>
+          <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102766022&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><h2 id="Git-Commands"><a href="#Git-Commands" class="headerlink" title="Git Commands"></a>Git Commands</h2><table>
 <thead>
 <tr>
 <th align="center">command</th>
@@ -1342,28 +1316,15 @@ svg.append('circle')
 <td align="center">delete the branch</td>
 </tr>
 </tbody></table>
-<h2 id="Pull-Request"><a href="#Pull-Request" class="headerlink" title="Pull Request"></a>Pull Request</h2><p>In industry, they don’t let everyone to modify the code base, instead, you should make change on different branch and then summit a pull request so that someone else can do a review and comment and then merge the branches.</p>
-<p>So pull request is a request to merge your branch into the master branch. And it is widely used in the inductry.</p>
-<h2 id="Sass"><a href="#Sass" class="headerlink" title="Sass"></a>Sass</h2><p>Sass is an extension of CSS that allows you to use variable and nesting.</p>
-<h3 id="Link-a-seperate-CSS-file"><a href="#Link-a-seperate-CSS-file" class="headerlink" title="Link a seperate CSS file"></a>Link a seperate CSS file</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;address of the css file&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="Variable"><a href="#Variable" class="headerlink" title="Variable"></a>Variable</h3><p>For Sass file, file extension is <code>.css</code></p>
-<p><code>$</code> as the mark of variable, <code>$variable_name</code> is a complete variable</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$color: red;</span><br><span class="line"></span><br><span class="line">ul &#123;</span><br><span class="line">    color=$color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Above is a complete SASS file.</p>
-<h3 id="Compile"><a href="#Compile" class="headerlink" title="Compile"></a>Compile</h3><p>SASS file can’t be directly linked to the HTML file.</p>
-<p>Download the SASS program then run it, it will convert SASS file to CSS file for you.</p>
-<p>Use the command <code>sass xxx.scss xxx.css</code></p>
-<h3 id="Nesting"><a href="#Nesting" class="headerlink" title="Nesting"></a>Nesting</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">    xxxxxx</span><br><span class="line"></span><br><span class="line">    p &#123;</span><br><span class="line">        xxxxx</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ul &#123;</span><br><span class="line">        xxxxx</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>You can use the above code to directly apply CSS to that structure in Sass.</p>
-<h3 id="Inheritence"><a href="#Inheritence" class="headerlink" title="Inheritence"></a>Inheritence</h3><p>Inheritence in Sass use the <code>%</code> sign.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">%extend &#123;</span><br><span class="line">    xxx</span><br><span class="line">    xxx</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#id &#123;</span><br><span class="line">    @extend %extend;</span><br><span class="line">    xxx</span><br><span class="line">    xxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Properties in %extend will also effect in #id</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/15/note/CS50 Beyond/git/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -1489,143 +1450,16 @@ svg.append('circle')
     <div class="post-body" itemprop="articleBody">
 
       
+          <p>This post is aiming at storing some tips of useing hexo.  </p><h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h2><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1. One</span><br><span class="line">2. Two</span><br><span class="line">3. Three</span><br><span class="line"></span><br><span class="line">* One</span><br><span class="line">* Two</span><br><span class="line"></span><br><span class="line">- One</span><br><span class="line">- Two</span><br><span class="line">  - two spaces before the dash</span><br><span class="line">  - two spaces before the dash</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
           
-            <p>This post is aiming at storing some tips of useing hexo.  </p>
-<h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h2><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1. One</span><br><span class="line">2. Two</span><br><span class="line">3. Three</span><br><span class="line"></span><br><span class="line">* One</span><br><span class="line">* Two</span><br><span class="line"></span><br><span class="line">- One</span><br><span class="line">- Two</span><br><span class="line">  - two spaces before the dash</span><br><span class="line">  - two spaces before the dash</span><br></pre></td></tr></table></figure>
-
-<h3 id="The-effect-of-the-code-above"><a href="#The-effect-of-the-code-above" class="headerlink" title="The effect of the code above"></a>The effect of the code above</h3><ol>
-<li>One</li>
-<li>Two</li>
-<li>Three</li>
-</ol>
-<ul>
-<li>One</li>
-<li>Two</li>
-</ul>
-<ul>
-<li>One</li>
-<li>Two<ul>
-<li>two spaces before the dash</li>
-<li>two spaces before the dash</li>
-</ul>
-</li>
-</ul>
-<h2 id="Extras"><a href="#Extras" class="headerlink" title="Extras"></a>Extras</h2><h3 id="Code-1"><a href="#Code-1" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- [x] This is a complete item</span><br><span class="line">- [ ] This is an incomplete item</span><br></pre></td></tr></table></figure>
-
-<h3 id="The-effect-of-the-code-above-1"><a href="#The-effect-of-the-code-above-1" class="headerlink" title="The effect of the code above"></a>The effect of the code above</h3><ul>
-<li><input checked disabled type="checkbox"> This is a complete item</li>
-<li><input disabled type="checkbox"> This is an incomplete item</li>
-</ul>
-<h2 id="Tabs"><a href="#Tabs" class="headerlink" title="Tabs"></a>Tabs</h2><h3 id="Code-2"><a href="#Code-2" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;% tabs tabs_name %&#125;</span><br><span class="line">&lt;!-- tab first tab@heart --&gt;</span><br><span class="line">first</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&lt;!-- tab second tab--&gt;</span><br><span class="line">second</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>NOTICE:</strong> tabs must have unique name</p>
-<h3 id="The-effect-of-the-code-above-2"><a href="#The-effect-of-the-code-above-2" class="headerlink" title="The effect of the code above"></a>The effect of the code above</h3><div class="tabs" id="tabs_name"><ul class="nav-tabs"><li class="tab active"><a href="#tabs_name-1"><i class="fa fa-heart"></i>first tab</a></li><li class="tab"><a href="#tabs_name-2">second tab</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tabs_name-1"><p>first</p></div><div class="tab-pane" id="tabs_name-2"><p>second</p></div></div></div>
-
-<h2 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h2><h3 id="Code-3"><a href="#Code-3" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name | 111 | 222 | 333 | 444</span><br><span class="line">:-: | :-: | :-: | :-: | :-:</span><br><span class="line">aaa | bbb | ccc | ddd | eee|</span><br><span class="line">fff | ggg| hhh | iii | 000|</span><br></pre></td></tr></table></figure>
-
-<h3 id="The-effect-of-the-code-above-3"><a href="#The-effect-of-the-code-above-3" class="headerlink" title="The effect of the code above"></a>The effect of the code above</h3><table>
-<thead>
-<tr>
-<th align="center">name</th>
-<th align="center">111</th>
-<th align="center">222</th>
-<th align="center">333</th>
-<th align="center">444</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">aaa</td>
-<td align="center">bbb</td>
-<td align="center">ccc</td>
-<td align="center">ddd</td>
-<td align="center">eee</td>
-</tr>
-<tr>
-<td align="center">fff</td>
-<td align="center">ggg</td>
-<td align="center">hhh</td>
-<td align="center">iii</td>
-<td align="center">000</td>
-</tr>
-</tbody></table>
-<h2 id="Centered-Quote"><a href="#Centered-Quote" class="headerlink" title="Centered Quote"></a>Centered Quote</h2><h3 id="Code-4"><a href="#Code-4" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% centerquote %&#125;This is Centered Quote&#123;% endcenterquote %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Or</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% cq %&#125;This is Centered Quote&#123;% endcq %&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="The-effect-of-the-code-above-4"><a href="#The-effect-of-the-code-above-4" class="headerlink" title="The effect of the code above"></a>The effect of the code above</h3><blockquote class="blockquote-center"><p>This is Centered Quote</p>
-</blockquote>
-
-<h2 id="Full-Image"><a href="#Full-Image" class="headerlink" title="Full Image"></a>Full Image</h2><p>This tag enables you to exceed the container’s width.</p>
-<h3 id="Code-5"><a href="#Code-5" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% fullimage /hexo/hexo.svg, alt, title %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Or</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% fi /hexo/hexo.svg, alt, title %&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="The-effect-of-the-code-above-5"><a href="#The-effect-of-the-code-above-5" class="headerlink" title="The effect of the code above"></a>The effect of the code above</h3><img src="/2019/08/13/note/hexo/hexotips/hexo.svg">
-
-<h2 id="Bootstrap-Callout"><a href="#Bootstrap-Callout" class="headerlink" title="Bootstrap Callout"></a>Bootstrap Callout</h2><h3 id="Code-6"><a href="#Code-6" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note class_name %&#125; Content (md partial supported) &#123;% endnote %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>class_name is one of the following:</p>
-<p>default | primary | success | info | warning | danger  </p>
-<h3 id="The-effect-of-the-code-above-6"><a href="#The-effect-of-the-code-above-6" class="headerlink" title="The effect of the code above"></a>The effect of the code above</h3><div class="note default">
-            <p>Bootstrap Callout default </p>
-          </div>
-<div class="note primary">
-            <p>Bootstrap Callout primary </p>
-          </div>
-<div class="note success">
-            <p>Bootstrap Callout success </p>
-          </div>
-<div class="note info">
-            <p>Bootstrap Callout info </p>
-          </div>
-<div class="note warning">
-            <p>Bootstrap Callout warning </p>
-          </div>
-<div class="note danger">
-            <p>Bootstrap Callout danger </p>
-          </div>
-
-<h2 id="Include-Raw"><a href="#Include-Raw" class="headerlink" title="Include Raw"></a>Include Raw</h2><h3 id="Code-7"><a href="#Code-7" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include_raw &apos;/404/404.md&apos; %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>This tag include any raw content into your posts. Path is relative to your site “source” directory.</p>
-<h3 id="The-effect-of-the-code-above-7"><a href="#The-effect-of-the-code-above-7" class="headerlink" title="The effect of the code above"></a>The effect of the code above</h3>404 Not Found(Just For Test)
-
-<h2 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h2><h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;% button url, text, icon [class], [title] %&#125;</span><br><span class="line">&lt;!-- Tag Alias --&gt;</span><br><span class="line">&#123;% btn url, text, icon [class], [title] %&#125;</span><br><span class="line"></span><br><span class="line">url     : Absolute or relative path to URL.</span><br><span class="line">text    : Button text. Required if no icon specified.</span><br><span class="line">icon    : FontAwesome icon name (without &apos;fa-&apos; at the begining). Required if no text specified.</span><br><span class="line">[class] : FontAwesome class(es): fa-fw | fa-lg | fa-2x | fa-3x | fa-4x | fa-5x</span><br><span class="line">          Optional parameter.</span><br><span class="line">[title] : Tooltip at mouseover.</span><br><span class="line">          Optional parameter.</span><br></pre></td></tr></table></figure>
-
-<h3 id="Code-8"><a href="#Code-8" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% btn # ,This Page, home fa-2x, Just This Page%&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>NOTE:</strong>It’s better to put them into the “&lt;div&gt;” tag, this may avoid some bug  </p>
-<h3 id="The-effect-of-the-code-above-8"><a href="#The-effect-of-the-code-above-8" class="headerlink" title="The effect of the code above"></a>The effect of the code above</h3><a class="btn" href="# " title="Just This Page"><i class="fa fa-home fa-2x"></i>This Page</a>
-
-<h2 id="Group-Picture"><a href="#Group-Picture" class="headerlink" title="Group Picture"></a>Group Picture</h2><h3 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% grouppicture [group]-[layout] %&#125;&#123;% endgrouppicture %&#125;</span><br><span class="line">&#123;% gp [group]-[layout] %&#125;&#123;% endgp %&#125;</span><br><span class="line"></span><br><span class="line">[group]  : Total number of pictures to add in the group.</span><br><span class="line">[layout] : Default picture under the group to show.</span><br></pre></td></tr></table></figure>
-
-<h3 id="Code-9"><a href="#Code-9" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;% gp 6-3%&#125;</span><br><span class="line">![](hexo/github.png)</span><br><span class="line">![](hexo/github.png)</span><br><span class="line">![](hexo/github.png)</span><br><span class="line">![](hexo/github.png)</span><br><span class="line">![](hexo/github.png)</span><br><span class="line">![](hexo/github.png)</span><br><span class="line">&#123;% endgp %&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="The-effect-of-the-code-above-9"><a href="#The-effect-of-the-code-above-9" class="headerlink" title="The effect of the code above"></a>The effect of the code above</h3><div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/2019/08/13/note/hexo/hexotips/github.png" alt></div><div class="group-picture-column" style="width: 50%;"><img src="/2019/08/13/note/hexo/hexotips/github.png" alt></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 100%;"><img src="/2019/08/13/note/hexo/hexotips/github.png" alt></div></div><div class="group-picture-row"><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="/2019/08/13/note/hexo/hexotips/github.png" alt></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="/2019/08/13/note/hexo/hexotips/github.png" alt></div><div class="group-picture-column" style="width: 33.333333333333336%;"><img src="/2019/08/13/note/hexo/hexotips/github.png" alt></div></div></div></div>
-
-<h2 id="Label"><a href="#Label" class="headerlink" title="Label"></a>Label</h2><h3 id="Usage-2"><a href="#Usage-2" class="headerlink" title="Usage"></a>Usage</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;% label [class]@Text %&#125;</span><br><span class="line"></span><br><span class="line">[class] : default | primary | success | info | warning | danger.</span><br><span class="line">          &apos;@Text&apos; can be specified with or without space</span><br><span class="line">          E.g. &apos;success @text&apos; similar to &apos;success@text&apos;.</span><br><span class="line">          If not specified, default class will be selected.</span><br></pre></td></tr></table></figure>
-
-<h3 id="Code-10"><a href="#Code-10" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% raw %&#125;&#123;% label default@default %&#125;&#123;% endraw %&#125; &#123;% raw %&#125;&#123;% label primary@primary %&#125;&#123;% endraw %&#125; &#123;% raw %&#125;&#123;% label success@success %&#125;&#123;% endraw %&#125; &#123;% raw %&#125;&#123;% label info@info %&#125;&#123;% endraw %&#125; &#123;% raw %&#125;&#123;% label warning@warning %&#125;&#123;% endraw %&#125; &#123;% raw %&#125;&#123;% label danger@danger %&#125; &#123;% raw %&#125;&#123;% label success@success%&#125;&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="The-effect-of-the-code-above-10"><a href="#The-effect-of-the-code-above-10" class="headerlink" title="The effect of the code above"></a>The effect of the code above</h3><span class="label default">default</span> <span class="label primary">primary</span> <span class="label success">success</span> <span class="label info">info</span> <span class="label warning">warning</span> <span class="label danger">danger</span> <span class="label success">success</span>
-
-<h2 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h2><h3 id="Code-11"><a href="#Code-11" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% video url %&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="PDF"><a href="#PDF" class="headerlink" title="PDF"></a>PDF</h2><h3 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h3><p>next/_config.yml</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pdf:</span><br><span class="line">  enable: true</span><br><span class="line">  # Default height</span><br><span class="line">  height: 500px</span><br></pre></td></tr></table></figure>
-
-<h3 id="Usage-3"><a href="#Usage-3" class="headerlink" title="Usage"></a>Usage</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf url [height] %&#125;</span><br><span class="line"></span><br><span class="line">[url]    : Relative path to PDF file.</span><br><span class="line">[height] : Optional. Height of the PDF display element, e.g. 800px.</span><br></pre></td></tr></table></figure>
-
-<h3 id="Code-12"><a href="#Code-12" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf hexo.pdf %&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>NOTE:</strong> Unlike images, you don’t need to add your post assets folder in front of the address.</p>
-<h3 id="The-effect-of-the-code-above-11"><a href="#The-effect-of-the-code-above-11" class="headerlink" title="The effect of the code above"></a>The effect of the code above</h3><div class="pdf" target="hexo.pdf" height></div>
-
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://theme-next.org/docs/tag-plugins/" target="_blank" rel="noopener">https://theme-next.org/docs/tag-plugins/</a><br><a href="http://theme-next.iissnan.com/tag-plugins.html" target="_blank" rel="noopener">http://theme-next.iissnan.com/tag-plugins.html</a><br><a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="noopener">Github Flavored Markdown</a></p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/13/note/hexo/hexotips/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -1751,15 +1585,16 @@ svg.append('circle')
     <div class="post-body" itemprop="articleBody">
 
       
+          <h2 id="Modify-Config"><a href="#Modify-Config" class="headerlink" title="Modify Config"></a>Modify Config</h2><p>Modify <code>post_asset_folder</code> in <code>_config.yml</code> to <code>true</code>.  </p><h2 id="Install-packages"><a href="#Install-packages" class="headerlink" title="Install packages"></a>Install packages</h2><p>execute <code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code> and wait.  </p>
+          <!--noindex-->
           
-            <h2 id="Modify-Config"><a href="#Modify-Config" class="headerlink" title="Modify Config"></a>Modify Config</h2><p>Modify <code>post_asset_folder</code> in <code>_config.yml</code> to <code>true</code>.  </p>
-<h2 id="Install-packages"><a href="#Install-packages" class="headerlink" title="Install packages"></a>Install packages</h2><p>execute <code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code> and wait.  </p>
-<p><strong>WARNING</strong>: Some may tell you to install via <code>npm install hexo-asset-image --save</code>, don’t do that, that package has bug.</p>
-<h2 id="Put-in-Images"><a href="#Put-in-Images" class="headerlink" title="Put in Images"></a>Put in Images</h2><p>After those steps, when you create a new post, hexo will auto generate a folder under the same folder with the same name of your post.</p>
-<p>Put your images into the correct folder</p>
-<h2 id="Use-It"><a href="#Use-It" class="headerlink" title="Use It"></a>Use It</h2><div class="tabs" id="tabs"><ul class="nav-tabs"><li class="tab active"><a href="#tabs-1">First Way</a></li><li class="tab"><a href="#tabs-2">Second Way</a></li><li class="tab"><a href="#tabs-3">Third Way</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tabs-1"><p><code>{% asset_img example.jpg examplename %}</code></p></div><div class="tab-pane" id="tabs-2"><p><code>![description][1]</code><br><code>[1]:picture_path &quot;picture_name&quot; ]</code></p></div><div class="tab-pane" id="tabs-3"><p><code>![description][picture_name]</code></p></div></div></div>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/13/article/hexo/image/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -1885,419 +1720,16 @@ svg.append('circle')
     <div class="post-body" itemprop="articleBody">
 
       
+          <p>Jinja takes “{{“, “}}“, “{%“, “%}“ as symbols for statements/expressions.</p><p>So if you want to use these symbols in your text of a Jinja Templated HTML file, put them in</p>
+          <!--noindex-->
           
-            <p>Jinja takes “{{“, “}}“, “{%“, “%}“ as symbols for statements/expressions.</p>
-<p>So if you want to use these symbols in your text of a Jinja Templated HTML file, put them in</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% raw %&#125;</span><br><span class="line">    your content</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Hexo seems to use something like Jinja, so that also works when you are writing markdown file of hexo.<br>Or Hexo will raise an “unexpected token” template render error.</p>
-<p>For some special symbol in HTML, like <code>&amp;lt;</code>(“&lt;”), <code>&amp;gt;</code>(“&gt;”)</p>
-<p>Change <code>&amp;</code> to <code>&amp;amp;</code></p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/08/12/note/python/escape/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/12/article/python/blueprint/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Olym Chen">
-      <meta itemprop="description" content="Just a Blog">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Olym's Secret House">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/12/article/python/blueprint/" class="post-title-link" itemprop="url">Template and Static Folder Setting in Flask Blueprint</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-12 16:50:39" itemprop="dateCreated datePublished" datetime="2019-08-12T16:50:39+08:00">2019-08-12</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-29 13:48:31" itemprop="dateModified" datetime="2019-08-29T13:48:31+08:00">2019-08-29</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span>863</span>
-            </span>
-          
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span>1 mins.</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <h2 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bp = Blueprint(xxxxxxx, template_folder=&apos;templates&apos;, static_folder=&apos;static&apos;)</span><br></pre></td></tr></table></figure>
-
-<h2 id="How-to-Use"><a href="#How-to-Use" class="headerlink" title="How to Use"></a>How to Use</h2><p>Flask treat them differently:</p>
-<h3 id="Template-Folder"><a href="#Template-Folder" class="headerlink" title="Template Folder"></a>Template Folder</h3><p>For template folder, when you register your blueprint, flask will add the address of blueprint template folder into its config.</p>
-<p>All contents under all blueprint/original template folder will be treated as if they are in a same big folder “template”.</p>
-<p>If there are templates of the same name, Flask will search the original template folder first and then the blueprint folders.</p>
-<p>The solution is to create a folder with the same name in the blueprint’s template folder, so you can use it like your static folder.</p>
-<h3 id="Static-Folder"><a href="#Static-Folder" class="headerlink" title="Static Folder"></a>Static Folder</h3><p>For static folder, the blueprint’s static folder address will be register to the blueprint.</p>
-<p>So you can reference it wherever in your Flask app by: <code>&quot;blueprintName&quot;.static</code></p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/12/note/python/xrange/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Olym Chen">
-      <meta itemprop="description" content="Just a Blog">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Olym's Secret House">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/12/note/python/xrange/" class="post-title-link" itemprop="url">Update Bokeh Figure's X/Y Range</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-12 12:05:30" itemprop="dateCreated datePublished" datetime="2019-08-12T12:05:30+08:00">2019-08-12</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-29 13:48:31" itemprop="dateModified" datetime="2019-08-29T13:48:31+08:00">2019-08-29</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span>214</span>
-            </span>
-          
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span>1 mins.</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <p>To update bokeh figure’s x_range/y_range, you should use:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;plotname&quot;.x_range.start = xxx</span><br><span class="line">&quot;plotname&quot;.x_range.end = xxx</span><br><span class="line">&quot;plotname&quot;.y_range.start = xxx</span><br><span class="line">&quot;plotname&quot;.y_range.end = xxx</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/10/article/python/daterangeslider/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Olym Chen">
-      <meta itemprop="description" content="Just a Blog">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Olym's Secret House">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/10/article/python/daterangeslider/" class="post-title-link" itemprop="url">Properties of Bokeh Daterangeslider that Helps Develop</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-10 18:23:51" itemprop="dateCreated datePublished" datetime="2019-08-10T18:23:51+08:00">2019-08-10</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-29 13:48:31" itemprop="dateModified" datetime="2019-08-29T13:48:31+08:00">2019-08-29</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span>991</span>
-            </span>
-          
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span>1 mins.</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This article is about two special property of Daterangeslider in bokeh, which can help develop your bokeh app.</p>
-<p>My bokeh version is 1.3.1.</p>
-<h2 id="Body"><a href="#Body" class="headerlink" title="Body"></a>Body</h2><p>According to the <a href="https://bokeh.pydata.org/en/latest/docs/reference/models/widgets.sliders.html" target="_blank" rel="noopener">official documentation</a>, Bokeh Daterangeslider has two property method: <code>value_as_date</code> and <code>value_as_datetime</code>.</p>
-<p>Normally, when you called the on_change callback function, bokeh will return you a tuple of Unix timestamp in miliseconds. It’s very inconvinient to change the format of the datetime.</p>
-<p>So you can call <code>daterangeslider.value_as_date</code> or <code>daterangeslider.value_as_datetime</code> (remember this is property not method) in your callback function. Both will return you a tuple of datetime.date object, which can be conveniently turned into any format of datetime via its own strftime method.</p>
-<p>Yet anothor way of using property method doesn’t work.</p>
-<p>You can’t simply pass in <code>value_as_date</code> or <code>value_as_datetime</code> in the on_change method. </p>
-<p>e.g. <code>daterangeslider.on_change(&quot;value_as_date&quot;, on_change)</code></p>
-<p>This will raise an error</p>
-
-          
+          <!--/noindex-->
         
       
     </div>
@@ -2356,7 +1788,7 @@ svg.append('circle')
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -2397,7 +1829,9 @@ svg.append('circle')
         
           
         
-        <span class="site-state-item-count">13</span>
+          
+        
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
@@ -2514,7 +1948,15 @@ svg.append('circle')
         
           
         
-        <span class="site-state-item-count">51</span>
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
@@ -2577,12 +2019,12 @@ svg.append('circle')
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">58k</span>
+    <span title="Symbols count total">66k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">53 mins.</span>
+    <span title="Reading time total">1:01</span>
 </div>
 
         

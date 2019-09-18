@@ -3,6 +3,7 @@ title: CSC3001 Week1
 tags:
   - CSC3001
   - Discrete Mathematics
+  - Propositional Logic
 mathjax: true
 categories:
   - note
@@ -223,8 +224,34 @@ The final statement is called the *conclusion*.
 An argument is valid if:
 whenever all the assumptions are true, then the conclusion is true.
 
-Valid argument implies True conclusion
+Valid argument not implies True conclusion
 True conclusion implies Valid argument
+
+#### Two Types of Valid Arguments
+
+##### Assumptions and Conclusions Have Connection
+
+Such argument should contain conditional statement.
+
+If there exists conditions that makes the assumptions and conclusions to be true at the same time, the argument is a valid argument.
+
+##### Assumptions and Conclusions Do not Have Connection
+
+Whether the argument is valid or not have nothing to do with the assumptions.
+
+Valid argument means true conclusion and vice versa.
+
+#### Ways to Identify Valid Arguments
+
+##### Tautology
+
+An argument is valid iff $(P_{1} \land P_2 \land ... \land P_n) \rightarrow Q$ is tautology.
+
+##### Contradiction
+
+Set the conclusion to be False, is it possible that call hypothesis is True?
+
+If it is possible, then it is an invalid argument; On the contrary, it is a valid argument.
 
 #### Valid Argument Forms
 

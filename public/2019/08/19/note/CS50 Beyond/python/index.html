@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="Flask SessionWe will use a flask extension called “flask_session” 1234567891011121314from flask import Flask, render_template, sessionfrom flask_session import Sessionfrom tempfile import mkdtem">
+  <meta name="description" content="Flask SessionWe will use a flask extension called “flask_session”1234567891011121314from flask import Flask, render_template, sessionfrom flask_session import Sessionfrom tempfile import mkdtempapp">
 <meta name="keywords" content="python,flask,CS50,beyond,oop,ai">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CS50 Beyond Python, Flask, OOP and AI">
 <meta property="og:url" content="http://chenhaolinolym.github.io/2019/08/19/note/CS50 Beyond/python/index.html">
 <meta property="og:site_name" content="Olym&#39;s Secret House">
-<meta property="og:description" content="Flask SessionWe will use a flask extension called “flask_session” 1234567891011121314from flask import Flask, render_template, sessionfrom flask_session import Sessionfrom tempfile import mkdtem">
+<meta property="og:description" content="Flask SessionWe will use a flask extension called “flask_session”1234567891011121314from flask import Flask, render_template, sessionfrom flask_session import Sessionfrom tempfile import mkdtempapp">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-08-29T05:48:31.780Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CS50 Beyond Python, Flask, OOP and AI">
-<meta name="twitter:description" content="Flask SessionWe will use a flask extension called “flask_session” 1234567891011121314from flask import Flask, render_template, sessionfrom flask_session import Sessionfrom tempfile import mkdtem">
+<meta name="twitter:description" content="Flask SessionWe will use a flask extension called “flask_session”1234567891011121314from flask import Flask, render_template, sessionfrom flask_session import Sessionfrom tempfile import mkdtempapp">
   <link rel="canonical" href="http://chenhaolinolym.github.io/2019/08/19/note/CS50 Beyond/python/">
 
 
@@ -365,12 +365,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776514&page=7" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe>
+        <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776514&page=7" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776153&page=5" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><h2 id="Flask-Session"><a href="#Flask-Session" class="headerlink" title="Flask Session"></a>Flask Session</h2><p>We will use a flask extension called “flask_session”</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask, render_template, session</span><br><span class="line">from flask_session import Session</span><br><span class="line">from tempfile import mkdtemp</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">app.config[&quot;SESSION_FILE_DIR&quot;] = mkdtemp()</span><br><span class="line">app.config[&quot;SESSION_PERMANENT&quot;] = False</span><br><span class="line">app.config[&quot;SESSION_TYPE&quot;] = &quot;filesystem&quot;</span><br><span class="line">Session(app)</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def index():</span><br><span class="line">    return session</span><br></pre></td></tr></table></figure><a id="more"></a>
 
-<iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776153&page=5" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe>
 
-<h2 id="Flask-Session"><a href="#Flask-Session" class="headerlink" title="Flask Session"></a>Flask Session</h2><p>We will use a flask extension called “flask_session”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask, render_template, session</span><br><span class="line">from flask_session import Session</span><br><span class="line">from tempfile import mkdtemp</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">app.config[&quot;SESSION_FILE_DIR&quot;] = mkdtemp()</span><br><span class="line">app.config[&quot;SESSION_PERMANENT&quot;] = False</span><br><span class="line">app.config[&quot;SESSION_TYPE&quot;] = &quot;filesystem&quot;</span><br><span class="line">Session(app)</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def index():</span><br><span class="line">    return session</span><br></pre></td></tr></table></figure>
+
+
+
 
 <p>“session” is a dict that differ for every session. Store your temporary app data in it.</p>
 
@@ -477,7 +477,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -518,7 +518,9 @@
         
           
         
-        <span class="site-state-item-count">13</span>
+          
+        
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
@@ -635,7 +637,15 @@
         
           
         
-        <span class="site-state-item-count">51</span>
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
@@ -715,12 +725,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">58k</span>
+    <span title="Symbols count total">66k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">53 mins.</span>
+    <span title="Reading time total">1:01</span>
 </div>
 
         
