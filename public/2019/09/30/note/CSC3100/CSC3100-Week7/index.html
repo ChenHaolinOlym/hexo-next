@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="HashingThe Search ProblemFind items with keys matching a given search key Given an array A, containing n keys, and a search key x, find the index i such as x=A[i] As in the case of sorting, a key coul">
+<meta name="keywords" content="CSC3100,Algorithm,Data Structure">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSC3100 Week7">
+<meta property="og:url" content="http://chenhaolinolym.github.io/2019/09/30/note/CSC3100/CSC3100-Week7/index.html">
+<meta property="og:site_name" content="Olym&#39;s Secret House">
+<meta property="og:description" content="HashingThe Search ProblemFind items with keys matching a given search key Given an array A, containing n keys, and a search key x, find the index i such as x=A[i] As in the case of sorting, a key coul">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/09/30/note/CSC3100/CSC3100-Week7/1.png">
+<meta property="og:updated_time" content="2019-11-10T03:09:29.135Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSC3100 Week7">
+<meta name="twitter:description" content="HashingThe Search ProblemFind items with keys matching a given search key Given an array A, containing n keys, and a search key x, find the index i such as x=A[i] As in the case of sorting, a key coul">
+<meta name="twitter:image" content="http://chenhaolinolym.github.io/2019/09/30/note/CSC3100/CSC3100-Week7/1.png">
+  <link rel="canonical" href="http://chenhaolinolym.github.io/2019/09/30/note/CSC3100/CSC3100-Week7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CSC3100 Week7 | Olym's Secret House</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Olym's Secret House</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">always lazy，sometimes code</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/09/30/note/CSC3100/CSC3100-Week7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">CSC3100 Week7
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-09-30 14:15:05" itemprop="dateCreated datePublished" datetime="2019-09-30T14:15:05+08:00">2019-09-30</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-10 11:09:29" itemprop="dateModified" datetime="2019-11-10T11:09:29+08:00">2019-11-10</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CSC3100/" itemprop="url" rel="index"><span itemprop="name">CSC3100</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>7.1k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>6 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Hashing</p><h2 id="The-Search-Problem"><a href="#The-Search-Problem" class="headerlink" title="The Search Problem"></a>The Search Problem</h2><p>Find items with keys matching a given search key</p><ul>
+<li>Given an array A, containing n keys, and a search key x, find the index i such as x=A[i]</li>
+<li>As in the case of sorting, a key could be part of a large record.</li>
+</ul><a id="more"></a>
+
+
+<h3 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h3><ul>
+<li>Keeping track of customer account information at a bank</li>
+<li>Keep track of reservations on flights</li>
+<li>Search engine </li>
+<li>Applications need a lot of queries (once inserted, delete operations are not very often)</li>
+</ul>
+<h2 id="Direct-Addressing"><a href="#Direct-Addressing" class="headerlink" title="Direct Addressing"></a>Direct Addressing</h2><p><strong>Assumptions:</strong></p>
+<ul>
+<li>Key values are distinct</li>
+<li>Each key is drawn from a universe U = {0, 1, . . . , m-1}</li>
+</ul>
+<p><strong>Idea:</strong></p>
+<ul>
+<li>Store the items in an array, indexed by keys</li>
+</ul>
+<p><strong>Direct-address table representation:</strong></p>
+<ul>
+<li>An array T[0 . . . m - 1]</li>
+<li>Each corresponds to a key in U</li>
+<li>T[k] stores a pointer to x (or x itself) with key k</li>
+<li>T[k] may be empty</li>
+</ul>
+<p><strong>Notations:</strong></p>
+<p>U - universe of keys<br>K - actual keys</p>
+<h3 id="Compare-with-Other-Solutions"><a href="#Compare-with-Other-Solutions" class="headerlink" title="Compare with Other Solutions"></a>Compare with Other Solutions</h3><table>
+<thead>
+<tr>
+<th align="center">Solution</th>
+<th align="center">Insert</th>
+<th align="center">Search</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">direct addressing</td>
+<td align="center">O(1)</td>
+<td align="center">O(1)</td>
+</tr>
+<tr>
+<td align="center">ordered array</td>
+<td align="center">O(N)</td>
+<td align="center">O(logN)</td>
+</tr>
+<tr>
+<td align="center">ordered linked list</td>
+<td align="center">O(N)</td>
+<td align="center">O(N)</td>
+</tr>
+<tr>
+<td align="center">unordered array</td>
+<td align="center">O(1)</td>
+<td align="center">O(N)</td>
+</tr>
+<tr>
+<td align="center">unordered linked list</td>
+<td align="center">O(1)</td>
+<td align="center">O(N)</td>
+</tr>
+</tbody></table>
+<h2 id="Hash-Table"><a href="#Hash-Table" class="headerlink" title="Hash Table"></a>Hash Table</h2><p>When K is much smaller than U, a hash table requires much less space than a <strong><em>direct-address table.</em></strong></p>
+<ul>
+<li>Can reduce storage requirements to |K|</li>
+<li>Can still get O(1) search time, but on the <em>average</em> case, not the worst case</li>
+</ul>
+<h3 id="Consist-of"><a href="#Consist-of" class="headerlink" title="Consist of"></a>Consist of</h3><ul>
+<li>A fixed size array</li>
+<li>A hashing function</li>
+<li>The key of each element is mapped (hashing) into some number in the range 0 to <em>TableSize - 1</em>, and placed in the appropriate cells.</li>
+</ul>
+<h3 id="Hash-Function"><a href="#Hash-Function" class="headerlink" title="Hash Function"></a>Hash Function</h3><p>The mapping function is called a hash function, which ideally:</p>
+<ul>
+<li>Should be simple to compute;</li>
+<li>Should ensure that any two distinct keys get different cells;</li>
+<li>Or should distribute the keys evenly among the cells.</li>
+</ul>
+<h4 id="Remaining-Problem"><a href="#Remaining-Problem" class="headerlink" title="Remaining Problem"></a>Remaining Problem</h4><ul>
+<li>Choose a hash function;</li>
+<li>Decide on the table size;</li>
+<li>Decide what to do when two keys hash to the same value (this is known as a <strong>collision</strong>).</li>
+</ul>
+<h4 id="Simple-Hash-Function"><a href="#Simple-Hash-Function" class="headerlink" title="Simple Hash Function"></a>Simple Hash Function</h4><p>For numeric keys, one simple hash function is <strong><em>Key</em> mod <em>TableSize</em></strong>, where <em>TableSize</em> is a <strong>prime</strong> number.</p>
+<p><strong>Load Factor:</strong> Ratio of the number of elements in the hash table to the table size. Often control as 0.5</p>
+<h3 id="Solution-of-Hashing-Collision"><a href="#Solution-of-Hashing-Collision" class="headerlink" title="Solution of Hashing Collision"></a>Solution of Hashing Collision</h3><h4 id="Separate-Chaining"><a href="#Separate-Chaining" class="headerlink" title="Separate Chaining"></a>Separate Chaining</h4><p>Keep a list of all elements that hash to the same value.</p>
+<p><img src="/2019/09/30/note/CSC3100/CSC3100-Week7/1.png" alt="1"></p>
+<ul>
+<li>Chaining could be through a list or a tree.</li>
+<li>A disadvantage of separate chaining is that it requires a second data structure for the chains. Time is required for the allocation of new cells on insertion.</li>
+</ul>
+<h5 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h5><ul>
+<li>Find the hash index for the given key</li>
+<li>hash_index = key % size of table</li>
+<li>Insert a node into a linked list depending on the hash index</li>
+<li>Example,<ul>
+<li>Insert 33 to the hash table with 10 linked list</li>
+<li>Hash_index = 33 % 10 = 3</li>
+<li>The hash table’s 4th linked list will be used to store 33</li>
+</ul>
+</li>
+</ul>
+<h5 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h5><p>Worst Case: all elements hash into the same slot, the search is $\Theta n$</p>
+<p>Average Case: depends on how well the hash function distributes the n keys among the m slots</p>
+<p>If <em>Simple uniform hashing assumption</em> (Any given element is equally likely to hash into any of the m slots) is true, the search is $\Theta (\frac{n}{m})$</p>
+<h5 id="Load-Factor"><a href="#Load-Factor" class="headerlink" title="Load Factor"></a>Load Factor</h5><p>Load factor of a hash table T:<br>$\alpha = \frac{n}{m}$<br>n = # of elements stored in the table<br>m = # of slots in the table = # of linked lists</p>
+<p>$\alpha$ encodes the average number of elements stored in a chain<br>$\alpha$ can be &lt;, =, &gt; 1</p>
+<h5 id="Successful-Search-and-Unsuccessful-Search"><a href="#Successful-Search-and-Unsuccessful-Search" class="headerlink" title="Successful Search and Unsuccessful Search"></a>Successful Search and Unsuccessful Search</h5><h6 id="Unsuccessful-Search"><a href="#Unsuccessful-Search" class="headerlink" title="Unsuccessful Search"></a>Unsuccessful Search</h6><p>An unsuccessful search in a hash table takes expected time $\Theta (1+\alpha)$ under the assumption of simple uniform hashing (i.e. item not in the table)</p>
+<h6 id="Successful-Search"><a href="#Successful-Search" class="headerlink" title="Successful Search"></a>Successful Search</h6><p>Takes $\Theta (1+\frac{a}{2})$</p>
+<p>(search half of a list length plus $O(1)$ to compute hash)</p>
+<h5 id="Average-Time"><a href="#Average-Time" class="headerlink" title="Average Time"></a>Average Time</h5><p>If m (# of slots) is proportional to n (# of elements in the table):</p>
+<ul>
+<li>$n = O(m)$</li>
+<li>$\alpha = \frac{n}{m} = \frac{O(m)}{m} = O(1)$</li>
+</ul>
+<p>So searching takes constant time on average</p>
+<h4 id="Open-Addressing"><a href="#Open-Addressing" class="headerlink" title="Open Addressing"></a>Open Addressing</h4><ul>
+<li>If we have enough contiguous memory to store all the keys (m &gt; N), we can store the keys in the table itself</li>
+<li>No need to use linked lists anymore</li>
+<li>Basic idea:<ul>
+<li>Insertion: if a slot is full, try another one, until you find an empty one</li>
+<li>Search: follow the same sequence of probes</li>
+<li>Deletion: more difficult … (we’ll see why)</li>
+</ul>
+</li>
+<li>Search time depends on the length of the probe sequence.</li>
+</ul>
+<h5 id="Hash-Function-1"><a href="#Hash-Function-1" class="headerlink" title="Hash Function"></a>Hash Function</h5><p>A hash function contains two arguments now: <em>Key Value</em> and <em>Probe Number</em>.</p>
+<p>h(k,p), p=0,1,…,m-1</p>
+<h5 id="Probe-Sequences"><a href="#Probe-Sequences" class="headerlink" title="Probe Sequences"></a>Probe Sequences</h5><p>&lt;h(k,0), h(k,1), …, h(k,m-1)&gt;</p>
+<ul>
+<li><p>Must be a permutation of &lt;0,1,…,m-1&gt;</p>
+</li>
+<li><p>There are m! possible permutations </p>
+</li>
+</ul>
+<h5 id="Collision-Resolution-Strategies"><a href="#Collision-Resolution-Strategies" class="headerlink" title="Collision Resolution Strategies"></a>Collision Resolution Strategies</h5><ul>
+<li>Linear Probing</li>
+<li>Quadratic Probing</li>
+<li>Double Hashing</li>
+</ul>
+<h5 id="Linear-Probing"><a href="#Linear-Probing" class="headerlink" title="Linear Probing"></a>Linear Probing</h5><h6 id="Insert-1"><a href="#Insert-1" class="headerlink" title="Insert"></a>Insert</h6><p><strong>Idea:</strong> when there is a collision, check the next available position in the table (i.e., probing)</p>
+<h6 id="Find"><a href="#Find" class="headerlink" title="Find"></a>Find</h6><p><strong>Three Cases:</strong> </p>
+<ol>
+<li>Position in table is occupied with an element of equal key</li>
+<li>Position in table is empty</li>
+<li>Position in table occupied with a different element</li>
+</ol>
+<p>For case 3: Probe the next higher index until the element is found or an empty position is found. The process wraps around to the beginning of the table.</p>
+<p><strong>Infinity Loop:</strong> Remember to check that whether the probe index equals to the original index to avoid infinity loop.</p>
+<h6 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h6><p><strong>Problem:</strong> </p>
+<p>We cannot mark the slot as empty, because it’s impossible to retrieve keys inserted before that deleted slot but index larger than that slot.</p>
+<p><strong>Solution:</strong></p>
+<p>Mark the slot with a sentinel value DELETED.</p>
+<p>So the deleted slot can later be used for insertion.</p>
+<p>Searching will be able to find all the keys.</p>
+<h6 id="Prmary-Clustering-Problem"><a href="#Prmary-Clustering-Problem" class="headerlink" title="Prmary Clustering Problem"></a>Prmary Clustering Problem</h6><p>Linear probing always adds 1 in the previous hash index. </p>
+<p>So Long chunks of occupied slots are created $\Rightarrow$ Collisions happens more often $\Rightarrow$ search time increases a lot.</p>
+<h5 id="Quadratic-Probing"><a href="#Quadratic-Probing" class="headerlink" title="Quadratic Probing"></a>Quadratic Probing</h5><p><strong>hash function:</strong> h(x) = x % size of table(still the same)</p>
+<p><strong>index = h(x) + C2, where <em>C = number of collisions</em></strong></p>
+<p>$h(x) + C^2 \rightarrow h(x + C^2)$</p>
+<ul>
+<li><p>Make the index number in the correct range</p>
+</li>
+<li><p>$0 \leq C \leq size\ of\ table$</p>
+</li>
+</ul>
+<p>Initially, C = 0</p>
+<p>For insertion, if collision occurs, C = C + 1</p>
+<h6 id="Insert-2"><a href="#Insert-2" class="headerlink" title="Insert"></a>Insert</h6><p>Start with C = 0. Do the hash function to compute the index.</p>
+<p>When collision occurs, C = C + 1 and compute index again.</p>
+<h6 id="Find-1"><a href="#Find-1" class="headerlink" title="Find"></a>Find</h6><p>Start with C = 0. If the number does not fit, C = C + 1 and compute index again.</p>
+<h6 id="Delete-1"><a href="#Delete-1" class="headerlink" title="Delete"></a>Delete</h6><p>Mark the slot with a sentinel value DELETED.(The same as linear probing)</p>
+<h5 id="Double-Hashing"><a href="#Double-Hashing" class="headerlink" title="Double Hashing"></a>Double Hashing</h5><p>Have two hash functions.</p>
+<p><strong>Hash Function 1:</strong> $h_1(x) = x % size\ of\ table$</p>
+<p><strong>Hash Function 2:</strong> $h_2(x) = p – (x % p)$, <em>where <strong>p</strong> is a <strong>prime</strong> number smaller than <strong>size of table</strong></em></p>
+<p>$index = h_1(x) + C \times h_2(x)$, <em>where C is number of collisions</em></p>
+<p>$h_1(x) + C \times h_2(x) \rightarrow h_1(h_1(x) + C\times h_2(x))$</p>
+<ul>
+<li><p>Make the index number in the correct range</p>
+</li>
+<li><p>$0 \leq C \leq size\ of\ table$</p>
+</li>
+</ul>
+<p>If collision occurs, C = C + 1</p>
+<h6 id="Insert-3"><a href="#Insert-3" class="headerlink" title="Insert"></a>Insert</h6><p>Start with C = 0. Do the hash function to compute the index.</p>
+<p>When collision occurs, C = C + 1 and compute index again.</p>
+<h6 id="Find-2"><a href="#Find-2" class="headerlink" title="Find"></a>Find</h6><p>Start with C = 0. If the number does not fit, C = C + 1 and compute index again.</p>
+<h6 id="Delete-2"><a href="#Delete-2" class="headerlink" title="Delete"></a>Delete</h6><p>Mark the slot with a sentinel value DELETED.(The same as linear probing)</p>
+<h5 id="String-to-a-Number"><a href="#String-to-a-Number" class="headerlink" title="String to a Number"></a>String to a Number</h5><p>e.g. Add up the ASCII values of the characters in the string</p>
+<p>An example of hash function for strings</p>
+<h5 id="Analysis-of-Open-Addressing"><a href="#Analysis-of-Open-Addressing" class="headerlink" title="Analysis of Open Addressing"></a>Analysis of Open Addressing</h5><h6 id="Unsuccessful-Retrieval"><a href="#Unsuccessful-Retrieval" class="headerlink" title="Unsuccessful Retrieval"></a>Unsuccessful Retrieval</h6><p>$E(\#steps) = \sum^m_{k=1}(1-a) \leq \sum^\infty_{k=0}ka^{k-1}(1-a) = (1-a)\frac{1}{(1-a)^2} = \frac{1}{1-a}$</p>
+<h6 id="Successful-Retrieval"><a href="#Successful-Retrieval" class="headerlink" title="Successful Retrieval"></a>Successful Retrieval</h6><p>$E(\#steps) = \frac{1}{a}ln(\frac{1}{1-a})$</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/CSC3100/" rel="tag"># CSC3100</a>
+            
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+            
+              <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/30/note/CSC3001/CSC3001-Week6/" rel="next" title="CSC3001 Week6">
+                  <i class="fa fa-chevron-left"></i> CSC3001 Week6
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/30/note/CSC3001/CSC3001-Week7/" rel="prev" title="CSC3001 Week7">
+                  CSC3001 Week7 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Olym Chen">
+  <p class="site-author-name" itemprop="name">Olym Chen</p>
+  <div class="site-description motion-element" itemprop="description">Just a Blog</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/chenhaolinolym" title="GitHub &rarr; https://github.com/chenhaolinolym" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.olym.xyz" title="http://www.olym.xyz" rel="noopener" target="_blank">Homepage</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Search-Problem"><span class="nav-number">1.</span> <span class="nav-text">The Search Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Applications"><span class="nav-number">1.1.</span> <span class="nav-text">Applications</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Direct-Addressing"><span class="nav-number">2.</span> <span class="nav-text">Direct Addressing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Compare-with-Other-Solutions"><span class="nav-number">2.1.</span> <span class="nav-text">Compare with Other Solutions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hash-Table"><span class="nav-number">3.</span> <span class="nav-text">Hash Table</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Consist-of"><span class="nav-number">3.1.</span> <span class="nav-text">Consist of</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hash-Function"><span class="nav-number">3.2.</span> <span class="nav-text">Hash Function</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Remaining-Problem"><span class="nav-number">3.2.1.</span> <span class="nav-text">Remaining Problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Simple-Hash-Function"><span class="nav-number">3.2.2.</span> <span class="nav-text">Simple Hash Function</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-of-Hashing-Collision"><span class="nav-number">3.3.</span> <span class="nav-text">Solution of Hashing Collision</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Separate-Chaining"><span class="nav-number">3.3.1.</span> <span class="nav-text">Separate Chaining</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Insert"><span class="nav-number">3.3.1.1.</span> <span class="nav-text">Insert</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Analysis"><span class="nav-number">3.3.1.2.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Load-Factor"><span class="nav-number">3.3.1.3.</span> <span class="nav-text">Load Factor</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Successful-Search-and-Unsuccessful-Search"><span class="nav-number">3.3.1.4.</span> <span class="nav-text">Successful Search and Unsuccessful Search</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Unsuccessful-Search"><span class="nav-number">3.3.1.4.1.</span> <span class="nav-text">Unsuccessful Search</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Successful-Search"><span class="nav-number">3.3.1.4.2.</span> <span class="nav-text">Successful Search</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Average-Time"><span class="nav-number">3.3.1.5.</span> <span class="nav-text">Average Time</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Open-Addressing"><span class="nav-number">3.3.2.</span> <span class="nav-text">Open Addressing</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Hash-Function-1"><span class="nav-number">3.3.2.1.</span> <span class="nav-text">Hash Function</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Probe-Sequences"><span class="nav-number">3.3.2.2.</span> <span class="nav-text">Probe Sequences</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Collision-Resolution-Strategies"><span class="nav-number">3.3.2.3.</span> <span class="nav-text">Collision Resolution Strategies</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Linear-Probing"><span class="nav-number">3.3.2.4.</span> <span class="nav-text">Linear Probing</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Insert-1"><span class="nav-number">3.3.2.4.1.</span> <span class="nav-text">Insert</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Find"><span class="nav-number">3.3.2.4.2.</span> <span class="nav-text">Find</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Delete"><span class="nav-number">3.3.2.4.3.</span> <span class="nav-text">Delete</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Prmary-Clustering-Problem"><span class="nav-number">3.3.2.4.4.</span> <span class="nav-text">Prmary Clustering Problem</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Quadratic-Probing"><span class="nav-number">3.3.2.5.</span> <span class="nav-text">Quadratic Probing</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Insert-2"><span class="nav-number">3.3.2.5.1.</span> <span class="nav-text">Insert</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Find-1"><span class="nav-number">3.3.2.5.2.</span> <span class="nav-text">Find</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Delete-1"><span class="nav-number">3.3.2.5.3.</span> <span class="nav-text">Delete</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Double-Hashing"><span class="nav-number">3.3.2.6.</span> <span class="nav-text">Double Hashing</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Insert-3"><span class="nav-number">3.3.2.6.1.</span> <span class="nav-text">Insert</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Find-2"><span class="nav-number">3.3.2.6.2.</span> <span class="nav-text">Find</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Delete-2"><span class="nav-number">3.3.2.6.3.</span> <span class="nav-text">Delete</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#String-to-a-Number"><span class="nav-number">3.3.2.7.</span> <span class="nav-text">String to a Number</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Analysis-of-Open-Addressing"><span class="nav-number">3.3.2.8.</span> <span class="nav-text">Analysis of Open Addressing</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Unsuccessful-Retrieval"><span class="nav-number">3.3.2.8.1.</span> <span class="nav-text">Unsuccessful Retrieval</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Successful-Retrieval"><span class="nav-number">3.3.2.8.2.</span> <span class="nav-text">Successful Retrieval</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备19098205号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Olym Chen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">176k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">2:40</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+<script>
+if ($('body').find('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', function() {
+    $('body').find('div.pdf').each(function(i, o) {
+      PDFObject.embed($(o).attr('target'), $(o), {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: $(o).attr('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', function() {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="Bubble Sort Repeatedly pass through the array Swaps adjacent elements that are out of order Advantage: easier to implementBubble Sort vs. Insertion Sort">
+<meta name="keywords" content="CSC3100,Algorithm,Data Structure">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSC3100 Week6">
+<meta property="og:url" content="http://chenhaolinolym.github.io/2019/09/26/note/CSC3100/CSC3100-Week6/index.html">
+<meta property="og:site_name" content="Olym&#39;s Secret House">
+<meta property="og:description" content="Bubble Sort Repeatedly pass through the array Swaps adjacent elements that are out of order Advantage: easier to implementBubble Sort vs. Insertion Sort">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-13T02:25:37.943Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSC3100 Week6">
+<meta name="twitter:description" content="Bubble Sort Repeatedly pass through the array Swaps adjacent elements that are out of order Advantage: easier to implementBubble Sort vs. Insertion Sort">
+  <link rel="canonical" href="http://chenhaolinolym.github.io/2019/09/26/note/CSC3100/CSC3100-Week6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CSC3100 Week6 | Olym's Secret House</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Olym's Secret House</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">always lazy，sometimes code</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/09/26/note/CSC3100/CSC3100-Week6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">CSC3100 Week6
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-09-26 16:00:44" itemprop="dateCreated datePublished" datetime="2019-09-26T16:00:44+08:00">2019-09-26</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-13 10:25:37" itemprop="dateModified" datetime="2019-10-13T10:25:37+08:00">2019-10-13</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CSC3100/" itemprop="url" rel="index"><span itemprop="name">CSC3100</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>4.3k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>4 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Bubble-Sort"><a href="#Bubble-Sort" class="headerlink" title="Bubble Sort"></a>Bubble Sort</h2><ol>
+<li>Repeatedly pass through the array</li>
+<li>Swaps adjacent elements that are out of order</li>
+</ol><p><strong>Advantage:</strong> easier to implement</p><h3 id="Bubble-Sort-vs-Insertion-Sort"><a href="#Bubble-Sort-vs-Insertion-Sort" class="headerlink" title="Bubble Sort vs. Insertion Sort"></a>Bubble Sort vs. Insertion Sort</h3><a id="more"></a>
+
+<p>In average case, Insertion Sort is about $\frac{n^2}{4}$ and Bubble Sort is about $\frac{n^2}{2}$. So Bubble Sort is not very useful in practices.</p>
+<h3 id="Inversion-in-Analize-Insertion-Sort"><a href="#Inversion-in-Analize-Insertion-Sort" class="headerlink" title="Inversion in Analize Insertion Sort"></a>Inversion in Analize Insertion Sort</h3><p><strong>Inversion:</strong> An inversion in an array of numbers is any ordered pair (i, j) having the property that i &lt; j but A [i] &gt; A [j].</p>
+<p><strong>Theorem:</strong> On average, there are $\frac{N(N-1)}{4}$ inversions in an array of N distinct elements.</p>
+<p><strong>Proof:</strong></p>
+<ul>
+<li>Let L be a list for any given N distinct elements.</li>
+<li>Let Lr be the reverse of L</li>
+<li>Let (x,y) be any pair among N distinct elements.</li>
+<li>Then either L or Lr contains an inversion of (x,y).</li>
+<li>The total number of inversions of L and Lr is $\frac{N(N-1)}{2}$</li>
+<li>The average of L is $\frac{N(N-1)}{4}</li>
+</ul>
+<p><strong>Conclusion:</strong></p>
+<ul>
+<li>Each swap between 2 adjacent elements removes exactly one inversion.</li>
+<li>On average, an algorithm that sorts by exchanging adjacent elements requires about N(N-1)/4 time complexity. </li>
+<li>A sorting algorithm that is subquadratic must do comparisons and exchanges between elements that are far apart.</li>
+</ul>
+<h2 id="Shell-Sort"><a href="#Shell-Sort" class="headerlink" title="Shell Sort"></a>Shell Sort</h2><ul>
+<li>Break the quadratic time barrier by comparing elements that are <em>distant</em>.</li>
+<li>The distance between comparisons decreases as the algorithm runs until the last phase, in which adjacent elements are compared (diminishing increment sort).</li>
+<li>An increment sequence $h_1$, $h_2$, $h_3$, …, $h_t$, used in <em>reverse</em> order with $h_1=1$.</li>
+</ul>
+<p>Many rounds of Insertion Sort</p>
+<p>Such jumping may imporve Bubble Sort’s performance, too.</p>
+<p>Such technique can be used to combine other sorts.</p>
+<h3 id="Analysis-of-Shell-Sort"><a href="#Analysis-of-Shell-Sort" class="headerlink" title="Analysis of Shell Sort"></a>Analysis of Shell Sort</h3><p><strong>Theorem:</strong> The worst-case running time of Shellsort, using some increment, is $\Theta(N^2)$.</p>
+<h3 id="Good-Sequence-for-Shell-Sort"><a href="#Good-Sequence-for-Shell-Sort" class="headerlink" title="Good Sequence for Shell Sort"></a>Good Sequence for Shell Sort</h3><p><strong>Hibbard’s increment:</strong> 1, 3, 7, .., $2^{k-1}$</p>
+<ul>
+<li>Worst-case running time: $\Theta (N^{\frac{3}{2}})$</li>
+<li>Average-case running time: $O (N^{\frac{5}{4}})$</li>
+</ul>
+<p><strong>Sedgewick’s increment:</strong> 1, 5, 19, 41, 109, … (each term is either $9\times 4^i-9\times 2^i+1$ or $4^i-3\times 2^i+1$)</p>
+<ul>
+<li>Worst-case running time: $O (N^{\frac{4}{3}})$</li>
+<li>Average-case running time: $O (N^{\frac{7}{6}})$</li>
+</ul>
+<h2 id="Heap-Sort"><a href="#Heap-Sort" class="headerlink" title="Heap Sort"></a>Heap Sort</h2><ul>
+<li>First build a binary (max) heap of N elements. Which means the maximum number is at root</li>
+<li>Then perform N-1 DeleteMax operations by swapping the last element in the heap with the first, decrementing the heap size, and percolating down.</li>
+<li>Sorting in O(NlogN) time, but in practice, is slower than Shellsort that uses Sedgewick’s increment sequence.</li>
+</ul>
+<h2 id="Merge-Sort"><a href="#Merge-Sort" class="headerlink" title="Merge Sort"></a>Merge Sort</h2><p>Merge Sort is very good for sorting huge data.</p>
+<p>Although the disk can be very big, the memory of a computer is limited(Means data you can manipulate in a time is limited).</p>
+<p>So it’s good for External Sort.</p>
+<h2 id="Quick-Sort"><a href="#Quick-Sort" class="headerlink" title="Quick Sort"></a>Quick Sort</h2><p>Comparison based sorting method</p>
+<ul>
+<li>Very fast known sorting algorithm in practice</li>
+<li>Average running time is $O(NlogN)$</li>
+<li>Worst case performance is $O(N^2)$ (but very unlikely)</li>
+</ul>
+<h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><ul>
+<li>If the number of elements in S is 0 or 1, then return.</li>
+<li>Pick any element v in S. This is called the pivot.</li>
+<li>Partition S -{v} (the remaining elements in S) into 2 disjoint groups:<ul>
+<li>$S1 = {x \in S-{v}|x \leq v}$</li>
+<li>$S2 = {x \in S-{v}|x \geq v}$</li>
+</ul>
+</li>
+<li>Return {quicksort ($S_1$) followed by v followed by quicksort ($S_2$)}.</li>
+</ul>
+<h3 id="An-Improvement"><a href="#An-Improvement" class="headerlink" title="An Improvement"></a>An Improvement</h3><p>As we all know, quick sort’s performance will be worse if the pivot is too big or too small, so we can take the first, final and middle element and choose the middle one to be the pivot every time.</p>
+<h3 id="Limitation"><a href="#Limitation" class="headerlink" title="Limitation"></a>Limitation</h3><ul>
+<li>Quick Sort does not perform well for small arrays: CUTOFF is about 10. We often use Insertion Sort for such arrays.</li>
+<li>For every sorting algorithm that is comparison based, it must take $\Omega (nlogn)$ in worst case.</li>
+</ul>
+<h2 id="Bucket-Sort"><a href="#Bucket-Sort" class="headerlink" title="Bucket Sort"></a>Bucket Sort</h2><p><strong>Assumption:</strong> the input is generated by a random process that distributes elements uniformly over [0, 1)</p>
+<p><strong>Idea:</strong></p>
+<ul>
+<li>Divide [0, 1) into n equal-sized buckets</li>
+<li>Distribute the n input values into the buckets</li>
+<li>Sort each bucket (e.g., using quicksort)</li>
+<li>Go through the buckets in order, listing elements in each one</li>
+</ul>
+<h3 id="Running-Time"><a href="#Running-Time" class="headerlink" title="Running Time"></a>Running Time</h3><p>Assume that elements are distributed uniformly, running time is $\Theta (n)$</p>
+<h2 id="Radix-Sort"><a href="#Radix-Sort" class="headerlink" title="Radix Sort"></a>Radix Sort</h2><h3 id="Stable-Sort"><a href="#Stable-Sort" class="headerlink" title="Stable Sort"></a>Stable Sort</h3><h2 id="External-Sort"><a href="#External-Sort" class="headerlink" title="External Sort"></a>External Sort</h2><ul>
+<li>For the input on some sequential-access media like tapes and it is too large to be all incorporated into the memory.</li>
+<li>Computing time becomes insignificant when compared with access time.</li>
+<li>Merge routine from Merge Sort is used.</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/CSC3100/" rel="tag"># CSC3100</a>
+            
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+            
+              <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/26/note/CSC3100/CSC3100-Week5/" rel="next" title="CSC3100 Week5">
+                  <i class="fa fa-chevron-left"></i> CSC3100 Week5
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/30/note/EIE2050/EIE2050-Week5/" rel="prev" title="EIE2050 Week5">
+                  EIE2050 Week5 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Olym Chen">
+  <p class="site-author-name" itemprop="name">Olym Chen</p>
+  <div class="site-description motion-element" itemprop="description">Just a Blog</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/chenhaolinolym" title="GitHub &rarr; https://github.com/chenhaolinolym" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.olym.xyz" title="http://www.olym.xyz" rel="noopener" target="_blank">Homepage</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bubble-Sort"><span class="nav-number">1.</span> <span class="nav-text">Bubble Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bubble-Sort-vs-Insertion-Sort"><span class="nav-number">1.1.</span> <span class="nav-text">Bubble Sort vs. Insertion Sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inversion-in-Analize-Insertion-Sort"><span class="nav-number">1.2.</span> <span class="nav-text">Inversion in Analize Insertion Sort</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell-Sort"><span class="nav-number">2.</span> <span class="nav-text">Shell Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Analysis-of-Shell-Sort"><span class="nav-number">2.1.</span> <span class="nav-text">Analysis of Shell Sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Good-Sequence-for-Shell-Sort"><span class="nav-number">2.2.</span> <span class="nav-text">Good Sequence for Shell Sort</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Heap-Sort"><span class="nav-number">3.</span> <span class="nav-text">Heap Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Merge-Sort"><span class="nav-number">4.</span> <span class="nav-text">Merge Sort</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Sort"><span class="nav-number">5.</span> <span class="nav-text">Quick Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Algorithm"><span class="nav-number">5.1.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#An-Improvement"><span class="nav-number">5.2.</span> <span class="nav-text">An Improvement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Limitation"><span class="nav-number">5.3.</span> <span class="nav-text">Limitation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bucket-Sort"><span class="nav-number">6.</span> <span class="nav-text">Bucket Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Running-Time"><span class="nav-number">6.1.</span> <span class="nav-text">Running Time</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Radix-Sort"><span class="nav-number">7.</span> <span class="nav-text">Radix Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stable-Sort"><span class="nav-number">7.1.</span> <span class="nav-text">Stable Sort</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#External-Sort"><span class="nav-number">8.</span> <span class="nav-text">External Sort</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备19098205号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Olym Chen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">176k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">2:40</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+<script>
+if ($('body').find('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', function() {
+    $('body').find('div.pdf').each(function(i, o) {
+      PDFObject.embed($(o).attr('target'), $(o), {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: $(o).attr('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', function() {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>

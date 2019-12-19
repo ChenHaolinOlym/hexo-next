@@ -56,14 +56,14 @@
 </script>
 
   <meta name="description" content="Data StructuresDefinitions Objects created to organize data used in computation Means of storing and organizing data to facilitate access and modifications.">
-<meta name="keywords" content="CSC3100,Data Structure,Algorithm">
+<meta name="keywords" content="CSC3100,Algorithm,Data Structure">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSC3100 Week1">
 <meta property="og:url" content="http://chenhaolinolym.github.io/2019/09/07/note/CSC3100/CSC3100-Week1/index.html">
 <meta property="og:site_name" content="Olym&#39;s Secret House">
 <meta property="og:description" content="Data StructuresDefinitions Objects created to organize data used in computation Means of storing and organizing data to facilitate access and modifications.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-08T02:37:01.358Z">
+<meta property="og:updated_time" content="2019-10-23T13:19:12.513Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSC3100 Week1">
 <meta name="twitter:description" content="Data StructuresDefinitions Objects created to organize data used in computation Means of storing and organizing data to facilitate access and modifications.">
@@ -300,7 +300,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-08 10:37:01" itemprop="dateModified" datetime="2019-09-08T10:37:01+08:00">2019-09-08</time>
+                <time title="Modified: 2019-10-23 21:19:12" itemprop="dateModified" datetime="2019-10-23T21:19:12+08:00">2019-10-23</time>
               </span>
             
           
@@ -402,9 +402,9 @@
             
               <a href="/tags/CSC3100/" rel="tag"># CSC3100</a>
             
-              <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
-            
               <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+            
+              <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
             
           </div>
         
@@ -483,7 +483,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -526,7 +526,11 @@
         
           
         
-        <span class="site-state-item-count">14</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
@@ -651,7 +655,25 @@
         
           
         
-        <span class="site-state-item-count">55</span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">64</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
@@ -731,12 +753,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">67k</span>
+    <span title="Symbols count total">176k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:01</span>
+    <span title="Reading time total">2:40</span>
 </div>
 
         
@@ -849,6 +871,56 @@ if ($('body').find('div.pdf').length) {
 
   
 
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', function() {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
   
 
   

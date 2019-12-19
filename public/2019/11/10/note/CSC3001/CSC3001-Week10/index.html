@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="Graph MatchingMatchingMatching’ goal is to “match” in a “good” way.Stable MatchingGiven a matching M for the vertex set V, the pair (v,w) is unstable if">
+<meta name="keywords" content="CSC3001,Discrete Mathematics">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSC3001 Week10">
+<meta property="og:url" content="http://chenhaolinolym.github.io/2019/11/10/note/CSC3001/CSC3001-Week10/index.html">
+<meta property="og:site_name" content="Olym&#39;s Secret House">
+<meta property="og:description" content="Graph MatchingMatchingMatching’ goal is to “match” in a “good” way.Stable MatchingGiven a matching M for the vertex set V, the pair (v,w) is unstable if">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/11/10/note/CSC3001/CSC3001-Week10/image-20191112203045110.png">
+<meta property="og:updated_time" content="2019-12-06T11:13:57.970Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSC3001 Week10">
+<meta name="twitter:description" content="Graph MatchingMatchingMatching’ goal is to “match” in a “good” way.Stable MatchingGiven a matching M for the vertex set V, the pair (v,w) is unstable if">
+<meta name="twitter:image" content="http://chenhaolinolym.github.io/2019/11/10/note/CSC3001/CSC3001-Week10/image-20191112203045110.png">
+  <link rel="canonical" href="http://chenhaolinolym.github.io/2019/11/10/note/CSC3001/CSC3001-Week10/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CSC3001 Week10 | Olym's Secret House</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Olym's Secret House</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">always lazy，sometimes code</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/11/10/note/CSC3001/CSC3001-Week10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">CSC3001 Week10
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-10 10:50:44" itemprop="dateCreated datePublished" datetime="2019-11-10T10:50:44+08:00">2019-11-10</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-06 19:13:57" itemprop="dateModified" datetime="2019-12-06T19:13:57+08:00">2019-12-06</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CSC3001/" itemprop="url" rel="index"><span itemprop="name">CSC3001</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>4.5k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>4 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Graph Matching</p><h2 id="Matching"><a href="#Matching" class="headerlink" title="Matching"></a>Matching</h2><p>Matching’ goal is to “match” in a “good” way.</p><h3 id="Stable-Matching"><a href="#Stable-Matching" class="headerlink" title="Stable Matching"></a>Stable Matching</h3><p>Given a matching <em>M</em> for the vertex set <em>V</em>, the pair (v,w) is unstable if</p><a id="more"></a>
+
+
+<ol>
+<li>(v, w’) and (v’, w) are matched pairs in M, where v $\not=$ v’, w $\not=$ w’.</li>
+<li>v prefers w rather than w’.</li>
+<li>w prefers v rather than v’. </li>
+</ol>
+<p><strong>Stable Matching:</strong> A stable matching is a matching with no unstable pair, and every item is matched.</p>
+<p><strong>Stable Roommate Problem:</strong></p>
+<ul>
+<li>There are 2n people.</li>
+<li>There are n rooms, each can accommodate 2 people.</li>
+<li>Each person has a preference list of 2n-1 people.</li>
+<li>Find a stable matching (match everyone and no unstable pairs). </li>
+</ul>
+<p>To solve Stable Matching Problem is easier than solve Stable Roommate Problem, because we only need to satisfy one side.</p>
+<p>There is always a stable matching in the stable matching problem.(Gale,Shapley[1962])</p>
+<p>The proof is based on a Marrying Procedure.</p>
+<h4 id="Marrying-Procedure"><a href="#Marrying-Procedure" class="headerlink" title="Marrying Procedure"></a>Marrying Procedure</h4><ul>
+<li>Morning: boy propose to their favourite girl.</li>
+<li>Afternoon: girl rejects all but favourite.</li>
+<li>Evening: rejected boy writes off the girl.</li>
+<li>This procedure is then repeated until all boys propose to a different girl.</li>
+</ul>
+<p>So what we need to check now is:</p>
+<ol>
+<li>The procedure will terminate</li>
+<li>Everyone is married</li>
+<li>No unstable pairs</li>
+</ol>
+<p><strong>Claim 1:</strong> The procedure will terminate in at most $n^2$ days.</p>
+<ol>
+<li>If every girl is proposed by at most one boy, then all girls are married (since #boys = #girls), so the procedure will terminate.</li>
+<li>Otherwise, there must be a girl receiving more than one proposal.</li>
+<li>She will reject at least one boy in this case. These boys will write off that girl from their lists, and propose to their next favourite girls.</li>
+<li>There are n boys whose list has n girls, and at least one name will be written off each day. So the procedure will last for at most $n^2$ days. </li>
+</ol>
+<p><strong>Claim 2:</strong> Everyone is married when the procedure ends.</p>
+<p><strong>Proof</strong> (by contradiction).</p>
+<ol>
+<li>Suppose B is not married and his list is empty.</li>
+<li>Then B was rejected by all girls.</li>
+<li>A girl rejects a boy only if she already has a more preferable partner.</li>
+<li>So every girl has her own partner.</li>
+<li>That is, all girls are married, but some boys are not.</li>
+<li>This implies boys are more than girls, a contradiction. </li>
+</ol>
+<p><strong>Claim 3:</strong> There are no unstable pair.</p>
+<p><strong>Case 1: G is the first choice for B:</strong></p>
+<ul>
+<li>Then B married to his most favourite.</li>
+<li>So B has no incentive to leave.</li>
+</ul>
+<p><strong>Case 2: G is not B’s first choice:</strong></p>
+<ul>
+<li>If (B,G’) is unstable, then B prefers G’ than G.</li>
+<li>So G’ rejected B before.</li>
+<li>That is, G’ prefers her current partner than B.</li>
+<li>So G’ has no incentive to leave. </li>
+</ul>
+<p>So by <strong>Claim 1</strong>, <strong>Claim 2</strong> and <strong>Claim 3</strong>, the Gale-Shapley Theorem is proved.</p>
+<h4 id="More-Questions"><a href="#More-Questions" class="headerlink" title="More Questions"></a>More Questions</h4><h5 id="Uniqueness"><a href="#Uniqueness" class="headerlink" title="Uniqueness"></a>Uniqueness</h5><p>Stable matching is not always unique when exists.</p>
+<p><img src="/2019/11/10/note/CSC3001/CSC3001-Week10/image-20191112203045110.png" alt="image-20191112203045110"></p>
+<h5 id="Boys-and-Girls"><a href="#Boys-and-Girls" class="headerlink" title="Boys and Girls"></a>Boys and Girls</h5><ul>
+<li>All boys get the best partners!</li>
+<li>All girls get the worst partners! </li>
+<li>The marrying procedure will always choose the boy optimal one when situation like the above happens</li>
+</ul>
+<h3 id="Bipartite-Matching"><a href="#Bipartite-Matching" class="headerlink" title="Bipartite Matching"></a>Bipartite Matching</h3><h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p><strong>The Bipartite Marriage Problem:</strong></p>
+<ul>
+<li>There are n boys and n girls.</li>
+<li>Each boy/girl can only marry to some girls/boys.  </li>
+</ul>
+<p><strong>Goal:</strong> To maximize the number of matched pairs.</p>
+<h4 id="Graph-Problem"><a href="#Graph-Problem" class="headerlink" title="Graph Problem"></a>Graph Problem</h4><p>A graph is <strong>bipartite</strong> if its vertex set can be partitioned into two subsets A and B so that each edge has one endpoint in A and the other endpoint in B.  </p>
+<p>A <strong>matching</strong> is a subset of edges so that every vertex has degree at most one. </p>
+<h4 id="Maximum-Matching"><a href="#Maximum-Matching" class="headerlink" title="Maximum Matching"></a>Maximum Matching</h4><p><strong>The bipartite matching problem:</strong> Find a matching with the maximum number of edges.</p>
+<p>A perfect matching is a matching that every vertex is matched (i.e. of degree 1).</p>
+<p><strong>The perfect matching problem:</strong> Is there a perfect matching? </p>
+<h5 id="Some-Notations"><a href="#Some-Notations" class="headerlink" title="Some Notations"></a>Some Notations</h5><ul>
+<li>Let S be a subset of vertices of a graph. (e.g. a bipartite graph)</li>
+<li>We denote the <em>neighbor set</em> of S by N(S) = { v | v is a neighbor of some vertex in S}. So |S| is the number of vertices in S, and |N(S)| is the number of neighbors of S. </li>
+</ul>
+<p>If |N(S)| &lt; |S| for some S, then it is impossible to have a perfect matching. </p>
+<p>In other words, in order to have a perfect matching, a necessary condition is that for each subset S on either side, we must have |N(S)| $\geq$ |S|. </p>
+<h4 id="Hall’s-Theorem"><a href="#Hall’s-Theorem" class="headerlink" title="Hall’s Theorem"></a>Hall’s Theorem</h4><p>A bipartite graph G=(V,W;E) has a perfect matching if and only if |N(S)| ≥ |S| for each subset S of V and for each subset S of W.</p>
+<h4 id="Proof-of-Hall’s-Theorem"><a href="#Proof-of-Hall’s-Theorem" class="headerlink" title="Proof of Hall’s Theorem"></a>Proof of Hall’s Theorem</h4><p><strong>Hall’s Theorem:</strong> A bipartite graph G=(V,W;E) has a perfect matching if and only if |N(S)| ≥ |S| for every subset S of V and W.  </p>
+<ul>
+<li>If S = V, then |V| $\leq$ |N(V)| $\leq$ |W|.</li>
+<li>If S = W, then |W| $\leq$  |N(W)| $\leq$  |V|. </li>
+</ul>
+<p>So the theorem can be restated as:</p>
+<p><strong>Hall’s Theorem:</strong> A bipartite graph G=(V,W;E) with |V|=|W| has a perfect matching if and only if |N(S)| ≥ |S| for every subset S of V. </p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/CSC3001/" rel="tag"># CSC3001</a>
+            
+              <a href="/tags/Discrete-Mathematics/" rel="tag"># Discrete Mathematics</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/10/note/CSC3001/CSC3001-Week8/" rel="next" title="CSC3001 Week8">
+                  <i class="fa fa-chevron-left"></i> CSC3001 Week8
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/11/10/note/EIE2050/EIE2050-Week7/" rel="prev" title="EIE2050 Week7">
+                  EIE2050 Week7 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Olym Chen">
+  <p class="site-author-name" itemprop="name">Olym Chen</p>
+  <div class="site-description motion-element" itemprop="description">Just a Blog</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/chenhaolinolym" title="GitHub &rarr; https://github.com/chenhaolinolym" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.olym.xyz" title="http://www.olym.xyz" rel="noopener" target="_blank">Homepage</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Matching"><span class="nav-number">1.</span> <span class="nav-text">Matching</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stable-Matching"><span class="nav-number">1.1.</span> <span class="nav-text">Stable Matching</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Marrying-Procedure"><span class="nav-number">1.1.1.</span> <span class="nav-text">Marrying Procedure</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#More-Questions"><span class="nav-number">1.1.2.</span> <span class="nav-text">More Questions</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Uniqueness"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Uniqueness</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Boys-and-Girls"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Boys and Girls</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bipartite-Matching"><span class="nav-number">1.2.</span> <span class="nav-text">Bipartite Matching</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Problem"><span class="nav-number">1.2.1.</span> <span class="nav-text">Problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Graph-Problem"><span class="nav-number">1.2.2.</span> <span class="nav-text">Graph Problem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maximum-Matching"><span class="nav-number">1.2.3.</span> <span class="nav-text">Maximum Matching</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Some-Notations"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">Some Notations</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hall’s-Theorem"><span class="nav-number">1.2.4.</span> <span class="nav-text">Hall’s Theorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Proof-of-Hall’s-Theorem"><span class="nav-number">1.2.5.</span> <span class="nav-text">Proof of Hall’s Theorem</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备19098205号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Olym Chen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">176k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">2:40</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+<script>
+if ($('body').find('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', function() {
+    $('body').find('div.pdf').each(function(i, o) {
+      PDFObject.embed($(o).attr('target'), $(o), {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: $(o).attr('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', function() {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>

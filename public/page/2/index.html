@@ -256,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/19/note/CS50 Beyond/python/">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/11/10/note/CSC3001/CSC3001-Week10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Olym Chen">
@@ -272,7 +272,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/08/19/note/CS50 Beyond/python/" class="post-title-link" itemprop="url">CS50 Beyond Python, Flask, OOP and AI</a>
+              <a href="/2019/11/10/note/CSC3001/CSC3001-Week10/" class="post-title-link" itemprop="url">CSC3001 Week10</a>
             
           </h1>
         
@@ -288,7 +288,7 @@
                 
               
 
-              <time title="Created: 2019-08-19 11:07:08" itemprop="dateCreated datePublished" datetime="2019-08-19T11:07:08+08:00">2019-08-19</time>
+              <time title="Created: 2019-11-10 10:50:44" itemprop="dateCreated datePublished" datetime="2019-11-10T10:50:44+08:00">2019-11-10</time>
             </span>
           
             
@@ -299,7 +299,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-29 13:48:31" itemprop="dateModified" datetime="2019-08-29T13:48:31+08:00">2019-08-29</time>
+                <time title="Modified: 2019-12-06 19:13:57" itemprop="dateModified" datetime="2019-12-06T19:13:57+08:00">2019-12-06</time>
               </span>
             
           
@@ -316,7 +316,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CS50-Beyond/" itemprop="url" rel="index"><span itemprop="name">CS50 Beyond</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CSC3001/" itemprop="url" rel="index"><span itemprop="name">CSC3001</span></a></span>
 
                 
                 
@@ -333,7 +333,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span>522</span>
+              <span>4.5k</span>
             </span>
           
             <span class="post-meta-item" title="Reading time">
@@ -343,7 +343,7 @@
               
                 <span class="post-meta-item-text">Reading time &asymp;</span>
               
-              <span>1 mins.</span>
+              <span>4 mins.</span>
             </span>
           
 
@@ -356,11 +356,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776514&page=7" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776153&page=5" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><h2 id="Flask-Session"><a href="#Flask-Session" class="headerlink" title="Flask Session"></a>Flask Session</h2><p>We will use a flask extension called “flask_session”</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask, render_template, session</span><br><span class="line">from flask_session import Session</span><br><span class="line">from tempfile import mkdtemp</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">app.config[&quot;SESSION_FILE_DIR&quot;] = mkdtemp()</span><br><span class="line">app.config[&quot;SESSION_PERMANENT&quot;] = False</span><br><span class="line">app.config[&quot;SESSION_TYPE&quot;] = &quot;filesystem&quot;</span><br><span class="line">Session(app)</span><br><span class="line"></span><br><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def index():</span><br><span class="line">    return session</span><br></pre></td></tr></table></figure>
+          <p>Graph Matching</p><h2 id="Matching"><a href="#Matching" class="headerlink" title="Matching"></a>Matching</h2><p>Matching’ goal is to “match” in a “good” way.</p><h3 id="Stable-Matching"><a href="#Stable-Matching" class="headerlink" title="Stable Matching"></a>Stable Matching</h3><p>Given a matching <em>M</em> for the vertex set <em>V</em>, the pair (v,w) is unstable if</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/08/19/note/CS50 Beyond/python/#more" rel="contents">
+              <a class="btn" href="/2019/11/10/note/CSC3001/CSC3001-Week10/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -391,7 +391,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/19/note/CS50 Beyond/sql/">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/11/10/note/CSC3001/CSC3001-Week8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Olym Chen">
@@ -407,7 +407,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/08/19/note/CS50 Beyond/sql/" class="post-title-link" itemprop="url">CS50 Beyond SQL, ORMs, APIs</a>
+              <a href="/2019/11/10/note/CSC3001/CSC3001-Week8/" class="post-title-link" itemprop="url">CSC3001 Week8</a>
             
           </h1>
         
@@ -423,7 +423,7 @@
                 
               
 
-              <time title="Created: 2019-08-19 00:13:41" itemprop="dateCreated datePublished" datetime="2019-08-19T00:13:41+08:00">2019-08-19</time>
+              <time title="Created: 2019-11-10 10:50:38" itemprop="dateCreated datePublished" datetime="2019-11-10T10:50:38+08:00">2019-11-10</time>
             </span>
           
             
@@ -434,7 +434,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-29 13:48:31" itemprop="dateModified" datetime="2019-08-29T13:48:31+08:00">2019-08-29</time>
+                <time title="Modified: 2019-11-12 16:41:32" itemprop="dateModified" datetime="2019-11-12T16:41:32+08:00">2019-11-12</time>
               </span>
             
           
@@ -451,7 +451,309 @@
                   , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CS50-Beyond/" itemprop="url" rel="index"><span itemprop="name">CS50 Beyond</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CSC3001/" itemprop="url" rel="index"><span itemprop="name">CSC3001</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>5.7k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>5 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Introduction to Graphs</p><h2 id="Graphs-Degrees"><a href="#Graphs-Degrees" class="headerlink" title="Graphs, Degrees"></a>Graphs, Degrees</h2><h3 id="Types-of-Graphs"><a href="#Types-of-Graphs" class="headerlink" title="Types of Graphs"></a>Types of Graphs</h3><h4 id="Simple-Graph"><a href="#Simple-Graph" class="headerlink" title="Simple Graph"></a>Simple Graph</h4><p>No multiedges, no loops, no directed edges:</p><p><img src="/2019/11/10/note/CSC3001/CSC3001-Week8/image-20191110160958413.png" alt="image-20191110160958413"></p><h4 id="Directed-Graph"><a href="#Directed-Graph" class="headerlink" title="Directed Graph"></a>Directed Graph</h4><p><img src="/2019/11/10/note/CSC3001/CSC3001-Week8/image-20191110161033856.png" alt="image-20191110161033856"></p><h4 id="Multi-graph"><a href="#Multi-graph" class="headerlink" title="Multi-graph"></a>Multi-graph</h4><p><img src="/2019/11/10/note/CSC3001/CSC3001-Week8/image-20191110161050054.png" alt="image-20191110161050054"></p><p> Unless otherwise specified, all graphs in this course are simple.</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/11/10/note/CSC3001/CSC3001-Week8/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/11/10/note/CSC3100/CSC3100-Week12/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/11/10/note/CSC3100/CSC3100-Week12/" class="post-title-link" itemprop="url">CSC3100 Week12</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-10 10:50:27" itemprop="dateCreated datePublished" datetime="2019-11-10T10:50:27+08:00">2019-11-10</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-07 20:24:38" itemprop="dateModified" datetime="2019-12-07T20:24:38+08:00">2019-12-07</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CSC3100/" itemprop="url" rel="index"><span itemprop="name">CSC3100</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>1.8k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>2 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Shortest Path</p><h2 id="Shortest-Path"><a href="#Shortest-Path" class="headerlink" title="Shortest Path"></a>Shortest Path</h2><h3 id="Problems"><a href="#Problems" class="headerlink" title="Problems"></a>Problems</h3><ul>
+<li><p>How can we find the shortest route between two points on a road map?</p>
+</li>
+<li><p>Model the problem as a graph problem:</p>
+<ul>
+<li>Road map is a weighted graph: <ul>
+<li>vertices = cities</li>
+<li>edges = road segments between cities</li>
+<li>edge weights = road distances</li>
+</ul>
+</li>
+<li>Goal: find a shortest path between two vertices (cities)</li>
+</ul>
+</li>
+<li><p>Input</p>
+<ul>
+<li>Directed Graph G = (V, E)</li>
+<li>Weight Function w: $E\rightarrow R$</li>
+</ul>
+</li>
+<li><p>Weight of the Path $p = &lt;v_0, v_1, \dots, v_k&gt;$</p>
+<ul>
+<li>$w(p) = \sum^k_{i=1}w(v_{i-1}, v_{i})$</li>
+</ul>
+</li>
+<li><p>Shortest-path Weight from u to v:</p>
+<ul>
+<li>$$<br>\begin{equation}<br>\delta(u,v) = \min \left {<br>\begin{aligned}<br>w(p) &amp;&amp; \text{if there exists a path from u to v} \<br>\infty &amp;&amp; \text{otherwise}<br>\end{aligned}<br>\right .<br>\end{equation}<br>$$</li>
+</ul>
+</li>
+<li><p><strong>Note:</strong> there might be <em><strong>multiple</strong> shortest paths</em> from u to v.</p>
+</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/11/10/note/CSC3100/CSC3100-Week12/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/11/10/note/CSC3100/CSC3100-Week11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/11/10/note/CSC3100/CSC3100-Week11/" class="post-title-link" itemprop="url">CSC3100 Week11</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-10 10:49:33" itemprop="dateCreated datePublished" datetime="2019-11-10T10:49:33+08:00">2019-11-10</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-07 00:09:00" itemprop="dateModified" datetime="2019-12-07T00:09:00+08:00">2019-12-07</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CSC3100/" itemprop="url" rel="index"><span itemprop="name">CSC3100</span></a></span>
 
                 
                 
@@ -491,46 +793,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102777100&page=11" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102807043&page=6" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><p>In this course we use PostgreSQL.</p><h2 id="Data-Types"><a href="#Data-Types" class="headerlink" title="Data Types"></a>Data Types</h2><table>
-<thead>
-<tr>
-<th align="center">Data Type</th>
-<th align="center">Usage</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">INTEGER</td>
-<td align="center">Storing integer</td>
-</tr>
-<tr>
-<td align="center">DECIMAL</td>
-<td align="center">Storing floating point number</td>
-</tr>
-<tr>
-<td align="center">SERIAL</td>
-<td align="center">A SERIAL will increment every time(like AUTOINCREMENT in sqLite)</td>
-</tr>
-<tr>
-<td align="center">VARCHAR</td>
-<td align="center">For a number of characters</td>
-</tr>
-<tr>
-<td align="center">TIMESTAMP</td>
-<td align="center">Store time</td>
-</tr>
-<tr>
-<td align="center">BOOLEAN</td>
-<td align="center">Ture or False</td>
-</tr>
-<tr>
-<td align="center">ENUM</td>
-<td align="center">Fix finite number of values</td>
-</tr>
-</tbody></table>
+          <p>Graph Algorithms</p><h2 id="Concepts-and-Definitions"><a href="#Concepts-and-Definitions" class="headerlink" title="Concepts and Definitions"></a>Concepts and Definitions</h2><h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><ul>
+<li>A graph G = (V, E) consists of a set of vertices, V, and a set of edges, E.</li>
+<li>Each edge (arc) is a pair (v, w), where v,w $\in$ V. An edge may have a weight (cost).</li>
+<li>If the pair is ordered, then the graph is directed graph.</li>
+<li>Vertex w is adjacent to v if and only if (v, w) $\in$ E.</li>
+</ul>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/08/19/note/CS50 Beyond/sql/#more" rel="contents">
+              <a class="btn" href="/2019/11/10/note/CSC3100/CSC3100-Week11/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -561,7 +833,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/17/note/CS50 Beyond/security/">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Olym Chen">
@@ -577,7 +849,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/08/17/note/CS50 Beyond/security/" class="post-title-link" itemprop="url">CS50 Beyond Security and Scalability</a>
+              <a href="/2019/10/13/note/CSC3100/CSC3100-Week8-10/" class="post-title-link" itemprop="url">CSC3100 Week8-10</a>
             
           </h1>
         
@@ -593,7 +865,7 @@
                 
               
 
-              <time title="Created: 2019-08-17 17:07:48" itemprop="dateCreated datePublished" datetime="2019-08-17T17:07:48+08:00">2019-08-17</time>
+              <time title="Created: 2019-10-13 10:04:31" itemprop="dateCreated datePublished" datetime="2019-10-13T10:04:31+08:00">2019-10-13</time>
             </span>
           
             
@@ -604,7 +876,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-29 13:48:31" itemprop="dateModified" datetime="2019-08-29T13:48:31+08:00">2019-08-29</time>
+                <time title="Modified: 2019-11-12 14:15:29" itemprop="dateModified" datetime="2019-11-12T14:15:29+08:00">2019-11-12</time>
               </span>
             
           
@@ -621,7 +893,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CS50-Beyond/" itemprop="url" rel="index"><span itemprop="name">CS50 Beyond</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CSC3100/" itemprop="url" rel="index"><span itemprop="name">CSC3100</span></a></span>
 
                 
                 
@@ -638,7 +910,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span>4.3k</span>
+              <span>20k</span>
             </span>
           
             <span class="post-meta-item" title="Reading time">
@@ -648,7 +920,7 @@
               
                 <span class="post-meta-item-text">Reading time &asymp;</span>
               
-              <span>4 mins.</span>
+              <span>18 mins.</span>
             </span>
           
 
@@ -661,11 +933,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776726&page=10" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><h2 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h2><h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>Open souce has a trade-off, on one hand, everyone can see the source code so that everyone can help fix the bugs, on the other hand, everyone can look for potential vulnerabilities and then take advantage of it.</p>
+          <p>Trees</p><h2 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h2><ul>
+<li><p>A tree is a collection of nodes.</p>
+</li>
+<li><p>The collection can be empty .</p>
+</li>
+<li><p>Otherwise, a tree consists of a distinguished node <em>r</em>, called root, and zero or more nonempty (sub) trees $T_1$, $T_2$, …$T_k$, each of whose roots are connected by a direct edge from <em>r</em>.</p>
+</li>
+<li><p>A tree with <em>N</em> nodes has one root, and <em>N-1</em> edges </p>
+</li>
+</ul>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/08/17/note/CS50 Beyond/security/#more" rel="contents">
+              <a class="btn" href="/2019/10/13/note/CSC3100/CSC3100-Week8-10/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -696,7 +977,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/17/note/CS50 Beyond/react/">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/09/30/note/Index/EIE2050-Index/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Olym Chen">
@@ -712,7 +993,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/08/17/note/CS50 Beyond/react/" class="post-title-link" itemprop="url">CS50 Beyond React</a>
+              <a href="/2019/09/30/note/Index/EIE2050-Index/" class="post-title-link" itemprop="url">EIE2050 Index</a>
             
           </h1>
         
@@ -728,7 +1009,7 @@
                 
               
 
-              <time title="Created: 2019-08-17 14:05:49" itemprop="dateCreated datePublished" datetime="2019-08-17T14:05:49+08:00">2019-08-17</time>
+              <time title="Created: 2019-09-30 14:26:12" itemprop="dateCreated datePublished" datetime="2019-09-30T14:26:12+08:00">2019-09-30</time>
             </span>
           
             
@@ -739,7 +1020,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-29 13:48:31" itemprop="dateModified" datetime="2019-08-29T13:48:31+08:00">2019-08-29</time>
+                <time title="Modified: 2019-10-05 09:37:11" itemprop="dateModified" datetime="2019-10-05T09:37:11+08:00">2019-10-05</time>
               </span>
             
           
@@ -756,7 +1037,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CS50-Beyond/" itemprop="url" rel="index"><span itemprop="name">CS50 Beyond</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/Index/" itemprop="url" rel="index"><span itemprop="name">Index</span></a></span>
 
                 
                 
@@ -773,796 +1054,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span>9.1k</span>
-            </span>
-          
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span>8 mins.</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776522&page=8" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776867&page=9" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102760014&page=12" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><h2 id="Declarative"><a href="#Declarative" class="headerlink" title="Declarative"></a>Declarative</h2><p>Write code to tell the computer the way we want the web application to look like.</p><h2 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h2><p>An extension of JavaScript.</p><p>In JSX we can treat HTML elements as values of their own.</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/08/17/note/CS50 Beyond/react/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/16/note/CS50 Beyond/js/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Olym Chen">
-      <meta itemprop="description" content="Just a Blog">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Olym's Secret House">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/16/note/CS50 Beyond/js/" class="post-title-link" itemprop="url">CS50 Beyond Javascript</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-16 18:54:45" itemprop="dateCreated datePublished" datetime="2019-08-16T18:54:45+08:00">2019-08-16</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-29 13:48:31" itemprop="dateModified" datetime="2019-08-29T13:48:31+08:00">2019-08-29</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CS50-Beyond/" itemprop="url" rel="index"><span itemprop="name">CS50 Beyond</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span>4.6k</span>
-            </span>
-          
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span>4 mins.</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776550&page=3" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102776419&page=4" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><h2 id="Two-Ways-of-Adding-JS-in-HTML"><a href="#Two-Ways-of-Adding-JS-in-HTML" class="headerlink" title="Two Ways of Adding JS in HTML"></a>Two Ways of Adding JS in HTML</h2><h3 id="Script-Tag"><a href="#Script-Tag" class="headerlink" title="Script Tag"></a>Script Tag</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    your JS code</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><h3 id="Seperate-File"><a href="#Seperate-File" class="headerlink" title="Seperate File"></a>Seperate File</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;xxx.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/08/16/note/CS50 Beyond/js/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/15/note/CS50 Beyond/css/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Olym Chen">
-      <meta itemprop="description" content="Just a Blog">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Olym's Secret House">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/15/note/CS50 Beyond/css/" class="post-title-link" itemprop="url">CS50 Beyond HTML and CSS</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-15 20:00:52" itemprop="dateCreated datePublished" datetime="2019-08-15T20:00:52+08:00">2019-08-15</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-29 13:48:31" itemprop="dateModified" datetime="2019-08-29T13:48:31+08:00">2019-08-29</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CS50-Beyond/" itemprop="url" rel="index"><span itemprop="name">CS50 Beyond</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span>4.8k</span>
-            </span>
-          
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span>4 mins.</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102768936&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><h3 id="HTML5-features"><a href="#HTML5-features" class="headerlink" title="HTML5 features"></a>HTML5 features</h3><h4 id="Common-HTML-elements"><a href="#Common-HTML-elements" class="headerlink" title="Common HTML elements"></a>Common HTML elements</h4><table>
-<thead>
-<tr>
-<th align="center">tag</th>
-<th align="center">usage</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>&lt;h1&gt;, ..., &lt;h6&gt;</code></td>
-<td align="center">header tag</td>
-</tr>
-<tr>
-<td align="center"><code>&lt;ol&gt;, &lt;ul&gt;</code></td>
-<td align="center">order list/ unorder list</td>
-</tr>
-<tr>
-<td align="center"><code>&lt;img&gt;</code></td>
-<td align="center">image tag</td>
-</tr>
-<tr>
-<td align="center"><code>&lt;a&gt;</code></td>
-<td align="center">anchor tag(often for href)</td>
-</tr>
-<tr>
-<td align="center"><code>&lt;p&gt;</code></td>
-<td align="center">paragraph tag</td>
-</tr>
-<tr>
-<td align="center"><code>&lt;table&gt;</code></td>
-<td align="center">paragraph tag</td>
-</tr>
-<tr>
-<td align="center"><code>&lt;th&gt;</code></td>
-<td align="center">table header</td>
-</tr>
-<tr>
-<td align="center"><code>&lt;tr&gt;</code></td>
-<td align="center">table row</td>
-</tr>
-<tr>
-<td align="center"><code>&lt;td&gt;</code></td>
-<td align="center">table data</td>
-</tr>
-<tr>
-<td align="center"><code>&lt;form&gt;</code></td>
-<td align="center">form tag</td>
-</tr>
-</tbody></table>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/08/15/note/CS50 Beyond/css/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/15/note/CS50 Beyond/git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Olym Chen">
-      <meta itemprop="description" content="Just a Blog">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Olym's Secret House">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/15/note/CS50 Beyond/git/" class="post-title-link" itemprop="url">CS50 Beyond Git and Github</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-15 14:01:15" itemprop="dateCreated datePublished" datetime="2019-08-15T14:01:15+08:00">2019-08-15</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-29 13:48:31" itemprop="dateModified" datetime="2019-08-29T13:48:31+08:00">2019-08-29</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CS50-Beyond/" itemprop="url" rel="index"><span itemprop="name">CS50 Beyond</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span>2.1k</span>
-            </span>
-          
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span>2 mins.</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <iframe src="//player.bilibili.com/player.html?aid=58975882&cid=102766022&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="500px"> </iframe><h2 id="Git-Commands"><a href="#Git-Commands" class="headerlink" title="Git Commands"></a>Git Commands</h2><table>
-<thead>
-<tr>
-<th align="center">command</th>
-<th align="center">usage</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>git clone &lt;url&gt;</code></td>
-<td align="center">Clone the repository to local</td>
-</tr>
-<tr>
-<td align="center"><code>git init</code></td>
-<td align="center">initiallize a repository locally</td>
-</tr>
-<tr>
-<td align="center"><code>git add &lt;filename&gt;</code></td>
-<td align="center">add the file to the workspace</td>
-</tr>
-<tr>
-<td align="center"><code>git commit -m &quot;message&quot;</code></td>
-<td align="center">commit the change in the workspace</td>
-</tr>
-<tr>
-<td align="center"><code>git status</code></td>
-<td align="center">Show the status of your files</td>
-</tr>
-<tr>
-<td align="center"><code>git push</code></td>
-<td align="center">push to remote repository</td>
-</tr>
-<tr>
-<td align="center"><code>git pull</code></td>
-<td align="center">pull from remote repository</td>
-</tr>
-<tr>
-<td align="center"><code>git commit -am &quot;message&quot;</code></td>
-<td align="center">add every untracked file into workspace then commit</td>
-</tr>
-<tr>
-<td align="center"><code>git log</code></td>
-<td align="center">show the log of git change</td>
-</tr>
-<tr>
-<td align="center"><code>git reset --hard &lt;commit&gt;</code></td>
-<td align="center">go back for one version</td>
-</tr>
-<tr>
-<td align="center"><code>git branch</code></td>
-<td align="center">show the branches that currently have</td>
-</tr>
-<tr>
-<td align="center"><code>git checkout -b &lt;branch name&gt;</code></td>
-<td align="center">create a new branch</td>
-</tr>
-<tr>
-<td align="center"><code>git checkout &lt;branch name&gt;</code></td>
-<td align="center">switch to an existed branch</td>
-</tr>
-<tr>
-<td align="center"><code>git merge &lt;branch name&gt;</code></td>
-<td align="center">merge current branch with that branch</td>
-</tr>
-<tr>
-<td align="center"><code>git branch -D &lt;branch name&gt;</code></td>
-<td align="center">delete the branch</td>
-</tr>
-</tbody></table>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/08/15/note/CS50 Beyond/git/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/13/note/hexo/hexotips/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Olym Chen">
-      <meta itemprop="description" content="Just a Blog">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Olym's Secret House">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/13/note/hexo/hexotips/" class="post-title-link" itemprop="url">Hexo Tips</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-13 21:35:56" itemprop="dateCreated datePublished" datetime="2019-08-13T21:35:56+08:00">2019-08-13</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-05 15:06:38" itemprop="dateModified" datetime="2019-09-05T15:06:38+08:00">2019-09-05</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span>4.7k</span>
-            </span>
-          
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span>4 mins.</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>This post is aiming at storing some tips of useing hexo.  </p><h2 id="Lists"><a href="#Lists" class="headerlink" title="Lists"></a>Lists</h2><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1. One</span><br><span class="line">2. Two</span><br><span class="line">3. Three</span><br><span class="line"></span><br><span class="line">* One</span><br><span class="line">* Two</span><br><span class="line"></span><br><span class="line">- One</span><br><span class="line">- Two</span><br><span class="line">  - two spaces before the dash</span><br><span class="line">  - two spaces before the dash</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/08/13/note/hexo/hexotips/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/13/article/hexo/image/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Olym Chen">
-      <meta itemprop="description" content="Just a Blog">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Olym's Secret House">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/08/13/article/hexo/image/" class="post-title-link" itemprop="url">Insert Image in Hexo Blog</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-13 21:32:44" itemprop="dateCreated datePublished" datetime="2019-08-13T21:32:44+08:00">2019-08-13</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-29 13:48:31" itemprop="dateModified" datetime="2019-08-29T13:48:31+08:00">2019-08-29</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/" itemprop="url" rel="index"><span itemprop="name">article</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/article/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-          <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span>633</span>
+              <span>0</span>
             </span>
           
             <span class="post-meta-item" title="Reading time">
@@ -1585,11 +1077,139 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Modify-Config"><a href="#Modify-Config" class="headerlink" title="Modify Config"></a>Modify Config</h2><p>Modify <code>post_asset_folder</code> in <code>_config.yml</code> to <code>true</code>.  </p><h2 id="Install-packages"><a href="#Install-packages" class="headerlink" title="Install packages"></a>Install packages</h2><p>execute <code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code> and wait.  </p>
+          
+            
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/09/30/note/Index/CSC3100-Index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/09/30/note/Index/CSC3100-Index/" class="post-title-link" itemprop="url">CSC3100 Index</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-09-30 14:25:58" itemprop="dateCreated datePublished" datetime="2019-09-30T14:25:58+08:00">2019-09-30</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-13 10:07:48" itemprop="dateModified" datetime="2019-10-13T10:07:48+08:00">2019-10-13</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/Index/" itemprop="url" rel="index"><span itemprop="name">Index</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>986</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>This course is about data structures and algorithms. Core question is: How to solve a problem effectively and efficiently.</p><h2 id="Data-Structures"><a href="#Data-Structures" class="headerlink" title="Data Structures"></a>Data Structures</h2><h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/08/13/article/hexo/image/#more" rel="contents">
+              <a class="btn" href="/2019/09/30/note/Index/CSC3100-Index/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1620,7 +1240,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/08/12/note/python/escape/">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/09/30/note/Index/CSC3001-Index/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Olym Chen">
@@ -1636,7 +1256,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/08/12/note/python/escape/" class="post-title-link" itemprop="url">Some Escape for Jinja, Hexo and HTML</a>
+              <a href="/2019/09/30/note/Index/CSC3001-Index/" class="post-title-link" itemprop="url">CSC3001 Index</a>
             
           </h1>
         
@@ -1652,19 +1272,11 @@
                 
               
 
-              <time title="Created: 2019-08-12 17:22:10" itemprop="dateCreated datePublished" datetime="2019-08-12T17:22:10+08:00">2019-08-12</time>
+              <time title="Created: 2019-09-30 14:25:50 / Modified: 15:53:16" itemprop="dateCreated datePublished" datetime="2019-09-30T14:25:50+08:00">2019-09-30</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-08-29 13:48:31" itemprop="dateModified" datetime="2019-08-29T13:48:31+08:00">2019-08-29</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -1680,7 +1292,7 @@
                   , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/Index/" itemprop="url" rel="index"><span itemprop="name">Index</span></a></span>
 
                 
                 
@@ -1697,7 +1309,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span>491</span>
+              <span>0</span>
             </span>
           
             <span class="post-meta-item" title="Reading time">
@@ -1720,11 +1332,259 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Jinja takes “{{“, “}}“, “{%“, “%}“ as symbols for statements/expressions.</p><p>So if you want to use these symbols in your text of a Jinja Templated HTML file, put them in</p>
+          
+            
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/09/30/note/MIT-6.042J/6-042J-L3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/09/30/note/MIT-6.042J/6-042J-L3/" class="post-title-link" itemprop="url">6.042J L3</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-09-30 14:25:37 / Modified: 15:43:57" itemprop="dateCreated datePublished" datetime="2019-09-30T14:25:37+08:00">2019-09-30</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/MIT-6-042J/" itemprop="url" rel="index"><span itemprop="name">MIT-6.042J</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>0</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/09/30/note/CSC3001/CSC3001-Week7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/09/30/note/CSC3001/CSC3001-Week7/" class="post-title-link" itemprop="url">CSC3001 Week7</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-09-30 14:25:16" itemprop="dateCreated datePublished" datetime="2019-09-30T14:25:16+08:00">2019-09-30</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-10 10:58:25" itemprop="dateModified" datetime="2019-11-10T10:58:25+08:00">2019-11-10</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CSC3001/" itemprop="url" rel="index"><span itemprop="name">CSC3001</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>3.5k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>3 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Modular Arithmetic, Chinese Remainder Theorem</p><h2 id="Modular-Arithmetic"><a href="#Modular-Arithmetic" class="headerlink" title="Modular Arithmetic"></a>Modular Arithmetic</h2><p><strong>Definition:</strong> $a \ \equiv b \ (\mod n) \ iff \  n|(a - b)$</p><h3 id="Modular-Addition-Multiplication"><a href="#Modular-Addition-Multiplication" class="headerlink" title="Modular Addition, Multiplication"></a>Modular Addition, Multiplication</h3>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2019/08/12/note/python/escape/#more" rel="contents">
+              <a class="btn" href="/2019/09/30/note/CSC3001/CSC3001-Week7/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1752,7 +1612,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1788,7 +1648,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1831,7 +1691,11 @@
         
           
         
-        <span class="site-state-item-count">14</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
@@ -1956,7 +1820,25 @@
         
           
         
-        <span class="site-state-item-count">55</span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">64</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
@@ -2019,12 +1901,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">67k</span>
+    <span title="Symbols count total">176k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:01</span>
+    <span title="Reading time total">2:40</span>
 </div>
 
         
@@ -2140,7 +2022,7 @@ if ($('body').find('div.pdf').length) {
   
     
       
-    
+        
       
     
       
@@ -2158,6 +2040,58 @@ if ($('body').find('div.pdf').length) {
       
     
       
+    
+      
+    
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', function() {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
     
   
 

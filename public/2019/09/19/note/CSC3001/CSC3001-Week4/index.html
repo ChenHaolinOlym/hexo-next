@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="The Idea of Mathematical InductionObjective: Prove $\forall n \geq 0 \ P(n)$Universal Generalization: To prove a for-all statement is to prove that R(c) is true for any c, but this is often difficult">
+<meta name="keywords" content="CSC3001,Discrete Mathematics,Mathematical Induction">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSC3001 Week4">
+<meta property="og:url" content="http://chenhaolinolym.github.io/2019/09/19/note/CSC3001/CSC3001-Week4/index.html">
+<meta property="og:site_name" content="Olym&#39;s Secret House">
+<meta property="og:description" content="The Idea of Mathematical InductionObjective: Prove $\forall n \geq 0 \ P(n)$Universal Generalization: To prove a for-all statement is to prove that R(c) is true for any c, but this is often difficult">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/09/19/note/CSC3001/CSC3001-Week4/image-20191028214558403.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/09/19/note/CSC3001/CSC3001-Week4/image-20191028220851756.png">
+<meta property="og:updated_time" content="2019-11-10T03:01:22.956Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSC3001 Week4">
+<meta name="twitter:description" content="The Idea of Mathematical InductionObjective: Prove $\forall n \geq 0 \ P(n)$Universal Generalization: To prove a for-all statement is to prove that R(c) is true for any c, but this is often difficult">
+<meta name="twitter:image" content="http://chenhaolinolym.github.io/2019/09/19/note/CSC3001/CSC3001-Week4/image-20191028214558403.png">
+  <link rel="canonical" href="http://chenhaolinolym.github.io/2019/09/19/note/CSC3001/CSC3001-Week4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CSC3001 Week4 | Olym's Secret House</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Olym's Secret House</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">always lazy，sometimes code</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/09/19/note/CSC3001/CSC3001-Week4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">CSC3001 Week4
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-09-19 22:53:20" itemprop="dateCreated datePublished" datetime="2019-09-19T22:53:20+08:00">2019-09-19</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-10 11:01:22" itemprop="dateModified" datetime="2019-11-10T11:01:22+08:00">2019-11-10</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CSC3001/" itemprop="url" rel="index"><span itemprop="name">CSC3001</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>7.8k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>7 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="The-Idea-of-Mathematical-Induction"><a href="#The-Idea-of-Mathematical-Induction" class="headerlink" title="The Idea of Mathematical Induction"></a>The Idea of Mathematical Induction</h2><p><strong>Objective:</strong> Prove $\forall n \geq 0 \ P(n)$</p><p><strong>Universal Generalization:</strong> To prove a for-all statement is to prove that R(c) is true for any c, but this is often difficult to prove directly.</p><a id="more"></a>
+
+<p><strong>Mathematical Induction</strong> provides another way to prove a for-all statement. It allows us to prove the statement <strong>step-by-step</strong>.</p>
+<p><strong><em>e.g. :</em></strong></p>
+<h3 id="Odd-Powers-are-Odd"><a href="#Odd-Powers-are-Odd" class="headerlink" title="Odd Powers are Odd"></a>Odd Powers are Odd</h3><p><strong>Fact:</strong> If m is odd and n odd, then nm odd. </p>
+<p><strong>Proposition:</strong> for an odd number m, $m^i$ is odd for all non-negative integer i.<br>$$<br>\forall i \in Z \ odd(m^i)<br>$$<br>Let P(i) be the proposition that $m^i$ is odd<br>$$<br>\forall i \in Z \ P(i)<br>$$<br><strong>Idea of Induction:</strong></p>
+<ul>
+<li>P(1) is true by definition.</li>
+<li>P(2) is true by P(1) and the fact</li>
+<li>P(3) is true by P(2) and the fact</li>
+<li>P(i+1) is true by P(i) and the fact</li>
+<li>So P(i) is true for all i</li>
+</ul>
+<h3 id="The-Induction-Rule"><a href="#The-Induction-Rule" class="headerlink" title="The Induction Rule"></a>The Induction Rule</h3><p>Induction Rule is an axiom.<br>$$<br>\frac{P(0),\ \forall n \in Z\ P(n)\rightarrow P(n+1)}{\forall m \in Z\ P(m)}<br>$$</p>
+<h2 id="Basic-Induction-Proofs"><a href="#Basic-Induction-Proofs" class="headerlink" title="Basic Induction Proofs"></a>Basic Induction Proofs</h2><h3 id="Proving-an-Equality"><a href="#Proving-an-Equality" class="headerlink" title="Proving an Equality"></a>Proving an Equality</h3><p>$$<br>\forall n \geq 1 \ 1^3+2^3+…+n^3=(\frac{n(n+1)}{2})^2<br>$$</p>
+<p>Let P(n) be the induction hypothesis that the statement is true for n.</p>
+<p><strong>Base Case:</strong> P(1) is true</p>
+<p><strong>Induction Step:</strong> Assume P(n) is true, prove P(n+1) is true.</p>
+<h3 id="Property"><a href="#Property" class="headerlink" title="Property"></a>Property</h3><p>$\forall n \geq 1, \ 2^{2n} - 1$ is divisible by 3</p>
+<p><strong>Base Case:</strong> $2^{2n} - 1 = 2^2 - 1 = 3$</p>
+<p><strong>Induction Step:</strong> Assume P(i) for some $i \geq 1$ and prove P(i+1)</p>
+<h3 id="Inequality"><a href="#Inequality" class="headerlink" title="Inequality"></a>Inequality</h3><p>$$<br>\forall n \geq 2, \ \frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+…+\frac{1}{\sqrt{n}} &gt; \sqrt{n}<br>$$</p>
+<p><strong>Base Case:</strong> (n=2) is true.</p>
+<p><strong>Induction Step:</strong> Assume P(i) for some $i \geq 2$ and prove P(i+1)</p>
+<h3 id="Cauchy-Schwarz-Inequality"><a href="#Cauchy-Schwarz-Inequality" class="headerlink" title="Cauchy-Schwarz Inequality"></a>Cauchy-Schwarz Inequality</h3><p>For any $a_1$,…, $a_n$, and any $b_1$, …, $b_n$, $a_1b_1+a_2b_2+…+a_nb_n \leq \sqrt{a_1^2+a_2^2+…+a_n^2}\sqrt{b_1^2+b_2^2+…+b_n^2}$</p>
+<p><strong>Base Case:</strong> When n = 1, LHS $\geq$ RHS</p>
+<p><strong>Induction Step:</strong> Assume true for all $\leq$ n, prove n+1</p>
+<p>So is to prove: $a_1b_1+a_2b_2+…+a_nb_n+a_{n+1}b_{n+1} \leq \sqrt{a_1^2+a_2^2+…+a_n^2}\sqrt{b_1^2+b_2^2+…+b_n^2}+a_{n+1}b_{n+1}$</p>
+<p>if we treat $\sqrt{a_1^2+a_2^2+…+a_n^2}$ and $\sqrt{b_1^2+b_2^2+…+b_n^2}$ as c and d, it fits P(2)</p>
+<p>So the formula above is less equal than $\sqrt{c^2+a^2_{n+1}}\sqrt{d^2+b^2_{n+1}}$</p>
+<p>The problem is solved.</p>
+<h3 id="Some-Remarks"><a href="#Some-Remarks" class="headerlink" title="Some Remarks"></a>Some Remarks</h3><p>There are three important steps in mathematical induction:</p>
+<ul>
+<li>Write down clearly the inductive hypothesis P(n).</li>
+<li>prove the base case P(1) or P(2) etc.</li>
+<li>prove the inductive case, that is, show P(n) implis P(n+1)</li>
+</ul>
+<h2 id="Inductive-Constructions"><a href="#Inductive-Constructions" class="headerlink" title="Inductive Constructions"></a>Inductive Constructions</h2><h3 id="Gray-Code"><a href="#Gray-Code" class="headerlink" title="Gray Code"></a>Gray Code</h3><p>It’s an ordering of all the n-bit strings in a way such that two consecutive n-bit strings differed by only one bit. Think inductively to construct them.</p>
+<p>Every (n+1)-bit string appears exactly once. So by induction, Gray Code exists for any n.</p>
+<h3 id="Puzzle"><a href="#Puzzle" class="headerlink" title="Puzzle"></a>Puzzle</h3><p><strong>Goal:</strong> tile the squares, except one in the middle for Bill.</p>
+<p>There are only trominos (L-shaped tiles) covering three squares:</p>
+<p><img src="/2019/09/19/note/CSC3001/CSC3001-Week4/image-20191028214558403.png" alt="image-20191028214558403"></p>
+<p><strong>Theorem:</strong> For any $2^n \times 2^n$ puzzle, there is a tiling with Bill in the middle</p>
+<p><strong>Base Case:</strong> (n=0) no tile is needed</p>
+<p><strong>Induction Step:</strong> Assume can tile $2^n \times 2^n$, prove can handle $2^{n+1}\times 2^{n+1}$</p>
+<p><strong>Idea:</strong> It would be nice if we could control the locations of the empty square</p>
+<p><strong>New Idea:</strong> Prove that we can always find a tiling with Bill <em>anywhere</em>.</p>
+<p><strong>Theorem B:</strong> For any $2^n \times 2^n$ puzzle, there is a tiling with Bill anywhere.</p>
+<p><strong>Base Case:</strong> (n=0) no tile is needed</p>
+<p><strong>Induction Step:</strong> Assume we can get Bill anywhere in $2^n \times 2^n$, Porve we can get Bill anywhere in $2^{n+1}\times 2^{n+1}$.</p>
+<h3 id="Some-Remarks-1"><a href="#Some-Remarks-1" class="headerlink" title="Some Remarks"></a>Some Remarks</h3><ul>
+<li>It may help to choose a stronger statement than the desired result, </li>
+<li>The proof of “Bill Anywhere” implicitly defines a recursive algorithm for finding such a tiling.</li>
+</ul>
+<h3 id="Hadamard-Matrix"><a href="#Hadamard-Matrix" class="headerlink" title="Hadamard Matrix"></a>Hadamard Matrix</h3><p>Hadamard Matrix is an $n \times n$ matrix that all entries are $\pm 1$ and all the rows are orthogonal to each other.</p>
+<p>So by induction there is a $2^k \times 2^k$ Hadamard Matrix for any k</p>
+<p>For odd n, there isn’t $n \times n$ Hadamard Matrix </p>
+<h2 id="A-Paradox"><a href="#A-Paradox" class="headerlink" title="A Paradox"></a>A Paradox</h2><p><strong>Theorem:</strong> All horses have the same color</p>
+<p><strong>Base Case:</strong> (n=0) no horse, true</p>
+<p><strong>Inductive Steps:</strong> Assume any n horse have the same color, prove that any n+1 horses have the same color.</p>
+<p>So it’s true.</p>
+<p><strong>Pay attention to the base case.</strong> The inductive steps should be inductable to the base case.</p>
+<h2 id="Strong-Induction"><a href="#Strong-Induction" class="headerlink" title="Strong Induction"></a>Strong Induction</h2><h3 id="Unstacking-Game"><a href="#Unstacking-Game" class="headerlink" title="Unstacking Game"></a>Unstacking Game</h3><p><strong>Start:</strong> a stack of boxes</p>
+<p><strong>Move:</strong> split any stack into two stacks of sizes, a, b &gt; 0</p>
+<p><strong>Scoring:</strong> <em>ab</em> points</p>
+<p>Keep Moving until stuck</p>
+<p><strong>Overall Score:</strong> Sum of move scores</p>
+<p><img src="/2019/09/19/note/CSC3001/CSC3001-Week4/image-20191028220851756.png" alt="image-20191028220851756"></p>
+<p>What is the best way to play the game?</p>
+<p><strong>If we just move one box at a time:</strong></p>
+<p>Total Score = $\sum^{n-1}_{i=1} = \frac{n(n-1)}{2}$</p>
+<p><strong>Claim:</strong> Starting with size n stack, the highest score will be $\frac{n(n-1)}{2}$</p>
+<p><strong>Base Case:</strong> (n=0) is okay</p>
+<p><strong>Inductive Step:</strong> Assume for n-stack, and then prove C(n+1)</p>
+<p>(n+1)-stack score = $\frac{(n+1)n}{2}$</p>
+<p><strong>Case</strong> n+1 = 1, verify i-stack, true</p>
+<p><strong>Case</strong> n+1 &gt; 1:</p>
+<p>(a+b)-stack score = ab + a-stack score + b-stack score</p>
+<p><strong>by induction:</strong> </p>
+<p>a-stack score = $\frac{a(a-1)}{2}$</p>
+<p>b-stack score = $\frac{b(b-1)}{2}$</p>
+<p>So ab + $\frac{a(a-1)}{2}$ + $\frac{b(b-1)}{2}$ = $\frac{(n+1)n}{2}$</p>
+<p>So C(n+1) is okay.</p>
+<h3 id="Induction-Hypothesis"><a href="#Induction-Hypothesis" class="headerlink" title="Induction Hypothesis"></a>Induction Hypothesis</h3><p>We assume C(a) and C(b) where 1 $\leq$ a, b $\leq$ n. But by (to use) induction can only assume C(n).</p>
+<p><strong>the fix:</strong> rephrase the induction hypothesis to Q(n) ::= $\forall m \leq n. \ C(m)$</p>
+<p>Proof goes through fine using Q(n) instead of C(n). So it’s OK to assume C(m) for all m $\leq$ n to prove C(n+1).</p>
+<h3 id="Strong-Induction-1"><a href="#Strong-Induction-1" class="headerlink" title="Strong Induction"></a>Strong Induction</h3><p><strong>Strong Induction:</strong> Prove P(0). Then prove P(n+1) assuming all of P(0), P(1), …, P(n) (instead of just P(n)). Conclude $\forall n. \ P(n)$</p>
+<p><strong>Ordinary Induction:</strong> 0 $\rightarrow$ 1, 1 $\rightarrow$ 2, 2 $\rightarrow$ 3, …, n-1$\rightarrow$ n.<br>So by the time we get to n+1, already know all of P(0), P(1), …, P(n).</p>
+<p><strong>The point is:</strong> assuming P(0), P(1), up to P(n), it is often easier to prove P(n+1)</p>
+<h4 id="Divisible-by-a-Prime"><a href="#Divisible-by-a-Prime" class="headerlink" title="Divisible by a Prime"></a>Divisible by a Prime</h4><p><strong>Theorem:</strong> Any integer n &gt; 1 is divisible by a prime number.</p>
+<p><strong>Proved by Strong Induction:</strong> </p>
+<p><strong>Theorem:</strong> Every integer &gt; 1 is a product of primes.</p>
+<p><strong>Proof:</strong> (by strong induction)</p>
+<ul>
+<li>Base case is easy.</li>
+<li>Suppose the claim is true for all 2 $\leq$ i &lt; n.</li>
+<li>Consider an integer n.</li>
+<li>If n is prime, then we are done.</li>
+<li>Otherwise n = k·m for integers k, m where 2 $\leq$ k,m &lt; n.</li>
+<li>By the induction hypothesis, both k and m are product of primes.<ul>
+<li>k = $p_1 \times p_2 \times … \times p^{94}$</li>
+<li>m = $q_1 \times q_2 \times … \times q_{214}$</li>
+</ul>
+</li>
+<li>So n = k $\times$ m = $p_1 \times p_2 \times … \times p^{94} \times q_1 \times q_2 \times … \times q_{214}$ is a prime product.</li>
+<li>Proof complete</li>
+</ul>
+<h2 id="Well-Ordering-Principle"><a href="#Well-Ordering-Principle" class="headerlink" title="Well Ordering Principle"></a>Well Ordering Principle</h2><p><strong>Axiom:</strong> Every nonempty set of <em>natural numbers</em> has a <em>least element</em></p>
+<p>This axiom is in fact a consequence of mathematical induction.</p>
+<h3 id="Without-Common-Factors"><a href="#Without-Common-Factors" class="headerlink" title="Without Common Factors"></a>Without Common Factors</h3><p>For $\sqrt{2} = \frac{m}{n}$ We can always find such m, n <em>without common factors</em></p>
+<p>If m, n with common factors, by WOP, there’s a minimum, but both can be divided by a same number, contradiction.</p>
+<h3 id="Non-Fermat-Theorem"><a href="#Non-Fermat-Theorem" class="headerlink" title="Non-Fermat Theorem"></a>Non-Fermat Theorem</h3><p>$$<br>4a^3 + 2b^3 = c^3<br>$$</p>
+<p>There is no positive integer solutions for it.</p>
+<p><strong>Proof:</strong> We construct the set, S ::= {a $\in \ Z^+$ | $\exist \ b, c \in Z^+, \ 4a^3 + 2b^3 = c^3$}</p>
+<p>By WOP, there exists (a, b, c) $\in$ S where a is the smallest among all “a”s</p>
+<p>Since $c^3$ is even, c is even. Let c = 2c’, then $4a^3 + 2b^3 = (2c’)^3$</p>
+<p>So $b^3 = 4c’^3 - 2a^3$</p>
+<p>Since $b^3$ is even, b must be even. Let b = 2b’, then $(2b’)^3 = 4c’^3 - 2a^3$</p>
+<p>So $a^3 = 2c’^3 - 4b’^3$</p>
+<p>Since $a^3$ is even, a must be even</p>
+<h3 id="Well-Ordering-Principle-in-Proofs"><a href="#Well-Ordering-Principle-in-Proofs" class="headerlink" title="Well Ordering Principle in Proofs"></a>Well Ordering Principle in Proofs</h3><p><em>To prove “ $\forall$ n$\in$N. P(n)” using WOP:</em></p>
+<ol>
+<li>Construct the set<br>S ::= { n$\in$N | $\neg$P(n)}</li>
+<li>Assume $\neg$P(n) exists, so that S is a well-ordered set.</li>
+<li>By WOP, have a “least” element $n_0 \in S$ (we may have different meaning of “ small ” in some circumstances. )</li>
+<li>Reach a contradiction (use whatever methods you want including mathematical induction) – usually by finding an element of S that is &lt; $n_0$ .</li>
+<li>Conclude that P(n) is true. QED</li>
+</ol>
+<h2 id="Invariant-Method"><a href="#Invariant-Method" class="headerlink" title="Invariant Method"></a>Invariant Method</h2><ol>
+<li>Find properties (the invariants) that are satisfied throughout the whole process. </li>
+<li>Show that the target do not satisfy the properties.</li>
+<li>Conclude that the target is not achievable.</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/CSC3001/" rel="tag"># CSC3001</a>
+            
+              <a href="/tags/Discrete-Mathematics/" rel="tag"># Discrete Mathematics</a>
+            
+              <a href="/tags/Mathematical-Induction/" rel="tag"># Mathematical Induction</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/18/note/MIT-6.042J/6-042J-L1/" rel="next" title="6.042J L1">
+                  <i class="fa fa-chevron-left"></i> 6.042J L1
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/20/note/CSC3100/CSC3100-Week3/" rel="prev" title="CSC3100 Week3">
+                  CSC3100 Week3 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Olym Chen">
+  <p class="site-author-name" itemprop="name">Olym Chen</p>
+  <div class="site-description motion-element" itemprop="description">Just a Blog</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/chenhaolinolym" title="GitHub &rarr; https://github.com/chenhaolinolym" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.olym.xyz" title="http://www.olym.xyz" rel="noopener" target="_blank">Homepage</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Idea-of-Mathematical-Induction"><span class="nav-number">1.</span> <span class="nav-text">The Idea of Mathematical Induction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Odd-Powers-are-Odd"><span class="nav-number">1.1.</span> <span class="nav-text">Odd Powers are Odd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Induction-Rule"><span class="nav-number">1.2.</span> <span class="nav-text">The Induction Rule</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Induction-Proofs"><span class="nav-number">2.</span> <span class="nav-text">Basic Induction Proofs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Proving-an-Equality"><span class="nav-number">2.1.</span> <span class="nav-text">Proving an Equality</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Property"><span class="nav-number">2.2.</span> <span class="nav-text">Property</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inequality"><span class="nav-number">2.3.</span> <span class="nav-text">Inequality</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cauchy-Schwarz-Inequality"><span class="nav-number">2.4.</span> <span class="nav-text">Cauchy-Schwarz Inequality</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Some-Remarks"><span class="nav-number">2.5.</span> <span class="nav-text">Some Remarks</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inductive-Constructions"><span class="nav-number">3.</span> <span class="nav-text">Inductive Constructions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gray-Code"><span class="nav-number">3.1.</span> <span class="nav-text">Gray Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Puzzle"><span class="nav-number">3.2.</span> <span class="nav-text">Puzzle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Some-Remarks-1"><span class="nav-number">3.3.</span> <span class="nav-text">Some Remarks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadamard-Matrix"><span class="nav-number">3.4.</span> <span class="nav-text">Hadamard Matrix</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Paradox"><span class="nav-number">4.</span> <span class="nav-text">A Paradox</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Strong-Induction"><span class="nav-number">5.</span> <span class="nav-text">Strong Induction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Unstacking-Game"><span class="nav-number">5.1.</span> <span class="nav-text">Unstacking Game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Induction-Hypothesis"><span class="nav-number">5.2.</span> <span class="nav-text">Induction Hypothesis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Strong-Induction-1"><span class="nav-number">5.3.</span> <span class="nav-text">Strong Induction</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Divisible-by-a-Prime"><span class="nav-number">5.3.1.</span> <span class="nav-text">Divisible by a Prime</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Well-Ordering-Principle"><span class="nav-number">6.</span> <span class="nav-text">Well Ordering Principle</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Without-Common-Factors"><span class="nav-number">6.1.</span> <span class="nav-text">Without Common Factors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Non-Fermat-Theorem"><span class="nav-number">6.2.</span> <span class="nav-text">Non-Fermat Theorem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Well-Ordering-Principle-in-Proofs"><span class="nav-number">6.3.</span> <span class="nav-text">Well Ordering Principle in Proofs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Invariant-Method"><span class="nav-number">7.</span> <span class="nav-text">Invariant Method</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备19098205号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Olym Chen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">176k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">2:40</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+<script>
+if ($('body').find('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', function() {
+    $('body').find('div.pdf').each(function(i, o) {
+      PDFObject.embed($(o).attr('target'), $(o), {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: $(o).attr('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', function() {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>

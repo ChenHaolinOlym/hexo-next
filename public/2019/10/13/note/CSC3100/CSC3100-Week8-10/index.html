@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="TreesDefinitions A tree is a collection of nodes.  The collection can be empty .  Otherwise, a tree consists of a distinguished node r, called root, and zero or more nonempty (sub) trees $T_1$, $T_2$,">
+<meta name="keywords" content="CSC3100,Algorithm,Data Structure,Trees">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSC3100 Week8-10">
+<meta property="og:url" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/index.html">
+<meta property="og:site_name" content="Olym&#39;s Secret House">
+<meta property="og:description" content="TreesDefinitions A tree is a collection of nodes.  The collection can be empty .  Otherwise, a tree consists of a distinguished node r, called root, and zero or more nonempty (sub) trees $T_1$, $T_2$,">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/1.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110105701357.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110165046936.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110175535986.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110183705840.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110183720248.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110183753132.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110183741489.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110194207045.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110194258229.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110194609510.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110195115921.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110195131342.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110195140139.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110155018957.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110155553886.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191112134828693.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191112134854837.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191112134929183.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191112134952566.png">
+<meta property="og:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191112135000539.png">
+<meta property="og:updated_time" content="2019-11-12T06:15:29.657Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSC3100 Week8-10">
+<meta name="twitter:description" content="TreesDefinitions A tree is a collection of nodes.  The collection can be empty .  Otherwise, a tree consists of a distinguished node r, called root, and zero or more nonempty (sub) trees $T_1$, $T_2$,">
+<meta name="twitter:image" content="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/1.png">
+  <link rel="canonical" href="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CSC3100 Week8-10 | Olym's Secret House</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Olym's Secret House</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">always lazy，sometimes code</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/10/13/note/CSC3100/CSC3100-Week8-10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">CSC3100 Week8-10
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-10-13 10:04:31" itemprop="dateCreated datePublished" datetime="2019-10-13T10:04:31+08:00">2019-10-13</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-12 14:15:29" itemprop="dateModified" datetime="2019-11-12T14:15:29+08:00">2019-11-12</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CSC3100/" itemprop="url" rel="index"><span itemprop="name">CSC3100</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>20k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>18 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Trees</p><h2 id="Definitions"><a href="#Definitions" class="headerlink" title="Definitions"></a>Definitions</h2><ul>
+<li><p>A tree is a collection of nodes.</p>
+</li>
+<li><p>The collection can be empty .</p>
+</li>
+<li><p>Otherwise, a tree consists of a distinguished node <em>r</em>, called root, and zero or more nonempty (sub) trees $T_1$, $T_2$, …$T_k$, each of whose roots are connected by a direct edge from <em>r</em>.</p>
+</li>
+<li><p>A tree with <em>N</em> nodes has one root, and <em>N-1</em> edges </p>
+</li>
+</ul><a id="more"></a>
+
+<h3 id="Root"><a href="#Root" class="headerlink" title="Root"></a>Root</h3><p>The top most node of the tree.</p>
+<h3 id="Edge"><a href="#Edge" class="headerlink" title="Edge"></a>Edge</h3><p>Nodes other than root in a tree.</p>
+<h3 id="Parent"><a href="#Parent" class="headerlink" title="Parent"></a>Parent</h3><p>Node A is the parent of node B if B is the root of the left or right sub-tree of A.</p>
+<h3 id="Child"><a href="#Child" class="headerlink" title="Child"></a>Child</h3><p>Node B is the left (right) child of node A if A is the parent of B.</p>
+<h3 id="Sibling"><a href="#Sibling" class="headerlink" title="Sibling"></a>Sibling</h3><p>Node B and node C are siblings if they have the same parent.</p>
+<h3 id="Leaf"><a href="#Leaf" class="headerlink" title="Leaf"></a>Leaf</h3><p>A node is called a leaf if it has no children</p>
+<h3 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h3><p>A path from node $n_1$ to $n_k$: A sequence of nodes $n_1$, $n_2$, …, $n_k$ such that ni is the parent of $n_{i+1}$ for $1 \leq i &lt; k$.</p>
+<h4 id="Length-of-a-path"><a href="#Length-of-a-path" class="headerlink" title="Length of a path"></a>Length of a path</h4><ul>
+<li><p>The length of this path is the number of edges on the path, namely k-1.</p>
+</li>
+<li><p>Notice that in a tree, there is exactly one path from the root to each node.</p>
+</li>
+</ul>
+<h3 id="Depth"><a href="#Depth" class="headerlink" title="Depth"></a>Depth</h3><p>Depth of a node $n_i$ is the length of the unique path from the root to $n_i$. </p>
+<p>The root is at depth 0.</p>
+<h3 id="Height"><a href="#Height" class="headerlink" title="Height"></a>Height</h3><p>Height of $n_i$ is the length of the longest path from $n_i$ to a leaf.</p>
+<p>All leaves are at height 0.</p>
+<h2 id="Binary-Tree"><a href="#Binary-Tree" class="headerlink" title="Binary Tree"></a>Binary Tree</h2><p><strong>A Binary Tree is a tree</strong> in which no node can have more than two children (subtrees): $T_L$ and $T_R$, both of which could possibly be empty.</p>
+<p><strong>Strictly Binary Tree:</strong> Every non-leaf node in the tree has nonempty left and right sub-trees</p>
+<p><strong>Complete (full) binary tree:</strong> A complete binary tree of depth <em>d</em> is a strictly binary tree with all leaf nodes at level <em>d</em>.</p>
+<h3 id="Expression-Tree"><a href="#Expression-Tree" class="headerlink" title="Expression Tree"></a>Expression Tree</h3><p>$(a+b\times c) +((d\times e+f)\times g)$</p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/1.png" alt="1"></p>
+<ol>
+<li><p>The leaves of an expression tree are operands;</p>
+</li>
+<li><p>The other nodes contain operators.</p>
+</li>
+</ol>
+<h3 id="Traversing-Strategy"><a href="#Traversing-Strategy" class="headerlink" title="Traversing Strategy"></a>Traversing Strategy</h3><h4 id="Preorder-depth-first"><a href="#Preorder-depth-first" class="headerlink" title="Preorder (depth-first)"></a>Preorder (depth-first)</h4><ul>
+<li><p>Visit the node</p>
+</li>
+<li><p>Traverse the left subtree in preorder</p>
+</li>
+<li><p>Traverse the right subtree in preorder</p>
+</li>
+</ul>
+<h4 id="Inorder"><a href="#Inorder" class="headerlink" title="Inorder"></a>Inorder</h4><ul>
+<li><p>Traverse the left subtree in inorder</p>
+</li>
+<li><p>Visit the node</p>
+</li>
+<li><p>Traverse the right subtree in inorder</p>
+</li>
+</ul>
+<h4 id="Postorder"><a href="#Postorder" class="headerlink" title="Postorder"></a>Postorder</h4><ul>
+<li><p>Traverse the left subtree in postorder</p>
+</li>
+<li><p>Traverse the right subtree in postorder</p>
+</li>
+<li><p>Visit the node</p>
+</li>
+</ul>
+<h2 id="Binary-Search-Tree"><a href="#Binary-Search-Tree" class="headerlink" title="Binary Search Tree"></a>Binary Search Tree</h2><p><strong>Tree representation:</strong></p>
+<ul>
+<li>A linked data structure in which each node is an object</li>
+</ul>
+<p><strong>Node representation:</strong></p>
+<ul>
+<li><p>Key field</p>
+</li>
+<li><p>Satellite data</p>
+</li>
+<li><p>Left: pointer to left child</p>
+</li>
+<li><p>Right: pointer to right child</p>
+</li>
+<li><p>p: pointer to parent (p[root[T]] = NIL)</p>
+</li>
+</ul>
+<h3 id="Property"><a href="#Property" class="headerlink" title="Property"></a>Property</h3><p>For every node, T, in the tree:</p>
+<ul>
+<li>the key values in its left subtree are <strong>all</strong> <em>smaller than</em> the key value of T. </li>
+<li>the key values in its right subtree are <strong>all</strong> <em>larger than</em> the key value of T.</li>
+</ul>
+<h3 id="Operations"><a href="#Operations" class="headerlink" title="Operations"></a>Operations</h3><p>Binary Tree support many dynamic set operations:</p>
+<p>find, findMin, findMax, predecessor, successor, insert, delete</p>
+<h3 id="Running-Time"><a href="#Running-Time" class="headerlink" title="Running Time"></a>Running Time</h3><p><strong>On Average:</strong> $\Theta (\log n)$ The expected height of the tree is logn</p>
+<p><strong>Worst Case:</strong> $\Theta (n)$ The tree is a linear chain of <em>n</em> nodes.</p>
+<h3 id="Search"><a href="#Search" class="headerlink" title="Search"></a>Search</h3><p>Starting at the root, trace down a path by comparing k with the key of the current node:</p>
+<ul>
+<li>If the keys are equal: we have found the key</li>
+<li>If k &lt; key[x] search in the left subtree of x</li>
+<li>If k &gt; key[x] search in the right subtree of x</li>
+</ul>
+<p><strong>Running Time:</strong> O(h)</p>
+<h3 id="Finding-the-Minimum"><a href="#Finding-the-Minimum" class="headerlink" title="Finding the Minimum"></a>Finding the Minimum</h3><p>Following left child pointers from the root, until a NIL is encountered</p>
+<h3 id="Finding-the-Maximum"><a href="#Finding-the-Maximum" class="headerlink" title="Finding the Maximum"></a>Finding the Maximum</h3><p>Following right child pointers from the root, until a NIL is encountered  </p>
+<h3 id="Successor"><a href="#Successor" class="headerlink" title="Successor"></a>Successor</h3><h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><p>successor(x) = y, such that key[y] is the smallest key <em>&gt;</em> key[x]</p>
+<h4 id="Case-1"><a href="#Case-1" class="headerlink" title="Case 1"></a>Case 1</h4><p><strong>right(x) is not empty:</strong></p>
+<p>successor(x) = the minimum in right(x)</p>
+<h4 id="Case-2"><a href="#Case-2" class="headerlink" title="Case 2"></a>Case 2</h4><p><strong>right(x) is empty:</strong></p>
+<ul>
+<li><p>go up the tree until the current node is a left child: successor(x) is the parent of the current node</p>
+</li>
+<li><p>if you cannot go further (and you reached the root):  x is the largest element</p>
+</li>
+</ul>
+<h3 id="Predecessor"><a href="#Predecessor" class="headerlink" title="Predecessor"></a>Predecessor</h3><h4 id="Definition-1"><a href="#Definition-1" class="headerlink" title="Definition"></a>Definition</h4><p>predecessor(x) = y, such that key[y] is the biggest key &lt; key[x]</p>
+<h4 id="Case-1-1"><a href="#Case-1-1" class="headerlink" title="Case 1"></a>Case 1</h4><p><strong>left(x) is not empty:</strong></p>
+<p>predecessor(x) = the maximum in left(x)</p>
+<h4 id="Case-2-1"><a href="#Case-2-1" class="headerlink" title="Case 2"></a>Case 2</h4><p><strong>left(x) is empty:</strong></p>
+<ul>
+<li><p>go up the tree until the current node is a right child: predecessor(x) is the parent of the current node</p>
+</li>
+<li><p>if you cannot go further (and you reached the root):  x is the smallest element</p>
+</li>
+</ul>
+<h3 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h3><h4 id="Goal"><a href="#Goal" class="headerlink" title="Goal"></a>Goal</h4><p>Insert value v into a binary search tree</p>
+<h4 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h4><ul>
+<li><p>If key[x] &lt; v move to the right child of x, else move to the left child of x</p>
+</li>
+<li><p>When x is NIL, we found the correct position </p>
+</li>
+<li><p>If v &lt; key[y] insert the new node as y’s left child else insert it as y’s right child</p>
+</li>
+<li><p>Beginning at the root, go down the tree and maintain:</p>
+<ul>
+<li>Pointer x : traces the downward path (current node)</li>
+<li>Pointer y : parent of x (“trailing pointer”)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Deletion"><a href="#Deletion" class="headerlink" title="Deletion"></a>Deletion</h3><h4 id="Goal-1"><a href="#Goal-1" class="headerlink" title="Goal"></a>Goal</h4><p>Delete a given node z from a binary search tree</p>
+<h4 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h4><h5 id="Case-1-2"><a href="#Case-1-2" class="headerlink" title="Case 1"></a>Case 1</h5><p><strong>z has no children</strong></p>
+<p>Delete z by making the parent of z point to NIL</p>
+<h5 id="Case-2-2"><a href="#Case-2-2" class="headerlink" title="Case 2"></a>Case 2</h5><p><strong>z has one child</strong></p>
+<p>Delete z by making the parent of z point to z’s child, instead of to z and link the parent with the new child</p>
+<h5 id="Case-3"><a href="#Case-3" class="headerlink" title="Case 3"></a>Case 3</h5><p><strong>z has two children</strong></p>
+<ul>
+<li><p>Find z’s <em>successor y</em> (the leftmost node in z’s right subtree)</p>
+</li>
+<li><p>y has either no children or one right child (but no left child), why?</p>
+</li>
+<li><p>Delete y from the tree (via Case 1 or 2)</p>
+</li>
+<li><p>Replace z’s key and satellite data with y’s</p>
+</li>
+</ul>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><h4 id="Operations-on-Binary-Search-Trees"><a href="#Operations-on-Binary-Search-Trees" class="headerlink" title="Operations on Binary Search Trees"></a>Operations on Binary Search Trees</h4><table>
+<thead>
+<tr>
+<th align="center">Operations</th>
+<th>Time Complexity</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">SEARCH</td>
+<td>O(h)</td>
+</tr>
+<tr>
+<td align="center">PREDECESSOR</td>
+<td>O(h)</td>
+</tr>
+<tr>
+<td align="center">SUCCESOR</td>
+<td>O(h)</td>
+</tr>
+<tr>
+<td align="center">MINIMUM</td>
+<td>O(h)</td>
+</tr>
+<tr>
+<td align="center">MAXIMUM</td>
+<td>O(h)</td>
+</tr>
+<tr>
+<td align="center">INSERT</td>
+<td>O(h)</td>
+</tr>
+<tr>
+<td align="center">DELETE</td>
+<td>O(h)</td>
+</tr>
+</tbody></table>
+<p><strong>Note:</strong> These operations are fast if the height of the tree is small – otherwise their performance is similar to that of a linked list.</p>
+<h3 id="Issues"><a href="#Issues" class="headerlink" title="Issues"></a>Issues</h3><p>After a series of DELETION, the above algorithm favors making the <em>left sub-trees</em> <strong>deeper</strong> than the <em>right sub-trees</em>.</p>
+<h4 id="Possible-Solution"><a href="#Possible-Solution" class="headerlink" title="Possible Solution"></a>Possible Solution</h4><p>Try to eliminate the problem by randomly choosing between the smallest element in the right sub-tree and the largest in the left when replacing the deleted element (not rigorous and not prove it yet!!)</p>
+<h4 id="Proven-Solution"><a href="#Proven-Solution" class="headerlink" title="Proven Solution"></a>Proven Solution</h4><ul>
+<li>Red-Black Tree</li>
+<li>AVL Tree</li>
+</ul>
+<h2 id="Red-Black-Tree"><a href="#Red-Black-Tree" class="headerlink" title="Red-Black Tree"></a>Red-Black Tree</h2><ul>
+<li><p>Binary search tree with an additional attribute for its nodes: color which can be <strong><span style="color: red">red</span></strong> or <strong>black</strong></p>
+</li>
+<li><p>Restrict the way nodes can be colored on any path from the root to a leaf.</p>
+</li>
+<li><p>Ensures that no path is more than twice as long as any other path.</p>
+</li>
+<li><p>“Balanced” binary search trees guarantee an O(logn) running time.</p>
+</li>
+</ul>
+<h3 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h3><ol>
+<li>Every node is either red or black</li>
+<li>The root is black</li>
+<li>Every leaf (NIL) is black</li>
+<li>If a node is red, then both its children are black. No two consecutive red nodes on a simple path from the root to a leaf</li>
+<li>For each node, all paths from that node to descendant leaves contain the same number of black nodes</li>
+</ol>
+<h4 id="Black-Height"><a href="#Black-Height" class="headerlink" title="Black Height"></a>Black Height</h4><p><strong>Height</strong> of a node: the number of edges in the <strong>longest</strong> path to a leaf</p>
+<p><strong>Black-height</strong> of a node x: bh(x) is the number of black nodes (including NIL) on the path from x to a leaf, <strong><em>not counting x</em></strong></p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110105701357.png" alt="image-20191110105701357"></p>
+<h3 id="Height-of-Red-Black-Tree"><a href="#Height-of-Red-Black-Tree" class="headerlink" title="Height of Red-Black Tree"></a>Height of Red-Black Tree</h3><h4 id="Important-Property-of-Red-Black-Tree"><a href="#Important-Property-of-Red-Black-Tree" class="headerlink" title="Important Property of Red-Black Tree"></a>Important Property of Red-Black Tree</h4><p>A red-black tree with n internal nodes has height <strong>at most</strong> 2log(n+1)</p>
+<p>Need to prove two claims first:</p>
+<h5 id="Claim-1"><a href="#Claim-1" class="headerlink" title="Claim 1"></a>Claim 1</h5><p>Any node x with height h(x) has $bh(x) \geq \frac{h(x)}{2}  $</p>
+<p><strong>Proof:</strong></p>
+<p>By Properties 4, at most $\frac{h}{2}$ <strong><span style="color: red">red</span></strong> nodes on the path from the node to a leaf. So at least $\frac{h}{2}$ are <strong>black</strong>.</p>
+<h5 id="Claim-2"><a href="#Claim-2" class="headerlink" title="Claim 2"></a>Claim 2</h5><p>The subtree rooted at any node x contains <strong>at least</strong> $2^{bh(x)} - 1$ internal nodes. (Internal Nodes = All Nodes - Leaves)</p>
+<p><strong>Ptoof:</strong> By induction on h[x]</p>
+<p><strong>Basis:</strong> </p>
+<p>When h[x] = 0, x is a leaf, so bh(x) = 0 and the number of internal nodes is $0 = 2^0-1$</p>
+<p><strong>Inductive Hypothesis:</strong> Assume it is true for h[x]=h-1</p>
+<p><strong>Inductive Step:</strong> </p>
+<p>Let bh(x) = b, then any child y of x has: </p>
+<ul>
+<li>bh(y) = b(if the child is <strong><span style="color: red">red</span></strong>)</li>
+<li>bh(y) = b - 1(if the child is <strong>black</strong>)</li>
+</ul>
+<p>Using inductive hypothesis, the number of internal nodes for each child of x is at least (if it is <strong>black</strong>): $2^{bh(x) - 1} - 1$</p>
+<p>The subtree rooted at x contains at least:<br>$$<br>\begin{align}<br>&amp; (2^{bh(x) - 1} – 1) + (2^{bh(x) - 1} – 1) + 1\<br>= &amp; 2 \times (2^{bh(x) - 1} - 1) + 1\<br>= &amp; 2^{bh(x)} - 1<br>\end{align}<br>$$<br>internal nodes</p>
+<h5 id="Proof"><a href="#Proof" class="headerlink" title="Proof"></a>Proof</h5><p>$$<br>n \geq 2^{bh}-1 \geq 2^{\frac{h}{2}}-1<br>$$</p>
+<p>Using Claims.</p>
+<p>Add 1 to both sides and then take logs:<br>$$<br>\begin{align}<br>&amp; n+1 \geq 2^{bh} \geq 2^{\frac{h}{2}}\<br>\Rightarrow &amp; \lg(n+1) \geq \frac{h}{2}\<br>\Rightarrow &amp; h \leq 2 \lg(n+1)<br>\end{align}<br>$$</p>
+<h3 id="Operations-of-Red-Black-Tree"><a href="#Operations-of-Red-Black-Tree" class="headerlink" title="Operations of Red-Black Tree"></a>Operations of Red-Black Tree</h3><p>The non-modifying operations: <strong>MINIMUM</strong>, <strong>MAXIMUM</strong>, and <strong>SEARCH</strong> still run in O(h) time. They take O(logn) time on red-black trees because Red-Black Tree ensure that the height of the tree will be O(logn)</p>
+<p>For <strong>INSERT</strong> and <strong>DELETE</strong>, we have to guarantee that the modified tree will still be a Red-Black Tree.</p>
+<h4 id="Insert-1"><a href="#Insert-1" class="headerlink" title="Insert"></a>Insert</h4><p>What color to make the new node?</p>
+<h5 id="Red"><a href="#Red" class="headerlink" title="Red"></a>Red</h5><p>Property 4 <em>may be</em> violated: if a node is red, then both its children are black.</p>
+<h5 id="Black"><a href="#Black" class="headerlink" title="Black"></a>Black</h5><p>Property 5 <em>may be</em> violated: all paths from a node to its leaves contain the same number of black nodes  </p>
+<h4 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h4><p>What is the color of the node to be removed?</p>
+<h5 id="Red-1"><a href="#Red-1" class="headerlink" title="Red"></a>Red</h5><p>All properties will be fulfilled</p>
+<h5 id="Black-1"><a href="#Black-1" class="headerlink" title="Black"></a>Black</h5><p>Property 2 <em>may be</em> violated: The root is <strong>black</strong></p>
+<p>Property 4 <em>may be</em> violated: If a node is red, then both its children are <strong>black</strong></p>
+<p>Property 5 <em>may be</em> violated: For each node, all paths from the node to descendant leaves contain the same number of black nodes.</p>
+<h4 id="Rotations"><a href="#Rotations" class="headerlink" title="Rotations"></a>Rotations</h4><p>Operations for re-structuring the tree after insert and delete operations on red-black trees.</p>
+<p>Rotations take a red-black-tree and a node within the tree and:</p>
+<ul>
+<li><p>Together with some node re-coloring them and help restore the red-black-tree property</p>
+</li>
+<li><p>Change some of the pointer structure</p>
+</li>
+<li><p><strong>Do not</strong> change the binary-search tree property </p>
+</li>
+</ul>
+<h5 id="Two-Types-of-Rotations"><a href="#Two-Types-of-Rotations" class="headerlink" title="Two Types of Rotations"></a>Two Types of Rotations</h5><h6 id="Left-Rotations"><a href="#Left-Rotations" class="headerlink" title="Left Rotations"></a>Left Rotations</h6><p>Assumptions for a left rotation on a node x: The right child of x (y) is not NIL.</p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110165046936.png" alt="image-20191110165046936"></p>
+<p><strong>Idea:</strong> </p>
+<ul>
+<li><p>Pivots around the link from x to y</p>
+</li>
+<li><p>Makes y the new root of the subtree</p>
+</li>
+<li><p>x becomes y’s left child</p>
+</li>
+<li><p>y’s left child becomes x’s right child</p>
+</li>
+<li><p>x’ left child and y’s right child stays the same</p>
+</li>
+</ul>
+<h6 id="Right-Rotations"><a href="#Right-Rotations" class="headerlink" title="Right Rotations"></a>Right Rotations</h6><p>Assumptions for a right rotation on a node x: The left child of y (x) is not NIL</p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110175535986.png" alt="image-20191110175535986"></p>
+<p><strong>Idea:</strong></p>
+<ul>
+<li>Pivots around the link from y to x</li>
+<li>Makes x the new root of the subtree</li>
+<li>y becomes x’s right child</li>
+<li>x’s right child becomes y’s left child</li>
+</ul>
+<h4 id="Insert-with-Rotation"><a href="#Insert-with-Rotation" class="headerlink" title="Insert with Rotation"></a>Insert with Rotation</h4><h5 id="Goal-2"><a href="#Goal-2" class="headerlink" title="Goal"></a>Goal</h5><p>Insert a new node z into a red-black-tree  </p>
+<h5 id="Idea-1"><a href="#Idea-1" class="headerlink" title="Idea"></a>Idea</h5><ul>
+<li>Insert node z into the tree as for an ordinary binary search tree</li>
+<li>Color the node <strong><span style="color: red">red</span></strong></li>
+<li>Restore the red-black-tree properties<ul>
+<li>Use an auxiliary procedure RB-INSERT-FIXUP</li>
+</ul>
+</li>
+</ul>
+<p>From the above, we know that Property 4: If a node is red, then both its children are black may be violated. So we need to fix it.</p>
+<h5 id="INSERT-FIXUP"><a href="#INSERT-FIXUP" class="headerlink" title="INSERT FIXUP"></a>INSERT FIXUP</h5><h6 id="Case-1-3"><a href="#Case-1-3" class="headerlink" title="Case 1"></a>Case 1</h6><p>z’s <strong><em>uncle</em></strong> is <strong><span style="color: red">red</span></strong></p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110183705840.png" alt="image-20191110183705840"></p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110183720248.png" alt="image-20191110183720248"></p>
+<p>p[p[z]] (z’s grandparent) must be black.</p>
+<p><strong>No matter z is left child or right child:</strong></p>
+<ul>
+<li>Color p[z] <strong>black</strong></li>
+<li>Color y <strong>black</strong></li>
+<li>Color p[p[z]] <strong><span style="color: red">red</span></strong></li>
+<li>z = p[p[z]]</li>
+<li>And Repeat until Case 1 would not happen again</li>
+<li>Push the <strong><span style="color: red">“red”</span></strong> violation up the tree</li>
+</ul>
+<h6 id="Case-2-3"><a href="#Case-2-3" class="headerlink" title="Case 2"></a>Case 2</h6><p>z’s <strong><em>uncle</em></strong> is <strong>black</strong> and z is a right child</p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110183753132.png" alt="image-20191110183753132"></p>
+<p><strong>Idea:</strong></p>
+<ul>
+<li><p>z = p[z]</p>
+</li>
+<li><p>LEFT-ROTATE(T, z)</p>
+</li>
+</ul>
+<p>now z is a left child, and both z and p[z] are red  </p>
+<p>Then <strong>Case 2</strong> is turned into <strong>Case 3</strong></p>
+<h6 id="Case-3-1"><a href="#Case-3-1" class="headerlink" title="Case 3"></a>Case 3</h6><p>z’s <strong><em>uncle</em></strong> is <strong>black</strong> and z is a left child</p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110183741489.png" alt="image-20191110183741489"></p>
+<p><strong>Idea:</strong></p>
+<ul>
+<li>color p[z] to <strong>black</strong></li>
+<li>color p[p[z]] to <strong><span style="color: red">red</span></strong></li>
+<li>RIGHT-ROTATE(T, p[p[z]])</li>
+</ul>
+<p>No longer have two <strong><span style="color: red">red</span></strong>s in a row</p>
+<p>So the operation is done.</p>
+<h5 id="Analysis-of-INSERT"><a href="#Analysis-of-INSERT" class="headerlink" title="Analysis of INSERT"></a>Analysis of INSERT</h5><p>Inserting the new element into the tree O(logn). </p>
+<p>For RB-INSERT-FIXUP, the while loop repeats only if <strong>Case 1</strong> is executed, the number of times the while loop can be executed is O(logn).</p>
+<p>So total running time of RB-INSERT is O(logn)</p>
+<h3 id="Summary-1"><a href="#Summary-1" class="headerlink" title="Summary"></a>Summary</h3><ul>
+<li>Operations on red-black-trees:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Operations</th>
+<th>Time Complexity</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SEARCH</td>
+<td>O(h) / O(logn)</td>
+</tr>
+<tr>
+<td>PREDECESSOR</td>
+<td>O(h) / O(logn)</td>
+</tr>
+<tr>
+<td>SUCCESSOR</td>
+<td>O(h) / O(logn)</td>
+</tr>
+<tr>
+<td>MINIMUM</td>
+<td>O(h) / O(logn)</td>
+</tr>
+<tr>
+<td>MAXIMUM</td>
+<td>O(h) / O(logn)</td>
+</tr>
+<tr>
+<td>INSERT</td>
+<td>O(h) / O(logn)</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>O(h) / O(logn)</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Red-black-trees guarantee that the height of the tree will be O(logn)</li>
+</ul>
+<h2 id="AVL-Tree"><a href="#AVL-Tree" class="headerlink" title="AVL Tree"></a>AVL Tree</h2><ul>
+<li>An AVL tree is a binary search tree with a balance condition</li>
+<li>Invented by Georgy Adelson-Velsky and Evgenii Landis</li>
+<li>The balance condition: <strong>The height of the left and right subtrees can differ by at most 1.</strong> </li>
+<li>In an AVL Tree, height <strong>or</strong> balancing information is kept for each node</li>
+<li>All the tree operation can be performed in O(logn) time.</li>
+</ul>
+<h3 id="Tree-Height"><a href="#Tree-Height" class="headerlink" title="Tree Height"></a>Tree Height</h3><ul>
+<li>N(h) = minimum number of nodes in an AVL tree of height h </li>
+<li>N(h) = N(h-1)+N(h-2)+1</li>
+<li>N(0) = 1, N(1) = 2</li>
+<li>$N(h) = \phi^h$ ($\phi \approx $1.62)</li>
+<li>Suppose we have n nodes in  an AVL tree of height h: $n \geq N(h) \geq h \leq 1.44\log(n)$</li>
+<li>The height of an AVL Tree is at most roughly <span style="color:red">$1.44\log(n)$</span></li>
+</ul>
+<h3 id="Node-Height"><a href="#Node-Height" class="headerlink" title="Node Height"></a>Node Height</h3><p><strong>Balance Factor:</strong> $h_{\text{left}}-h_{\text{right}}$</p>
+<p><strong>empty height</strong> (height of empty node): -1</p>
+<h3 id="Insert-2"><a href="#Insert-2" class="headerlink" title="Insert"></a>Insert</h3><ul>
+<li><p>When we do an insertion, we need to update all the balancing (or height) information for the nodes on the path back to the root. Inserting a node may violate the AVL tree property.</p>
+</li>
+<li><p>After an insertion, only nodes that are on the path from the insertion point to the root might have their balance altered.</p>
+</li>
+<li><p>As we follow the path up to the root and update the balancing information, we may find a node whose new balance violates the AVL condition.</p>
+</li>
+<li><p>Rebalancing the tree at the first (i.e., deepest) such node can guarantee the entire tree satisfying the AVL property.</p>
+</li>
+</ul>
+<p>Let the node that needs rebalancing be <span style="color:red">$\alpha$</span>. There are 4 cases:</p>
+<p><strong>Outside Cases:</strong> (require single rotation)</p>
+<ol>
+<li><p>Insertion into <strong>left</strong> subtree of <strong>left</strong> child of $\alpha$ (LL).</p>
+</li>
+<li><p>Insertion into <strong>right</strong> subtree of <strong>right</strong> child of $\alpha$ (RR).</p>
+</li>
+</ol>
+<p><strong>Inside Cases:</strong> (require double rotation)</p>
+<ol start="3">
+<li><p>Insertion into <strong>right</strong> subtree of <strong>left</strong> child of $\alpha$ (RL).</p>
+</li>
+<li><p>Insertion into <strong>left</strong> subtree of <strong>right</strong> child of $\alpha$ (LR).</p>
+</li>
+</ol>
+<p>The rebalancing is performed through four seperate rotation algorithms.</p>
+<p><strong>Note:</strong> the height of the tree is h+2 before the insertion</p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110194207045.png" alt="image-20191110194207045"></p>
+<h4 id="Case-1-4"><a href="#Case-1-4" class="headerlink" title="Case 1"></a>Case 1</h4><p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110194258229.png" alt="image-20191110194258229"></p>
+<p>Do RIght-Rotation and then done! AVL properties has been restored.</p>
+<p><strong>Note:</strong> the height of this tree is still h+2 after the fixup.</p>
+<h4 id="Case-4"><a href="#Case-4" class="headerlink" title="Case 4"></a>Case 4</h4><p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110194609510.png" alt="image-20191110194609510"></p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110195115921.png" alt="image-20191110195115921"></p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110195131342.png" alt="image-20191110195131342"></p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110195140139.png" alt="image-20191110195140139"></p>
+<p><strong>Note:</strong> the height of this tree is still h+2 after the fixup.</p>
+<h4 id="Case-2-and-Case-3"><a href="#Case-2-and-Case-3" class="headerlink" title="Case 2 and Case 3"></a>Case 2 and Case 3</h4><p>For these two cases, it’s just mirror operation of <strong>Case 1</strong> and <strong>Case 4</strong></p>
+<h3 id="Red-Black-Tree-vs-AVL-Tree"><a href="#Red-Black-Tree-vs-AVL-Tree" class="headerlink" title="Red-Black Tree vs. AVL Tree"></a>Red-Black Tree vs. AVL Tree</h3><ul>
+<li><p>AVL trees maintain a more tight balance than red-black trees. </p>
+<ul>
+<li>Root height: ~1.44 log(n) vs ~2 log (n)</li>
+</ul>
+</li>
+<li><p>lookup in an AVL tree is typically faster, but this comes at the cost of slower insertion and deletion due to more rotation operations.</p>
+</li>
+<li><p>AVL tree requires <strong>O(N) extra space</strong> for height whereas Red Black tree requires only 1 bit for color</p>
+</li>
+<li><p>So using an AVL tree if you expect the number of lookups to dominate the number of updates to the tree.</p>
+</li>
+<li><p>Red Black trees are used in most of the language libraries like map, multimap, multiset in C++ whereas AVL trees are used in databases where faster retrievals are required.</p>
+</li>
+</ul>
+<h2 id="Large-Data-Application"><a href="#Large-Data-Application" class="headerlink" title="Large Data Application"></a>Large Data Application</h2><ul>
+<li>insert: AVL tree is faster because you need to lookup for a particular node before insertion. AVL tree &amp; RB tree still only need constant number of rotation at the worst case. Thus the bottle neck will become the time you lookup for that particular node.</li>
+<li>lookup: AVL tree is faster. </li>
+<li>delete: AVL tree is faster on average, similar to the reason of insertion). </li>
+</ul>
+<h2 id="B-Tree"><a href="#B-Tree" class="headerlink" title="B-Tree"></a>B-Tree</h2><h3 id="Motivation-for-B-Trees"><a href="#Motivation-for-B-Trees" class="headerlink" title="Motivation for B-Trees"></a>Motivation for B-Trees</h3><h4 id="Data-Layout-on-Disk"><a href="#Data-Layout-on-Disk" class="headerlink" title="Data Layout on Disk"></a>Data Layout on Disk</h4><ul>
+<li><p>Track: one ring</p>
+</li>
+<li><p>Sector: one pie-shaped piece.</p>
+</li>
+<li><p>Block: intersection of a track and a sector – minimum unit for disk storage.</p>
+</li>
+</ul>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110155018957.png" alt="image-20191110155018957"></p>
+<h4 id="Disk-Block-Access-Time"><a href="#Disk-Block-Access-Time" class="headerlink" title="Disk Block Access Time"></a>Disk Block Access Time</h4><ul>
+<li>Seek Time = Time for the disk head to move to the correct track + Time for the beginning of the correct sector to spin round to the head. </li>
+<li>Transfer Time = Time to read or write the data in blocks.  </li>
+<li>For a 7200 RPM hard disk, one revolution occurs in 1/120 of a second. Seek time is about 8.4 ms and average transfer time for a block is about 12 ms. </li>
+<li>Random Access Memory (RAM) takes nanoseconds to read from or write to, 100,000 times faster than disk.</li>
+</ul>
+<h4 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h4><ul>
+<li><p>Index structures for large datasets cannot be stored in main memory</p>
+</li>
+<li><p>Storing it on disk requires different approach to efficiency. (Can’t afford too many disk access)</p>
+</li>
+<li><p>The disk access needs to be optimized. (One access reads more data)</p>
+</li>
+<li><p>Need an efficient disk based indexing method.</p>
+</li>
+</ul>
+<h4 id="Limitation-of-Binary-Tree"><a href="#Limitation-of-Binary-Tree" class="headerlink" title="Limitation of Binary Tree"></a>Limitation of Binary Tree</h4><ul>
+<li><p>Assume that we use an AVL tree to store about 20 million records and all indexes are stored on disk.</p>
+</li>
+<li><p>A <strong>very</strong> deep binary tree with lots of different disk accesses; log2 20,000,000 is about 24, so this takes about 0.3 seconds </p>
+</li>
+<li><p>The log<em>n</em> lower bound on search for a binary tree. How to improve?</p>
+</li>
+<li><p>The solution is to use more branches and thus reduce the height of the tree!</p>
+<ul>
+<li>As branching increases, depth decreases</li>
+</ul>
+</li>
+</ul>
+<h3 id="B-Trees"><a href="#B-Trees" class="headerlink" title="B-Trees"></a>B-Trees</h3><p>e.g. B-tree of order 4:<br><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191110155553886.png" alt="image-20191110155553886"></p>
+<p><strong>Note:</strong> B-Tree do not require that each node always be full. Empty space will permit insertion without rebalancing. Allowing empty space after a deletion can also avoid rebalancing.</p>
+<ul>
+<li>A B-tree of order m is an m-way tree (i.e., a tree where each node may have up to m children) in which:</li>
+</ul>
+<ol>
+<li><p>The number of keys in each non-leaf node is one less than the number of its children and these keys partition the keys in the children in the fashion of a search tree</p>
+</li>
+<li><p>All leaves are on the same level</p>
+</li>
+<li><p>All non-leaf nodes except the root have at least $\lceil\frac{m}{2}\rceil$ children</p>
+</li>
+<li><p>The root is either a leaf node, or it has from two to m children</p>
+</li>
+<li><p>A leaf node contains no more than m–1 keys</p>
+</li>
+</ol>
+<p><strong>Note:</strong> all nodes except root contain $[\lceil\frac{m}{2}\rceil - 1, m -1]$ elements.</p>
+<h3 id="Tree-Based-Indexing"><a href="#Tree-Based-Indexing" class="headerlink" title="Tree-Based Indexing"></a>Tree-Based Indexing</h3><ul>
+<li><p>Only the last level of index tree provides the address of data in disk</p>
+</li>
+<li><p>Deletion in disk is easy</p>
+</li>
+<li><p>Insertion may have trouble</p>
+<ul>
+<li>Solution: <strong>Overflow Buckets</strong> </li>
+</ul>
+</li>
+</ul>
+<h3 id="Constructing-a-B-Tree"><a href="#Constructing-a-B-Tree" class="headerlink" title="Constructing a B-Tree"></a>Constructing a B-Tree</h3><ul>
+<li>Add each number sequentially to a correct leaf node</li>
+<li>If adding a new number will violate Property 5, add it in and promote the middle one to the higher level. If the higher level also violate Property 5 after that, repeat the procedure until everything is done.</li>
+</ul>
+<h3 id="Insert-3"><a href="#Insert-3" class="headerlink" title="Insert"></a>Insert</h3><ul>
+<li>Attempt to insert the new key into a leaf</li>
+<li>If that leaf becoming too big, split the leaf into two, promoting the middle key to the leaf’s parent</li>
+<li>If the parent becomes too big, split the parent into two, promoting the middle key</li>
+<li>This strategy might have to be repeated all the way to the top</li>
+</ul>
+<h3 id="Delete-1"><a href="#Delete-1" class="headerlink" title="Delete"></a>Delete</h3><p>Two possible situations in deletion:</p>
+<ol>
+<li><p>If the key is already in a leaf node, and removing it doesn’t cause that leaf node to have too few keys, then simply remove it.</p>
+</li>
+<li><p>If the key is <em>not</em> in a leaf then it is guaranteed (by the nature of a B-tree) that its predecessor or successor will be in a child – delete the key and promote the predecessor or successor key to the deleted key’s original position.</p>
+</li>
+</ol>
+<p><strong>If (1) or (2) lead to a leaf node containing too few keys, look at the immediately adjacent siblings:</strong> </p>
+<ol start="3">
+<li><p>If one of them has more than the min. number of keys then we can promote one of its (smallest or biggest) keys to the parent and take the parent key into our lacking leaf.</p>
+</li>
+<li><p>If neither of them has more than the min. number of keys, then the lacking leaf and one of its neighbours can be combined with their shared parent; if this step leave the parent with too few keys then we repeat the process up to the root itself, if required.</p>
+</li>
+</ol>
+<h4 id="Case-1-5"><a href="#Case-1-5" class="headerlink" title="Case 1"></a>Case 1</h4><p><strong>Simple leaf deletion</strong>  </p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191112134828693.png" alt="image-20191112134828693"></p>
+<h4 id="Case-2-4"><a href="#Case-2-4" class="headerlink" title="Case 2"></a>Case 2</h4><p><strong>Simple non-leaf deletion</strong>  </p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191112134854837.png" alt="image-20191112134854837"></p>
+<h4 id="Case-3-2"><a href="#Case-3-2" class="headerlink" title="Case 3"></a>Case 3</h4><p><strong>Enough siblings</strong></p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191112134929183.png" alt="image-20191112134929183"></p>
+<h4 id="Case-4-1"><a href="#Case-4-1" class="headerlink" title="Case 4"></a>Case 4</h4><p><strong>Too few keys in node and its siblings</strong>  </p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191112134952566.png" alt="image-20191112134952566"></p>
+<p><img src="/2019/10/13/note/CSC3100/CSC3100-Week8-10/image-20191112135000539.png" alt="image-20191112135000539"></p>
+<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>The maximum number of items in a B-tree of order <em>m</em> and height <em>h</em>:</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Number of Items</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>root</td>
+<td>$m – 1$</td>
+</tr>
+<tr>
+<td>level 1</td>
+<td>$m(m – 1)$</td>
+</tr>
+<tr>
+<td>level 2</td>
+<td>$m^2(m – 1)$</td>
+</tr>
+<tr>
+<td>. . .</td>
+<td>. . .</td>
+</tr>
+<tr>
+<td>level h</td>
+<td>$m^h(m – 1)$</td>
+</tr>
+</tbody></table>
+<p>So, the total number of items is $(1 + m + m^2 + m^3 + … + m^h)(m-1) = (\frac{m^{h+1}-1}{m-1})(m-1) = m^{h+1}-1$</p>
+<h3 id="Reasons-for-Using-B-Trees"><a href="#Reasons-for-Using-B-Trees" class="headerlink" title="Reasons for Using B-Trees"></a>Reasons for Using B-Trees</h3><ul>
+<li><p>When searching tables held on disc, the cost of each disc transfer is high but doesn’t depend much on the amount of data transferred, especially if consecutive items are transferred</p>
+</li>
+<li><p>If we use a B-tree of order 101, say, we can transfer each node in one disc read operation</p>
+</li>
+<li><p>A B-tree of order 101 and height 3 can hold $101^4 – 1$ items (approximately 100 million) and any item can be accessed with 3 disc reads (assuming we hold the root in memory)</p>
+</li>
+</ul>
+<h2 id="Comparing-Trees"><a href="#Comparing-Trees" class="headerlink" title="Comparing Trees"></a>Comparing Trees</h2><ul>
+<li>Binary trees<ul>
+<li>Can become <em>unbalanced</em> and <em>lose</em> their good time complexity (big O)</li>
+<li>RB trees and AVL trees are strict binary trees that <em>overcome the balance problem</em></li>
+<li>Heaps remain balanced but only <em>prioritise</em> (not order) the keys</li>
+</ul>
+</li>
+<li>Multi-way trees<ul>
+<li>B-Trees can be <em>m</em>-way, they can have any number of children, useful for database</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/CSC3100/" rel="tag"># CSC3100</a>
+            
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+            
+              <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
+            
+              <a href="/tags/Trees/" rel="tag"># Trees</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/30/note/Index/EIE2050-Index/" rel="next" title="EIE2050 Index">
+                  <i class="fa fa-chevron-left"></i> EIE2050 Index
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/11/10/note/CSC3100/CSC3100-Week11/" rel="prev" title="CSC3100 Week11">
+                  CSC3100 Week11 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Olym Chen">
+  <p class="site-author-name" itemprop="name">Olym Chen</p>
+  <div class="site-description motion-element" itemprop="description">Just a Blog</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/chenhaolinolym" title="GitHub &rarr; https://github.com/chenhaolinolym" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.olym.xyz" title="http://www.olym.xyz" rel="noopener" target="_blank">Homepage</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definitions"><span class="nav-number">1.</span> <span class="nav-text">Definitions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Root"><span class="nav-number">1.1.</span> <span class="nav-text">Root</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Edge"><span class="nav-number">1.2.</span> <span class="nav-text">Edge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parent"><span class="nav-number">1.3.</span> <span class="nav-text">Parent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Child"><span class="nav-number">1.4.</span> <span class="nav-text">Child</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sibling"><span class="nav-number">1.5.</span> <span class="nav-text">Sibling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leaf"><span class="nav-number">1.6.</span> <span class="nav-text">Leaf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Path"><span class="nav-number">1.7.</span> <span class="nav-text">Path</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Length-of-a-path"><span class="nav-number">1.7.1.</span> <span class="nav-text">Length of a path</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Depth"><span class="nav-number">1.8.</span> <span class="nav-text">Depth</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Height"><span class="nav-number">1.9.</span> <span class="nav-text">Height</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-Tree"><span class="nav-number">2.</span> <span class="nav-text">Binary Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Expression-Tree"><span class="nav-number">2.1.</span> <span class="nav-text">Expression Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Traversing-Strategy"><span class="nav-number">2.2.</span> <span class="nav-text">Traversing Strategy</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Preorder-depth-first"><span class="nav-number">2.2.1.</span> <span class="nav-text">Preorder (depth-first)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inorder"><span class="nav-number">2.2.2.</span> <span class="nav-text">Inorder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Postorder"><span class="nav-number">2.2.3.</span> <span class="nav-text">Postorder</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Binary-Search-Tree"><span class="nav-number">3.</span> <span class="nav-text">Binary Search Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Property"><span class="nav-number">3.1.</span> <span class="nav-text">Property</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operations"><span class="nav-number">3.2.</span> <span class="nav-text">Operations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Running-Time"><span class="nav-number">3.3.</span> <span class="nav-text">Running Time</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search"><span class="nav-number">3.4.</span> <span class="nav-text">Search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Finding-the-Minimum"><span class="nav-number">3.5.</span> <span class="nav-text">Finding the Minimum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Finding-the-Maximum"><span class="nav-number">3.6.</span> <span class="nav-text">Finding the Maximum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Successor"><span class="nav-number">3.7.</span> <span class="nav-text">Successor</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition"><span class="nav-number">3.7.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Case-1"><span class="nav-number">3.7.2.</span> <span class="nav-text">Case 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Case-2"><span class="nav-number">3.7.3.</span> <span class="nav-text">Case 2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Predecessor"><span class="nav-number">3.8.</span> <span class="nav-text">Predecessor</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition-1"><span class="nav-number">3.8.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Case-1-1"><span class="nav-number">3.8.2.</span> <span class="nav-text">Case 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Case-2-1"><span class="nav-number">3.8.3.</span> <span class="nav-text">Case 2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insert"><span class="nav-number">3.9.</span> <span class="nav-text">Insert</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Goal"><span class="nav-number">3.9.1.</span> <span class="nav-text">Goal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method"><span class="nav-number">3.9.2.</span> <span class="nav-text">Method</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deletion"><span class="nav-number">3.10.</span> <span class="nav-text">Deletion</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Goal-1"><span class="nav-number">3.10.1.</span> <span class="nav-text">Goal</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Idea"><span class="nav-number">3.10.2.</span> <span class="nav-text">Idea</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Case-1-2"><span class="nav-number">3.10.2.1.</span> <span class="nav-text">Case 1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Case-2-2"><span class="nav-number">3.10.2.2.</span> <span class="nav-text">Case 2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Case-3"><span class="nav-number">3.10.2.3.</span> <span class="nav-text">Case 3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary"><span class="nav-number">3.11.</span> <span class="nav-text">Summary</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Operations-on-Binary-Search-Trees"><span class="nav-number">3.11.1.</span> <span class="nav-text">Operations on Binary Search Trees</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Issues"><span class="nav-number">3.12.</span> <span class="nav-text">Issues</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Possible-Solution"><span class="nav-number">3.12.1.</span> <span class="nav-text">Possible Solution</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Proven-Solution"><span class="nav-number">3.12.2.</span> <span class="nav-text">Proven Solution</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Red-Black-Tree"><span class="nav-number">4.</span> <span class="nav-text">Red-Black Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Properties"><span class="nav-number">4.1.</span> <span class="nav-text">Properties</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Black-Height"><span class="nav-number">4.1.1.</span> <span class="nav-text">Black Height</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Height-of-Red-Black-Tree"><span class="nav-number">4.2.</span> <span class="nav-text">Height of Red-Black Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Important-Property-of-Red-Black-Tree"><span class="nav-number">4.2.1.</span> <span class="nav-text">Important Property of Red-Black Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Claim-1"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">Claim 1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Claim-2"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">Claim 2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Proof"><span class="nav-number">4.2.1.3.</span> <span class="nav-text">Proof</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Operations-of-Red-Black-Tree"><span class="nav-number">4.3.</span> <span class="nav-text">Operations of Red-Black Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Insert-1"><span class="nav-number">4.3.1.</span> <span class="nav-text">Insert</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Red"><span class="nav-number">4.3.1.1.</span> <span class="nav-text">Red</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Black"><span class="nav-number">4.3.1.2.</span> <span class="nav-text">Black</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Delete"><span class="nav-number">4.3.2.</span> <span class="nav-text">Delete</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Red-1"><span class="nav-number">4.3.2.1.</span> <span class="nav-text">Red</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Black-1"><span class="nav-number">4.3.2.2.</span> <span class="nav-text">Black</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Rotations"><span class="nav-number">4.3.3.</span> <span class="nav-text">Rotations</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Two-Types-of-Rotations"><span class="nav-number">4.3.3.1.</span> <span class="nav-text">Two Types of Rotations</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Left-Rotations"><span class="nav-number">4.3.3.1.1.</span> <span class="nav-text">Left Rotations</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Right-Rotations"><span class="nav-number">4.3.3.1.2.</span> <span class="nav-text">Right Rotations</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Insert-with-Rotation"><span class="nav-number">4.3.4.</span> <span class="nav-text">Insert with Rotation</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Goal-2"><span class="nav-number">4.3.4.1.</span> <span class="nav-text">Goal</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Idea-1"><span class="nav-number">4.3.4.2.</span> <span class="nav-text">Idea</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#INSERT-FIXUP"><span class="nav-number">4.3.4.3.</span> <span class="nav-text">INSERT FIXUP</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Case-1-3"><span class="nav-number">4.3.4.3.1.</span> <span class="nav-text">Case 1</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Case-2-3"><span class="nav-number">4.3.4.3.2.</span> <span class="nav-text">Case 2</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Case-3-1"><span class="nav-number">4.3.4.3.3.</span> <span class="nav-text">Case 3</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Analysis-of-INSERT"><span class="nav-number">4.3.4.4.</span> <span class="nav-text">Analysis of INSERT</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summary-1"><span class="nav-number">4.4.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AVL-Tree"><span class="nav-number">5.</span> <span class="nav-text">AVL Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tree-Height"><span class="nav-number">5.1.</span> <span class="nav-text">Tree Height</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-Height"><span class="nav-number">5.2.</span> <span class="nav-text">Node Height</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insert-2"><span class="nav-number">5.3.</span> <span class="nav-text">Insert</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Case-1-4"><span class="nav-number">5.3.1.</span> <span class="nav-text">Case 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Case-4"><span class="nav-number">5.3.2.</span> <span class="nav-text">Case 4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Case-2-and-Case-3"><span class="nav-number">5.3.3.</span> <span class="nav-text">Case 2 and Case 3</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Red-Black-Tree-vs-AVL-Tree"><span class="nav-number">5.4.</span> <span class="nav-text">Red-Black Tree vs. AVL Tree</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Large-Data-Application"><span class="nav-number">6.</span> <span class="nav-text">Large Data Application</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-Tree"><span class="nav-number">7.</span> <span class="nav-text">B-Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Motivation-for-B-Trees"><span class="nav-number">7.1.</span> <span class="nav-text">Motivation for B-Trees</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Data-Layout-on-Disk"><span class="nav-number">7.1.1.</span> <span class="nav-text">Data Layout on Disk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Disk-Block-Access-Time"><span class="nav-number">7.1.2.</span> <span class="nav-text">Disk Block Access Time</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Motivation"><span class="nav-number">7.1.3.</span> <span class="nav-text">Motivation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Limitation-of-Binary-Tree"><span class="nav-number">7.1.4.</span> <span class="nav-text">Limitation of Binary Tree</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-Trees"><span class="nav-number">7.2.</span> <span class="nav-text">B-Trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tree-Based-Indexing"><span class="nav-number">7.3.</span> <span class="nav-text">Tree-Based Indexing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Constructing-a-B-Tree"><span class="nav-number">7.4.</span> <span class="nav-text">Constructing a B-Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insert-3"><span class="nav-number">7.5.</span> <span class="nav-text">Insert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Delete-1"><span class="nav-number">7.6.</span> <span class="nav-text">Delete</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Case-1-5"><span class="nav-number">7.6.1.</span> <span class="nav-text">Case 1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Case-2-4"><span class="nav-number">7.6.2.</span> <span class="nav-text">Case 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Case-3-2"><span class="nav-number">7.6.3.</span> <span class="nav-text">Case 3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Case-4-1"><span class="nav-number">7.6.4.</span> <span class="nav-text">Case 4</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analysis"><span class="nav-number">7.7.</span> <span class="nav-text">Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reasons-for-Using-B-Trees"><span class="nav-number">7.8.</span> <span class="nav-text">Reasons for Using B-Trees</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comparing-Trees"><span class="nav-number">8.</span> <span class="nav-text">Comparing Trees</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备19098205号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Olym Chen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">176k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">2:40</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+<script>
+if ($('body').find('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', function() {
+    $('body').find('div.pdf').each(function(i, o) {
+      PDFObject.embed($(o).attr('target'), $(o), {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: $(o).attr('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', function() {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>

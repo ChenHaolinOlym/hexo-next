@@ -40,19 +40,19 @@ Z / $\zeta$ | `Z` / `\zeta`
 H / $\eta$ | `H` / `\eta`
 $\Theta$ / $\theta$ / $\vartheta$ | `\Theta` / `\theta` / `\vartheta`
 I / $\iota$ | `I` / `\iota`
-K / $\kappa$ / $varkappa$ | `K` / `\kappa` / `\varkappa`
+K / $\kappa$ / $\varkappa$ | `K` / `\kappa` / `\varkappa`
 $\Lambda$ / $\lambda$ | `\Lambda` / `\lambda`
 M / $\mu$ | `M` / `\mu`
 N / $\nu$ | `N` / `\nu`
 $\Xi$ / $\xi$ | `\Xi` / `\xi`
-O / $\Omicron$ | `O` / `\Omicron`
+O / $\omicron$ | `O` / `\omicron` 
 $\Pi$ / $\pi$ / $\varpi$ | `\Pi` / `\pi` / `\varpi`
-$\Rho$ / $\rho$ / $\varrho$ | `\Rho` / `\rho` / `\varrho`
+$P$ / $\rho$ / $\varrho$ | `P` / `\rho` / `\varrho` 
 $\Sigma$ / $\sigma$ / $\varsigma$ | `\Sigma` / `\sigma` / `\varsigma`
-$\Tau$ / $\tau$ | `\Tau` / `\tau`
+$T$ / $\tau$ | `\T` / `\tau` 
 $\Upsilon$ / $\upsilon$ | `\Upsilon` / `\upsilon`
 $\Phi$ / $\phi$ / $\varphi$ | `\Phi` / `\phi` / `\varphi`
-$\Chi$ / $\chi$ | `\Chi` / `\chi`
+$X$ / $\chi$ | `X` / `\chi` 
 $\Psi$ / $\psi$ | `\Psi` / `\psi`
 $\Omega$ / $\omega$ | `\Omega` / `\omega`
 
@@ -88,6 +88,8 @@ Name | Symbol | Code
 overset | $\overset{over}{N}$ | `\overset{over}{N}`
 underset | $\underset{under}{N}$ | `\underset{under}{N}`
 binom | $\binom{a}{b}$ | `\binom{a}{b}` 
+ceil | $\lceil x \rceil$ | `\lceil x \rceil` 
+floor | $\lfloor x \rfloor$ | `\lfloor x \rfloor` 
 
 ## Escapes
 

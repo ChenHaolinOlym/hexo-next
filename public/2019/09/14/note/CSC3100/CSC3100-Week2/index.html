@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="Sorting ProblemBubble SortBubble sort and insertion sort has the same running time.Loop InvariantA property of the loop: Initialization: true before the begin of loop Maintenance: if true before an it">
-<meta name="keywords" content="CSC3100,Data Structure,Algorithm">
+  <meta name="description" content="Sorting ProblemInput: a sequence of n numbers &amp;lt; $a_1$, $a_2$,…, $a_n$&amp;gt; Output: a permutation (reordering) &amp;lt; $a’_1$, $a’2$,…, $a’_n$&amp;gt; of input such that $a’1 \leq a’2\leq…\leq a’n$ .">
+<meta name="keywords" content="CSC3100,Algorithm,Data Structure">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSC3100 Week2">
 <meta property="og:url" content="http://chenhaolinolym.github.io/2019/09/14/note/CSC3100/CSC3100-Week2/index.html">
 <meta property="og:site_name" content="Olym&#39;s Secret House">
-<meta property="og:description" content="Sorting ProblemBubble SortBubble sort and insertion sort has the same running time.Loop InvariantA property of the loop: Initialization: true before the begin of loop Maintenance: if true before an it">
+<meta property="og:description" content="Sorting ProblemInput: a sequence of n numbers &amp;lt; $a_1$, $a_2$,…, $a_n$&amp;gt; Output: a permutation (reordering) &amp;lt; $a’_1$, $a’2$,…, $a’_n$&amp;gt; of input such that $a’1 \leq a’2\leq…\leq a’n$ .">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-17T15:55:18.788Z">
+<meta property="og:updated_time" content="2019-10-26T09:03:19.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSC3100 Week2">
-<meta name="twitter:description" content="Sorting ProblemBubble SortBubble sort and insertion sort has the same running time.Loop InvariantA property of the loop: Initialization: true before the begin of loop Maintenance: if true before an it">
+<meta name="twitter:description" content="Sorting ProblemInput: a sequence of n numbers &amp;lt; $a_1$, $a_2$,…, $a_n$&amp;gt; Output: a permutation (reordering) &amp;lt; $a’_1$, $a’2$,…, $a’_n$&amp;gt; of input such that $a’1 \leq a’2\leq…\leq a’n$ .">
   <link rel="canonical" href="http://chenhaolinolym.github.io/2019/09/14/note/CSC3100/CSC3100-Week2/">
 
 
@@ -300,7 +300,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-17 23:55:18" itemprop="dateModified" datetime="2019-09-17T23:55:18+08:00">2019-09-17</time>
+                <time title="Modified: 2019-10-26 17:03:19" itemprop="dateModified" datetime="2019-10-26T17:03:19+08:00">2019-10-26</time>
               </span>
             
           
@@ -342,7 +342,7 @@
               
                 <span class="post-meta-item-text">Symbols count in article: </span>
               
-              <span>1.9k</span>
+              <span>3.2k</span>
             </span>
           
             <span class="post-meta-item" title="Reading time">
@@ -352,7 +352,7 @@
               
                 <span class="post-meta-item-text">Reading time &asymp;</span>
               
-              <span>2 mins.</span>
+              <span>3 mins.</span>
             </span>
           
 
@@ -365,42 +365,84 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Sorting-Problem"><a href="#Sorting-Problem" class="headerlink" title="Sorting Problem"></a>Sorting Problem</h2><h3 id="Bubble-Sort"><a href="#Bubble-Sort" class="headerlink" title="Bubble Sort"></a>Bubble Sort</h3><p>Bubble sort and insertion sort has the same running time.</p><h3 id="Loop-Invariant"><a href="#Loop-Invariant" class="headerlink" title="Loop Invariant"></a>Loop Invariant</h3><p>A property of the loop:</p><ul>
+        <h2 id="Sorting-Problem"><a href="#Sorting-Problem" class="headerlink" title="Sorting Problem"></a>Sorting Problem</h2><p><strong>Input:</strong> a sequence of n numbers &lt; $a_1$, $a_2$,…, $a_n$&gt; </p><p><strong>Output:</strong> a permutation (reordering) &lt; $a’_1$, $a’2$,…, $a’_n$&gt; of input such that $a’1 \leq a’2\leq…\leq a’n$ .</p><a id="more"></a>
+
+<ul>
+<li><p>Stored in arrays.</p>
+</li>
+<li><p>The numbers are referred as keys.</p>
+</li>
+<li><p>Associated with additional information (satellite data)</p>
+</li>
+<li><p>Several ways to solve.</p>
+</li>
+</ul>
+<h3 id="Bubble-Sort"><a href="#Bubble-Sort" class="headerlink" title="Bubble Sort"></a>Bubble Sort</h3><p>Bubble sort and insertion sort has the same running time.</p>
+<h3 id="Loop-Invariant"><a href="#Loop-Invariant" class="headerlink" title="Loop Invariant"></a>Loop Invariant</h3><p>A property of the loop:</p>
+<ul>
 <li>Initialization: true before the begin of loop</li>
 <li>Maintenance: if true before an iteration, then also true after it.</li>
 <li>Termination: when the loop stops, use the invariant to show the algorithm is correct</li>
-</ul><a id="more"></a>
-
-
-<h3 id="Insertion-Sort"><a href="#Insertion-Sort" class="headerlink" title="Insertion Sort"></a>Insertion Sort</h3><ul>
-<li>Start with an empty left hand</li>
-<li>Pick up one card and insert it into the correct position</li>
-<li>To find the correct position, compare it with each of the cards in the hand, from right to left</li>
-<li>The cards held in the left hand are sorted</li>
+<li>Similar to the mathematical induction</li>
 </ul>
-<h4 id="Analysis-of-Insertion-Sort"><a href="#Analysis-of-Insertion-Sort" class="headerlink" title="Analysis of Insertion Sort"></a>Analysis of Insertion Sort</h4><p>T(n) = cost*times</p>
+<h3 id="Insertion-Sort"><a href="#Insertion-Sort" class="headerlink" title="Insertion Sort"></a>Insertion Sort</h3><ul>
+<li><p>Incremental Sorting Algorithm</p>
+</li>
+<li><p>Start with an empty left hand</p>
+</li>
+<li><p>Pick up one card and insert it into the correct position</p>
+</li>
+<li><p>To find the correct position, compare it with each of the cards in the hand, from right to left</p>
+</li>
+<li><p>The cards held in the left hand are sorted</p>
+</li>
+</ul>
+<h4 id="Analysis-of-Insertion-Sort"><a href="#Analysis-of-Insertion-Sort" class="headerlink" title="Analysis of Insertion Sort"></a>Analysis of Insertion Sort</h4><h5 id="Best-Case-The-array-is-sorted"><a href="#Best-Case-The-array-is-sorted" class="headerlink" title="Best Case: The array is sorted"></a>Best Case: The array is sorted</h5><p>$T(n) = 1$</p>
+<h5 id="Worst-Case-The-array-is-in-reverse-order"><a href="#Worst-Case-The-array-is-in-reverse-order" class="headerlink" title="Worst Case: The array is in reverse order"></a>Worst Case: The array is in reverse order</h5><p>$T(n) = \sum^n_{j=2}j = (\sum^n_{j=1}) - 1 = \frac{n(n+1)}{2} - 1$</p>
+<p>T(n) = cost*times</p>
 <p>Always consider the worse case</p>
 <p>When comparing them, we only keep the higher order term.</p>
-<h4 id="Average-Case-of-Insertion-Sort"><a href="#Average-Case-of-Insertion-Sort" class="headerlink" title="Average Case of Insertion Sort"></a>Average Case of Insertion Sort</h4><h3 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h3><ul>
-<li>self-reference</li>
-<li>recursive function: based upon itself</li>
+<h5 id="Average-Case-of-Insertion-Sort"><a href="#Average-Case-of-Insertion-Sort" class="headerlink" title="Average Case of Insertion Sort"></a>Average Case of Insertion Sort</h5><p>The worst case is about half of the worst case time, but still a quadratic of n.</p>
+<h3 id="Recursion"><a href="#Recursion" class="headerlink" title="Recursion"></a>Recursion</h3><ul>
+<li>Self-reference</li>
+<li>Recursive function: based upon itself</li>
 <li>Solution of the whole problem is composed of solutions of sub-problems</li>
 </ul>
 <h4 id="Insertion-Sort-in-Recursion"><a href="#Insertion-Sort-in-Recursion" class="headerlink" title="Insertion Sort in Recursion"></a>Insertion Sort in Recursion</h4><ul>
 <li>Base Case: If array size is 1 or smaller, return.</li>
 <li>Recursively sort first n-1 elements</li>
-<li>Insert the element in the correct position</li>
+<li>Insert the element in the correct position in sorted array</li>
 </ul>
-<h3 id="Devide-and-Conquer"><a href="#Devide-and-Conquer" class="headerlink" title="Devide and Conquer"></a>Devide and Conquer</h3><p>Divide the problem into a number of subproblems</p>
-<p>Conquer the subproblems by solving them recursively (further divide if not small enough).</p>
-<p>Combine the subproblem solutions to give a solution to the original problem.</p>
-<h3 id="Merge-Sort"><a href="#Merge-Sort" class="headerlink" title="Merge Sort"></a>Merge Sort</h3><p>Based on Devide and Conquer.</p>
+<h3 id="Devide-and-Conquer"><a href="#Devide-and-Conquer" class="headerlink" title="Devide and Conquer"></a>Devide and Conquer</h3><p><strong>Divide</strong> the problem into a number of subproblems</p>
+<p><strong>Conquer</strong> the subproblems by solving them recursively (further divide if not small enough).</p>
+<p><strong>Combine</strong> the subproblem solutions to give a solution to the original problem.</p>
+<h3 id="Merge-Sort"><a href="#Merge-Sort" class="headerlink" title="Merge Sort"></a>Merge Sort</h3><p>Based on <strong>Devide and Conquer</strong>.</p>
 <p>Its worst-case running time has a lower order of growth rate than insertion sort.</p>
 <p>Devide into smaller arrays, recursively devide, sort them, combine.</p>
-<h4 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h4><p>Think of two piles of cards.<br>Each pile is sorted and placed face-up on a table with the smallest cards on top.<br>We will merge them into a single sorted pile.<br>Basic idea<br>Choose the smaller of the two top cards<br>Remove it from its pile<br>Repeat</p>
+<h4 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h4><ul>
+<li>Think of two piles of cards. </li>
+<li>Each pile is sorted and placed face-up on a table with the smallest cards on top. </li>
+<li>We will merge them into a single sorted pile.</li>
+<li>Basic idea<ul>
+<li>Choose the smaller of the two top cards</li>
+<li>Remove it from its pile</li>
+<li>Repeat</li>
+</ul>
+</li>
+</ul>
 <h4 id="Imporvement"><a href="#Imporvement" class="headerlink" title="Imporvement"></a>Imporvement</h4><p>Need to check whether one of two arrays is empty</p>
 <p>Low efficiency and not good implementation</p>
 <p>Solution:<br>Put a special sentinel card at bottom<br>We use ∞,  which is guaranteed to lose to any other value.</p>
+<h4 id="Compare-with-Insertion-Sort"><a href="#Compare-with-Insertion-Sort" class="headerlink" title="Compare with Insertion Sort"></a>Compare with Insertion Sort</h4><ul>
+<li><p>Compared to insertion sort (worst-case time is a quadratic of n), merge sort is faster. </p>
+</li>
+<li><p>On small inputs, insertion sort may be faster. But for large enough inputs, merge sort will always be faster.</p>
+</li>
+</ul>
+<h3 id="Analyzing-Dibide-and-Conquer-Algorithms"><a href="#Analyzing-Dibide-and-Conquer-Algorithms" class="headerlink" title="Analyzing Dibide and Conquer Algorithms"></a>Analyzing Dibide and Conquer Algorithms</h3><p>Suppose N is a power of 2<br>$$<br>\begin{equation}<br>\left{<br>             \begin{array}{<strong>lr</strong>}<br>             c &amp; if \ n = 1 \<br>             2T({\frac{n}{2}}) + cn &amp; if \ n &gt; 1<br>             \end{array}<br>\right.<br>\end{equation}<br>$$<br>$T(1) = C$</p>
+<p>$T(N) = 2T(\frac{N}{2})+CN$</p>
+<p>$\frac{T(N)}{N} = \frac{T(\frac{N}{2})}{\frac{N}{2}}+C = … = \frac{T(1)}{1} + C\log N$</p>
+<p>So $T(N) = CN\log N + CN = O(N\log N)$</p>
 
     </div>
 
@@ -418,9 +460,9 @@
             
               <a href="/tags/CSC3100/" rel="tag"># CSC3100</a>
             
-              <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
-            
               <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+            
+              <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
             
           </div>
         
@@ -439,6 +481,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/18/note/CSC3001/CSC3001-Week3/" rel="prev" title="CSC3001 Week3">
+                  CSC3001 Week3 <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -495,7 +541,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -538,7 +584,11 @@
         
           
         
-        <span class="site-state-item-count">14</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
@@ -663,7 +713,25 @@
         
           
         
-        <span class="site-state-item-count">55</span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">64</span>
         <span class="site-state-item-name">tags</span>
         </a>
       </div>
@@ -709,7 +777,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sorting-Problem"><span class="nav-number">1.</span> <span class="nav-text">Sorting Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bubble-Sort"><span class="nav-number">1.1.</span> <span class="nav-text">Bubble Sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loop-Invariant"><span class="nav-number">1.2.</span> <span class="nav-text">Loop Invariant</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insertion-Sort"><span class="nav-number">1.3.</span> <span class="nav-text">Insertion Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Analysis-of-Insertion-Sort"><span class="nav-number">1.3.1.</span> <span class="nav-text">Analysis of Insertion Sort</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Average-Case-of-Insertion-Sort"><span class="nav-number">1.3.2.</span> <span class="nav-text">Average Case of Insertion Sort</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursion"><span class="nav-number">1.4.</span> <span class="nav-text">Recursion</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Insertion-Sort-in-Recursion"><span class="nav-number">1.4.1.</span> <span class="nav-text">Insertion Sort in Recursion</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Devide-and-Conquer"><span class="nav-number">1.5.</span> <span class="nav-text">Devide and Conquer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Merge-Sort"><span class="nav-number">1.6.</span> <span class="nav-text">Merge Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Merge"><span class="nav-number">1.6.1.</span> <span class="nav-text">Merge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Imporvement"><span class="nav-number">1.6.2.</span> <span class="nav-text">Imporvement</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sorting-Problem"><span class="nav-number">1.</span> <span class="nav-text">Sorting Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bubble-Sort"><span class="nav-number">1.1.</span> <span class="nav-text">Bubble Sort</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Loop-Invariant"><span class="nav-number">1.2.</span> <span class="nav-text">Loop Invariant</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insertion-Sort"><span class="nav-number">1.3.</span> <span class="nav-text">Insertion Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Analysis-of-Insertion-Sort"><span class="nav-number">1.3.1.</span> <span class="nav-text">Analysis of Insertion Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Best-Case-The-array-is-sorted"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">Best Case: The array is sorted</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Worst-Case-The-array-is-in-reverse-order"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">Worst Case: The array is in reverse order</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Average-Case-of-Insertion-Sort"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">Average Case of Insertion Sort</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursion"><span class="nav-number">1.4.</span> <span class="nav-text">Recursion</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Insertion-Sort-in-Recursion"><span class="nav-number">1.4.1.</span> <span class="nav-text">Insertion Sort in Recursion</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Devide-and-Conquer"><span class="nav-number">1.5.</span> <span class="nav-text">Devide and Conquer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Merge-Sort"><span class="nav-number">1.6.</span> <span class="nav-text">Merge Sort</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Merge"><span class="nav-number">1.6.1.</span> <span class="nav-text">Merge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Imporvement"><span class="nav-number">1.6.2.</span> <span class="nav-text">Imporvement</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Compare-with-Insertion-Sort"><span class="nav-number">1.6.3.</span> <span class="nav-text">Compare with Insertion Sort</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analyzing-Dibide-and-Conquer-Algorithms"><span class="nav-number">1.7.</span> <span class="nav-text">Analyzing Dibide and Conquer Algorithms</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -743,12 +811,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="Symbols count total">67k</span>
+    <span title="Symbols count total">176k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">1:01</span>
+    <span title="Reading time total">2:40</span>
 </div>
 
         

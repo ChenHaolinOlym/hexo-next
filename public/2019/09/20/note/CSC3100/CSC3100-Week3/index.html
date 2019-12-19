@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=7.3.0">
+  <link rel="mask-icon" href="/images/favicon.ico?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":true,"scrollpercent":true},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="Asymptotic notation of function growthThree Key Definitions $T(N) = O(g(N)) \ if \  \exists c, n_0 \in R^+ \ s.t. \  T(N) \leq cg(N) \ when \  N \geq n_0$ $T(N) = \Omega (g(N)) \ if \  \exists c, n_0">
+<meta name="keywords" content="CSC3100,Algorithm,Data Structure">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSC3100 Week3">
+<meta property="og:url" content="http://chenhaolinolym.github.io/2019/09/20/note/CSC3100/CSC3100-Week3/index.html">
+<meta property="og:site_name" content="Olym&#39;s Secret House">
+<meta property="og:description" content="Asymptotic notation of function growthThree Key Definitions $T(N) = O(g(N)) \ if \  \exists c, n_0 \in R^+ \ s.t. \  T(N) \leq cg(N) \ when \  N \geq n_0$ $T(N) = \Omega (g(N)) \ if \  \exists c, n_0">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-26T09:45:05.728Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSC3100 Week3">
+<meta name="twitter:description" content="Asymptotic notation of function growthThree Key Definitions $T(N) = O(g(N)) \ if \  \exists c, n_0 \in R^+ \ s.t. \  T(N) \leq cg(N) \ when \  N \geq n_0$ $T(N) = \Omega (g(N)) \ if \  \exists c, n_0">
+  <link rel="canonical" href="http://chenhaolinolym.github.io/2019/09/20/note/CSC3100/CSC3100-Week3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>CSC3100 Week3 | Olym's Secret House</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Olym's Secret House</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">always lazy，sometimes code</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenhaolinolym.github.io/2019/09/20/note/CSC3100/CSC3100-Week3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olym Chen">
+      <meta itemprop="description" content="Just a Blog">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Olym's Secret House">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">CSC3100 Week3
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-09-20 09:57:53" itemprop="dateCreated datePublished" datetime="2019-09-20T09:57:53+08:00">2019-09-20</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-10-26 17:45:05" itemprop="dateModified" datetime="2019-10-26T17:45:05+08:00">2019-10-26</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/" itemprop="url" rel="index"><span itemprop="name">note</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note/CSC3100/" itemprop="url" rel="index"><span itemprop="name">CSC3100</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span>3.5k</span>
+            </span>
+          
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span>3 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Asymptotic-notation-of-function-growth"><a href="#Asymptotic-notation-of-function-growth" class="headerlink" title="Asymptotic notation of function growth"></a>Asymptotic notation of function growth</h2><h3 id="Three-Key-Definitions"><a href="#Three-Key-Definitions" class="headerlink" title="Three Key Definitions"></a>Three Key Definitions</h3><ol>
+<li>$T(N) = O(g(N)) \ if \  \exists c, n_0 \in R^+ \ s.t. \  T(N) \leq cg(N) \ when \  N \geq n_0$</li>
+<li>$T(N) = \Omega (g(N)) \ if \  \exists c, n_0 \in R^+ \ s.t. \  T(N) \geq cg(N) \ when \  N \geq n_0$</li>
+<li>$T(N) = \Theta (g(N)) \ if \ T(N) = O(g(N)) \ and \ T(N) = \Omega (g(N))$</li>
+</ol><a id="more"></a>
+<p>The increasing speed of O and $\Omega$ usually are the same.<br>Usually we just use Big Oh to represent $\Theta$</p>
+<h3 id="Big-Oh-Notation"><a href="#Big-Oh-Notation" class="headerlink" title="Big Oh Notation"></a>Big Oh Notation</h3><p>O(g(n)) = {T(n): there exist positive constants c and $n_0$ such that 0 $\leq$ T(n) $\leq$ cg(n) for all n $\geq$ $n_0$}</p>
+<p>g(n) is an asymptotic <strong>upper</strong> bound for T(n). If T(n) $\in$ O(g(n)), we write T(n)=O(g(n))</p>
+<h4 id="Relationship"><a href="#Relationship" class="headerlink" title="Relationship"></a>Relationship</h4><p>$O(1) &lt; O(\log n) &lt; O(n) &lt; O(n\log n) &lt; O(n^2) &lt; O(n^3) &lt; O(2^n) &lt; O(n!) &lt; O(n^n)$</p>
+<h3 id="Omega-Notation"><a href="#Omega-Notation" class="headerlink" title="$\Omega$ Notation"></a>$\Omega$ Notation</h3><p>$\Omega$ (g(n)) = {T(n): there exist positive constants c and $n_0$ such that 0 $\leq$ cg(n) $\leq$ T(n) for all n $\geq$ $n_0$}.</p>
+<p>g(n) is an asymptotic <strong>lower</strong> bound  for T(n). If T(n) $\in$ $\Omega$(g(n)), we write T(n)=$\Omega$(g(n))</p>
+<h3 id="Theta-Notation"><a href="#Theta-Notation" class="headerlink" title="$\Theta$ Notation"></a>$\Theta$ Notation</h3><p>$\Theta$(g(n))={f(n): there exist positive constants $c_1$, $c_2$ and $n_0$ such 0 $\leq$ $c_1$g(n) $\leq$ T(n) $\leq$ $c_2$ g(n)  for all n $\geq$ $n_0$}.</p>
+<p>g(n) is an asymptotic tight bound for T(n) if and only if T(n)=O(g(n)) and T(n)=$\Omega$(g(n)).</p>
+<h2 id="Relational-Properties"><a href="#Relational-Properties" class="headerlink" title="Relational Properties"></a>Relational Properties</h2><p><strong>Transitivity:</strong> T(N) = $\Omega$(g(n)) and g(n) = $\Theta$(h(n)) $\Rightarrow$ T(N) = $\Theta$(h(n)). <em>Same for O and $\Omega$</em><br><strong>Reflexivity:</strong> T(N) = $\Theta$(T(N)). <em>Same for O and $\Omega$</em><br><strong>Symmetry:</strong> T(N) = $\Theta$(g(n)) if and only if g(n) = $\Theta$(T(N))<br><strong>Transpose Symmetry:</strong> T(N) = O(g(n)) if and only if g(n) = $\Omega$(T(N))</p>
+<h2 id="Typical-Growth-Rate"><a href="#Typical-Growth-Rate" class="headerlink" title="Typical Growth Rate"></a>Typical Growth Rate</h2><table>
+<thead>
+<tr>
+<th align="center">Function</th>
+<th align="center">Name</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">c</td>
+<td align="center">Constant</td>
+</tr>
+<tr>
+<td align="center">logN</td>
+<td align="center">Logarithmic</td>
+</tr>
+<tr>
+<td align="center">$log^2$N</td>
+<td align="center">Log-Squared</td>
+</tr>
+<tr>
+<td align="center">N</td>
+<td align="center">Linear</td>
+</tr>
+<tr>
+<td align="center">NlogN</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">$N^2$</td>
+<td align="center">Quadratic</td>
+</tr>
+<tr>
+<td align="center">$N^3$</td>
+<td align="center">Cubic</td>
+</tr>
+<tr>
+<td align="center">$2^N$</td>
+<td align="center">Exponential</td>
+</tr>
+</tbody></table>
+<h2 id="Growth-Rate-Computation"><a href="#Growth-Rate-Computation" class="headerlink" title="Growth Rate Computation"></a>Growth Rate Computation</h2><h3 id="Rule-1"><a href="#Rule-1" class="headerlink" title="Rule 1"></a>Rule 1</h3><p>If $T_1(N) = O(f(N))$ and $T_2(N) = O(g(N))$, then:<br>(a) $T_1(N)+T_2(N) = max(O(f(N))), O(g(N)))$<br>(b) $T_1(N)*T_2(N) = O(f(N)*g(N))$</p>
+<h3 id="Rule-2"><a href="#Rule-2" class="headerlink" title="Rule 2"></a>Rule 2</h3><p>If T(N) is a polynomial of degree k, then T(N) = $\Theta$($N^k$)</p>
+<h3 id="Rule-3"><a href="#Rule-3" class="headerlink" title="Rule 3"></a>Rule 3</h3><hr>
+<p>$log^kN = O(N)$ for any constant k. This tells that logarithms grow very slowly.</p>
+<hr>
+<h3 id="Addition"><a href="#Addition" class="headerlink" title="Addition"></a>Addition</h3><p>$log^{k}n = O(n)$</p>
+<p>implies</p>
+<p>$log^{k}n = O(2^{logn})$</p>
+<p>implies</p>
+<p>$n^k = O(2^n)$</p>
+<h2 id="Analyzing-Algorithms-Using-Notations"><a href="#Analyzing-Algorithms-Using-Notations" class="headerlink" title="Analyzing Algorithms Using Notations"></a>Analyzing Algorithms Using Notations</h2><p><strong>Rule 1:</strong> For Loops is O(N)</p>
+<p><strong>Rule 2:</strong> Nested For Loop is $O(N^n)$, n is the number of nested layers</p>
+<p><strong>Rule 3:</strong> Consecutive Statements, choose the growing fastest one.</p>
+<p><strong>Rule 4:</strong> Conditional Statement:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if (condition)</span><br><span class="line">    S1</span><br><span class="line">else</span><br><span class="line">    S2</span><br></pre></td></tr></table></figure>
+
+<p>The larger running time of S1 and S2</p>
+<h2 id="Maximum-Subarray-Problem"><a href="#Maximum-Subarray-Problem" class="headerlink" title="Maximum Subarray Problem"></a>Maximum Subarray Problem</h2><p>The task of finding a contiguous subarray with the largest sum.</p>
+<h3 id="A-Divide-and-Conquer-Solution"><a href="#A-Divide-and-Conquer-Solution" class="headerlink" title="A Divide and Conquer Solution"></a>A Divide and Conquer Solution</h3><p>If we pick the middle point of the array, there are three situations of the subarray: left, right and cross the mid point.</p>
+<p>Solve the left, right case recursively, then compare them with the third case, choose the largest.</p>
+<h3 id="Analyze-Running-Time"><a href="#Analyze-Running-Time" class="headerlink" title="Analyze Running Time"></a>Analyze Running Time</h3><p>For base case, $T(1) = \Theta (1)$<br>For subarrays, $2T(\frac{n}{2})$<br>For mid point situation, $\Theta (n)$</p>
+<p>So the running time $T(n) = 2T(\frac{n}{2})+ \Theta n$</p>
+<p>Same as Merge Sort $\Theta (nlogn)$</p>
+<h2 id="Recurrence"><a href="#Recurrence" class="headerlink" title="Recurrence"></a>Recurrence</h2><p>A recurrence is a function defined in terms of:</p>
+<ol>
+<li>One base</li>
+<li>Itself with smaller arguments</li>
+</ol>
+<h3 id="Method-to-Compute-the-Recurrence"><a href="#Method-to-Compute-the-Recurrence" class="headerlink" title="Method to Compute the Recurrence"></a>Method to Compute the Recurrence</h3><ul>
+<li>Guess the solution</li>
+<li>Use induction to prove</li>
+<li>Called substitution method</li>
+</ul>
+<h3 id="Recursion-Trees"><a href="#Recursion-Trees" class="headerlink" title="Recursion Trees"></a>Recursion Trees</h3><p>Summing accross each level in te recursion tree.</p>
+<h3 id="Master-Method"><a href="#Master-Method" class="headerlink" title="Master Method"></a>Master Method</h3><p>Used for many divide-and-conquer recurrences of the form:</p>
+<p>$T(n) = aT(\frac{n}{b}) + f(n)$ where $a \geq 1$, $b &gt; 1$ and $f(n) &gt; 0$</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/CSC3100/" rel="tag"># CSC3100</a>
+            
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+            
+              <a href="/tags/Data-Structure/" rel="tag"># Data Structure</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/09/19/note/CSC3001/CSC3001-Week4/" rel="next" title="CSC3001 Week4">
+                  <i class="fa fa-chevron-left"></i> CSC3001 Week4
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/20/note/CSC3100/CSC3100-Week4/" rel="prev" title="CSC3100 Week4">
+                  CSC3100 Week4 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/avatar.jpg"
+      alt="Olym Chen">
+  <p class="site-author-name" itemprop="name">Olym Chen</p>
+  <div class="site-description motion-element" itemprop="description">Just a Blog</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/chenhaolinolym" title="GitHub &rarr; https://github.com/chenhaolinolym" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://www.olym.xyz" title="http://www.olym.xyz" rel="noopener" target="_blank">Homepage</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Asymptotic-notation-of-function-growth"><span class="nav-number">1.</span> <span class="nav-text">Asymptotic notation of function growth</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Three-Key-Definitions"><span class="nav-number">1.1.</span> <span class="nav-text">Three Key Definitions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Big-Oh-Notation"><span class="nav-number">1.2.</span> <span class="nav-text">Big Oh Notation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Relationship"><span class="nav-number">1.2.1.</span> <span class="nav-text">Relationship</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Omega-Notation"><span class="nav-number">1.3.</span> <span class="nav-text">$\Omega$ Notation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Theta-Notation"><span class="nav-number">1.4.</span> <span class="nav-text">$\Theta$ Notation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relational-Properties"><span class="nav-number">2.</span> <span class="nav-text">Relational Properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Typical-Growth-Rate"><span class="nav-number">3.</span> <span class="nav-text">Typical Growth Rate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Growth-Rate-Computation"><span class="nav-number">4.</span> <span class="nav-text">Growth Rate Computation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rule-1"><span class="nav-number">4.1.</span> <span class="nav-text">Rule 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rule-2"><span class="nav-number">4.2.</span> <span class="nav-text">Rule 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rule-3"><span class="nav-number">4.3.</span> <span class="nav-text">Rule 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Addition"><span class="nav-number">4.4.</span> <span class="nav-text">Addition</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analyzing-Algorithms-Using-Notations"><span class="nav-number">5.</span> <span class="nav-text">Analyzing Algorithms Using Notations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maximum-Subarray-Problem"><span class="nav-number">6.</span> <span class="nav-text">Maximum Subarray Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-Divide-and-Conquer-Solution"><span class="nav-number">6.1.</span> <span class="nav-text">A Divide and Conquer Solution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Analyze-Running-Time"><span class="nav-number">6.2.</span> <span class="nav-text">Analyze Running Time</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recurrence"><span class="nav-number">7.</span> <span class="nav-text">Recurrence</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-to-Compute-the-Recurrence"><span class="nav-number">7.1.</span> <span class="nav-text">Method to Compute the Recurrence</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Recursion-Trees"><span class="nav-number">7.2.</span> <span class="nav-text">Recursion Trees</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Master-Method"><span class="nav-number">7.3.</span> <span class="nav-text">Master Method</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备19098205号 </a>&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Olym Chen</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">176k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">2:40</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+    
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+<script>
+if ($('body').find('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', function() {
+    $('body').find('div.pdf').each(function(i, o) {
+      PDFObject.embed($(o).attr('target'), $(o), {
+        pdfOpenParams: {
+          navpanes: 0,
+          toolbar: 0,
+          statusbar: 0,
+          pagemode: 'thumbs',
+          view: 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height: $(o).attr('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', function() {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>
