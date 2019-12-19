@@ -43,11 +43,26 @@ Ask the three questions for any topic in Computer Science.
 This is the easiest way to represent negative number. But it will cause some waste.
 Because +0 and -0 is the same number, so there will be waste in every byte.
 
+### Commonly Used Way
+
+Computers use a modified 2’s complement for signed numbers. Positive numbers are stored in true form (with a 0 for the sign bit) and negative numbers are stored in complement form (with a 1 for the sign bit).
+
+### Easy Way to Read Minus Number
+
+Assign the sign bit a column weight of -128 (for an 8-bit number). Then add the column weights for the 1’s.
+
+e.g. 
+
+$(11000110)_2$ is 2's complement of -58
+
+Then 1 1 0 0 0 1 1 0
+
+-128+64+0+0+0+4+2 = -58
+
 ## Addition and Subtraction in digital system
 
 We are able to use the addition operation to replace the subtraction operation.
 In another word, addition and subtraction in digital system are the same.
-
 $$
 \begin
 (111)_2-(101)_2\\\\
@@ -55,3 +70,22 @@ $$
 
 \end
 $$
+
+
+
+
+
+## 1's Complement
+
+The 1’s complement of a binary number is just the inverse of the digits. To form the 1’s complement, change all 0’s to 1’s and all 1’s to 0’s.
+
+In digital circuits, the 1’s complement is formed by using inverters.
+
+## 2's Complement
+
+The 2’s complement of a binary number is found by adding 1 to the LSB of the 1’s complement.
+
+the 1’s complement of 11001010 is 00110101, 2's complement if 11001010 is 00110110.
+
+
+

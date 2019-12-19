@@ -161,7 +161,6 @@ F | F | T
 **Convention:** if we don’t say anything wrong, then it is not false, and thus true.
 
 <p style="color: red;font-size: 24px">The above is the most important point</p>
-
 #### Logical Equivalence
 
 $p \rightarrow q \equiv$ ?
@@ -266,3 +265,4 @@ Elimination | $p \vee q$<br>$\neg q$<br>$\therefore p$ | $p \vee q$<br>$\neg p$<
 Transitivity | $p \rightarrow q$<br>$q \rightarrow r$<br>$ \therefore p \rightarrow r$
 Proof by Division into Cases | $p \vee q$<br>$p \rightarrow r$<br>$q \rightarrow r$<br>$\therefore r$
 Contradiction Rule | $\neg p \rightarrow c$<br>$\therefore p$
+

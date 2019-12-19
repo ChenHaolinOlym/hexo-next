@@ -8,6 +8,7 @@ categories:
   - note
   - CSC3100
 date: 2019-09-07 10:50:01
+mathjax: true
 ---
 
 ## Data Structures
@@ -48,7 +49,7 @@ $$\log ^{\*}n:={\begin{cases}0&{\mbox{if }}n\leq 1;\\\\1+\log ^{\*}(\log n)&{\mb
 
 ### Mod
 
-$7 % 3 = 2$
+$7 \% 3 = 2$
 
 ### Equivalence
 

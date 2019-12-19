@@ -36,8 +36,8 @@ You can treat 0 as False and 1 as True
 **Results:**
 
 1 AND 1 = 1
-1 AND 0 = 1
-0 AND 1 = 1
+1 AND 0 = 0
+0 AND 1 = 0
 0 AND 0 = 0
 
 1 OR 1 = 1
@@ -170,3 +170,4 @@ You can use the above three to design any logical functions.
 
 - Fixed-function Logic: A category of digital integrated circuits having functions that cannot be altered.
 - Programmable logic: A category of digital integrated circuits capable of being programmed to perform specified functions.
+

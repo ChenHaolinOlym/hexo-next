@@ -17,7 +17,7 @@
   <entry>
     <title><![CDATA[CSC3001 Week2]]></title>
     <url>%2F2019%2F09%2F10%2Fnote%2FCSC3001%2FCSC3001-Week2%2F</url>
-    <content type="text"><![CDATA[SetBasic DefinitionsDefinitionDefinition: A set is an unordered collection of distinct objects.Objects in a set is called element or member, and they are contain in the set. Classical Sets symbol meaning $Z$ the set of all integers $Z^{+}$ the set of all positive integers $Z^{-}$ the set of all negative integers $N$ the set of all nonnegative integers $R$ the set of all real numbers $Q$ the set of all rational numbers $C$ the set of all complex numbers Method to Define Set by Properties${x \in A | P(x)}$ means that it is a set that its elements x, in A, such that x satisfies property P.$|S|$ is defined as the number of elements contained in S. Membership$A \subseteq B$ $\leftrightarrow$ For any $x \in A$, $x \in B$A = B $\leftrightarrow$ $A \subseteq B$ and $B \subseteq A$$A \subset B$ $\leftrightarrow$ $A \subseteq B$ and $A \ne B$ Operations on SetsBasic OperationUnion and Intersection of an Indexed Collection of SetsPartitions of SetsA collection of nonempty sets ${A_1, A_2, …, A_n}$ Two equal standards, one in my phone. Cartesian ProductsSet IdentitiesRussell’s Paradox]]></content>
+    <content type="text"><![CDATA[SetBasic DefinitionsDefinitionDefinition: A set is an unordered collection of distinct objects.Objects in a set is called element or member, and they are contain in the set. Classical Sets symbol meaning $Z$ the set of all integers $Z^{+}$ the set of all positive integers $Z^{-}$ the set of all negative integers $N$ the set of all nonnegative integers $R$ the set of all real numbers $Q$ the set of all rational numbers $C$ the set of all complex numbers Method to Define Set by Properties${x \in A | P(x)}$ means that it is a set that its elements x, in A, such that x satisfies property P.$|S|$ is defined as the number of elements contained in S. Membership$A \subseteq B$ $\leftrightarrow$ For any $x \in A$, $x \in B$A = B $\leftrightarrow$ $A \subseteq B$ and $B \subseteq A$$A \subset B$ $\leftrightarrow$ $A \subseteq B$ and $A \ne B$ Operations on SetsBasic OperationIntersection: $A \cap B = {x \in U | x \in A \ and \ x \in B}$Union: $A \cup B = {x \in U | x \in A \ or \ x \in B}$ $|A \cup B| = |A| + |B| - |A \cap B|$ difference: $A - B = {x \in U | x \in A \ and \ x \not\in B}$ $|A - B| = |A| - |A \cap B| complement: $\overline{A} = A^C = {x \in U | x \not\in A} If $A \subseteq B$, then $\overline{B} \subseteq \overline{A}$ Union and Intersection of an Indexed Collection of Sets$\underset{i=0}{\overset{n}{\cup}}$ Partitions of SetsA collection of nonempty sets ${A_1, A_2, …, A_n}$ Two equal standards, one in my phone. Cartesian ProductsSet IdentitiesRussell’s Paradox]]></content>
       <categories>
         <category>note</category>
         <category>CSC3001</category>
@@ -100,7 +100,7 @@
   <entry>
     <title><![CDATA[Tips for Writing LaTex Code]]></title>
     <url>%2F2019%2F09%2F03%2Fnote%2Ftex%2Ftex%2F</url>
-    <content type="text"><![CDATA[CommandsLogical Operators Name Symbol Code negation $\neg$ \lnot or \neg overline $\overline{overline}$ \overline{overline} and $\land$ \wedge or \land or $\vee$ \lor or \vee exclusive-or $\oplus$ \oplus equivalence $\equiv$ \equiv tautology $\top{}$ \top contradiction $\bot$ \bot universal quantification $\forall$ \forall existential quantification $\exists$ \exists Because $\because$ \because Therefore $\therefore$ \therefore Greek Letters Symbol Code A / $\alpha$ A / \alpha B / $\beta$ B / \beta $\Gamma$ / $\gamma$ \Gamma / \gamma Relation Operators Name Symbol Code Not less than $\nless$ \nless Not greater than $\ngtr$ \ngtr Less than or equal to $\leq$ / $\leqslant$ \leq / \leqslant Greater than or equal to $\geq$ / $\geqslant$ \geq / \geqslant Neither less than nor equal to $\nleq$ / $\nleqslant$ \nleq / \nleqslant Neither greater than nor equal to $\ngeq$ / $\ngeqslant$ \ngeq / \ngeqslant Is member of $\in$ \in Has member $\ni$ \ni Is a proper subset of $\subset$ \subset Is a proper superset of $\supset$ \supset Is not a proper subset of $\not\subset$ \subset Is not a proper superset of $\not\supset$ \supset Is a subset of $\subseteq$ \subseteq Is a superset of $\supseteq$ \supseteq Is not a subset of $\not\subseteq$ \subseteq Is not a superset of $\not\supseteq$ \supseteq Approximately $\approx$ \approx Not equal to $\neq$ \neg / \ne EscapesIn hexo Command Represents \_ _ \\\\ \\(It is the break line symbol of) &amp; &amp;(hexo will take care of the “&amp;” escape for you)]]></content>
+    <content type="text"><![CDATA[CommandsLogical Operators Name Symbol Code negation $\neg$ \lnot or \neg overline $\overline{overline}$ \overline{overline} and $\land$ \wedge or \land or $\vee$ \lor or \vee exclusive-or $\oplus$ \oplus equivalence $\equiv$ \equiv tautology $\top{}$ \top contradiction $\bot$ \bot universal quantification $\forall$ \forall existential quantification $\exists$ \exists Because $\because$ \because Therefore $\therefore$ \therefore Greek Letters Symbol Code A / $\alpha$ A / \alpha B / $\beta$ B / \beta $\Gamma$ / $\gamma$ \Gamma / \gamma $\Delta$ / $\delta$ \Delta / \delta E / $\epsilon$ / $\varepsilon$ E / \epsilon / \varepsilon Z / $\zeta$ Z / \zeta H / $\eta$ H / \eta $\Theta$ / $\theta$ / $\vartheta$ \Theta / \theta / \vartheta I / $\iota$ I / \iota K / %\kappa$ / $varkappa$ K / \kappa / \varkappa Relation Operators Name Symbol Code Not less than $\nless$ \nless Not greater than $\ngtr$ \ngtr Less than or equal to $\leq$ / $\leqslant$ \leq / \leqslant Greater than or equal to $\geq$ / $\geqslant$ \geq / \geqslant Neither less than nor equal to $\nleq$ / $\nleqslant$ \nleq / \nleqslant Neither greater than nor equal to $\ngeq$ / $\ngeqslant$ \ngeq / \ngeqslant Is member of $\in$ \in Has member $\ni$ \ni Is not member of $\not\in$ \not\in Hasn’t member $\not\ni$ \not\ni Is a proper subset of $\subset$ \subset Is a proper superset of $\supset$ \supset Is not a proper subset of $\not\subset$ \subset Is not a proper superset of $\not\supset$ \supset Is a subset of $\subseteq$ \subseteq Is a superset of $\supseteq$ \supseteq Is not a subset of $\not\subseteq$ \subseteq Is not a superset of $\not\supseteq$ \supseteq Approximately $\approx$ \approx Not equal to $\neq$ \neg / \ne Others Name Symbol Code overset $\overset{over}{N}$ \overset{over}{N} underset $\underset{under}{N}$ \underset{under}{N} EscapesIn hexo Command Represents \_ _ \\\\ \\(It is the break line symbol of) &amp; &amp;(hexo will take care of the “&amp;” escape for you)]]></content>
       <categories>
         <category>note</category>
         <category>tex</category>
@@ -149,10 +149,10 @@
         <category>CS50 Beyond</category>
       </categories>
       <tags>
-        <tag>python</tag>
-        <tag>flask</tag>
         <tag>CS50</tag>
         <tag>beyond</tag>
+        <tag>python</tag>
+        <tag>flask</tag>
         <tag>oop</tag>
         <tag>ai</tag>
       </tags>
@@ -270,8 +270,8 @@
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>markdown</tag>
         <tag>hexo</tag>
+        <tag>markdown</tag>
         <tag>image</tag>
       </tags>
   </entry>
@@ -286,9 +286,9 @@
       <tags>
         <tag>python</tag>
         <tag>flask</tag>
-        <tag>template</tag>
         <tag>hexo</tag>
         <tag>jinja</tag>
+        <tag>template</tag>
       </tags>
   </entry>
   <entry>
@@ -302,8 +302,8 @@
       <tags>
         <tag>python</tag>
         <tag>flask</tag>
-        <tag>blueprint</tag>
         <tag>template</tag>
+        <tag>blueprint</tag>
         <tag>static</tag>
       </tags>
   </entry>

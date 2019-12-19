@@ -39,6 +39,22 @@ E / $\epsilon$ / $\varepsilon$ | `E` / `\epsilon` / `\varepsilon`
 Z / $\zeta$ | `Z` / `\zeta`
 H / $\eta$ | `H` / `\eta`
 $\Theta$ / $\theta$ / $\vartheta$ | `\Theta` / `\theta` / `\vartheta`
+I / $\iota$ | `I` / `\iota`
+K / $\kappa$ / $varkappa$ | `K` / `\kappa` / `\varkappa`
+$\Lambda$ / $\lambda$ | `\Lambda` / `\lambda`
+M / $\mu$ | `M` / `\mu`
+N / $\nu$ | `N` / `\nu`
+$\Xi$ / $\xi$ | `\Xi` / `\xi`
+O / $\Omicron$ | `O` / `\Omicron`
+$\Pi$ / $\pi$ / $\varpi$ | `\Pi` / `\pi` / `\varpi`
+$\Rho$ / $\rho$ / $\varrho$ | `\Rho` / `\rho` / `\varrho`
+$\Sigma$ / $\sigma$ / $\varsigma$ | `\Sigma` / `\sigma` / `\varsigma`
+$\Tau$ / $\tau$ | `\Tau` / `\tau`
+$\Upsilon$ / $\upsilon$ | `\Upsilon` / `\upsilon`
+$\Phi$ / $\phi$ / $\varphi$ | `\Phi` / `\phi` / `\varphi`
+$\Chi$ / $\chi$ | `\Chi` / `\chi`
+$\Psi$ / $\psi$ | `\Psi` / `\psi`
+$\Omega$ / $\omega$ | `\Omega` / `\omega`
 
 ### Relation Operators
 
@@ -52,6 +68,8 @@ Neither less than nor equal to | $\nleq$ / $\nleqslant$ | `\nleq` / `\nleqslant`
 Neither greater than nor equal to | $\ngeq$ / $\ngeqslant$ | `\ngeq` / `\ngeqslant`
 Is member of | $\in$ | `\in`
 Has member | $\ni$ | `\ni`
+Is not member of | $\not\in$ | `\not\in`
+Hasn't member | $\not\ni$ | `\not\ni`
 Is a proper subset of | $\subset$ | `\subset`
 Is a proper superset of | $\supset$ | `\supset`
 Is not a proper subset of | $\not\subset$ | `\subset`
@@ -62,6 +80,14 @@ Is not a subset of | $\not\subseteq$ | `\subseteq`
 Is not a superset of | $\not\supseteq$ | `\supseteq`
 Approximately | $\approx$ | `\approx`
 Not equal to | $\neq$ | `\neg` / `\ne`
+
+### Others
+
+Name | Symbol | Code
+:-: | :-: | :-:
+overset | $\overset{over}{N}$ | `\overset{over}{N}`
+underset | $\underset{under}{N}$ | `\underset{under}{N}`
+binom | $\binom{a}{b}$ | `\binom{a}{b}` 
 
 ## Escapes
 
