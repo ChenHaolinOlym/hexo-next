@@ -1,7 +1,11 @@
 ---
 title: General Biology
+tags:
+  - Biology
+categories:
+  - note
+  - General Biology
 date: 2019-12-19 13:48:10
-tags: [Biology]
 ---
 
 ## Network
